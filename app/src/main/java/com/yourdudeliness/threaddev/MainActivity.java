@@ -45,8 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void run() {
                 if (true) {
                     //whatever you want to do if
-                    currScore += currPassive;
-                    scoreBox.setText("" + currScore);
+                    incrementScorePassive();
                 }
                 mHandler.postDelayed(this, 1000);
             }
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
-    private void incrementScore(){
+    private void incrementScorePassive(){
 
         currScore += currPassive;
         scoreBox.setText("" + currScore);
