@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected static int currClickValue = 1;
     private final static int SECOND = 1000;
     protected final Handler mHandler = new Handler();
+    private Building neutral1, neutral2, neutral3, pathos1, pathos2, pathos3, pathos4;
 
 
     @Override
