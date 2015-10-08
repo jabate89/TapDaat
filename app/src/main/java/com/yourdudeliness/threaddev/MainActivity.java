@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected static int currClickValue = 1;
     private final static int SECOND = 1000;
     protected final Handler mHandler = new Handler();
+    private Building neutral1, neutral2, neutral3, pathos1, pathos2, pathos3, pathos4;
 
 
     @Override
@@ -45,8 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void run() {
                 if (true) {
                     //whatever you want to do if
-                    currScore += currPassive;
-                    scoreBox.setText("" + currScore);
+                    incrementScorePassive();
                 }
                 mHandler.postDelayed(this, 1000);
             }
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
-    private void incrementScore(){
+    private void incrementScorePassive(){
 
         currScore += currPassive;
         scoreBox.setText("" + currScore);
