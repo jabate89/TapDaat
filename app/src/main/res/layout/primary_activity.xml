@@ -59,7 +59,8 @@
         android:id="@+id/pathos_1"
         android:layout_above="@+id/main_button"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -68,7 +69,8 @@
         android:id="@+id/pathos_2"
         android:layout_below="@+id/pathos_1"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -77,7 +79,8 @@
         android:id="@+id/pathos_3"
         android:layout_below="@+id/pathos_2"
         android:layout_alignRight="@+id/neutral_3"
-        android:layout_alignEnd="@+id/neutral_3" />
+        android:layout_alignEnd="@+id/neutral_3"
+        android:visibility="invisible"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -87,7 +90,8 @@
         android:layout_marginTop="28dp"
         android:layout_below="@+id/pathos_3"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible"/>
 
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
@@ -108,7 +112,8 @@
         android:id="@+id/power_1"
         android:layout_above="@+id/mana_bar"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:visibility="invisible"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -117,7 +122,8 @@
         android:id="@+id/power_2"
         android:layout_alignTop="@+id/power_1"
         android:layout_alignRight="@+id/main_button"
-        android:layout_alignEnd="@+id/main_button" />
+        android:layout_alignEnd="@+id/main_button"
+        android:visibility="invisible"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -128,6 +134,7 @@
         android:layout_toRightOf="@+id/power_2"
         android:layout_toEndOf="@+id/power_2"
         android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp" />
+        android:layout_marginStart="25dp"
+        android:visibility="invisible"/>
 
 </RelativeLayout>
