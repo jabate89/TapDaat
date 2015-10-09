@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initializeButtons();
 
         mainButton.setOnClickListener(this);//looks for OnClick() function in this class
+        n1.setOnClickListener(this);
+        n2.setOnClickListener(this);
+        n3.setOnClickListener(this);
 
 
 
@@ -108,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             break;
             case R.id.neutral_1:
                 neutral1.build();
+                n1.setVisibility(View.INVISIBLE);
                 break;
             case R.id.neutral_2:
                 neutral2.build();

@@ -20,7 +20,9 @@ public class Building {
 
 
     public void build(){
+
         MainActivity.currScore -= costOfNext;//subtracts the cost of the building
+
         totalBuildings += 1;//increments number of buildings
         MainActivity.currPassive += additionalPassive;//increments passive score in main
 
