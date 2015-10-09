@@ -22,14 +22,14 @@
         android:text="Get Money"
         android:id="@+id/main_button"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/button8"
-        android:layout_toEndOf="@+id/button8" />
+        android:layout_toRightOf="@+id/power_1"
+        android:layout_toEndOf="@+id/power_1" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Neutral 1"
-        android:id="@+id/button"
+        android:id="@+id/neutral_1"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -38,8 +38,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Neutral 2"
-        android:id="@+id/button2"
-        android:layout_below="@+id/button"
+        android:id="@+id/neutral_2"
+        android:layout_below="@+id/neutral_1"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -47,16 +47,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Neutral 3"
-        android:id="@+id/button3"
-        android:layout_below="@+id/button2"
-        android:layout_alignRight="@+id/button2"
-        android:layout_alignEnd="@+id/button2" />
+        android:id="@+id/neutral_3"
+        android:layout_below="@+id/neutral_2"
+        android:layout_alignRight="@+id/neutral_2"
+        android:layout_alignEnd="@+id/neutral_2" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pathos 1"
-        android:id="@+id/button4"
+        android:id="@+id/pathos_1"
         android:layout_above="@+id/main_button"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -65,8 +65,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pathos 2"
-        android:id="@+id/button5"
-        android:layout_below="@+id/button4"
+        android:id="@+id/pathos_2"
+        android:layout_below="@+id/pathos_1"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -74,18 +74,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pathos 3"
-        android:id="@+id/button6"
-        android:layout_below="@+id/button5"
-        android:layout_alignRight="@+id/button3"
-        android:layout_alignEnd="@+id/button3" />
+        android:id="@+id/pathos_3"
+        android:layout_below="@+id/pathos_2"
+        android:layout_alignRight="@+id/neutral_3"
+        android:layout_alignEnd="@+id/neutral_3" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Deity"
-        android:id="@+id/button7"
+        android:id="@+id/deity"
         android:layout_marginTop="28dp"
-        android:layout_below="@+id/button6"
+        android:layout_below="@+id/pathos_3"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -93,20 +93,20 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/progressBar"
+        android:id="@+id/mana_bar"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/button3"
-        android:layout_alignRight="@+id/button10"
-        android:layout_alignEnd="@+id/button10" />
+        android:layout_toStartOf="@+id/neutral_3"
+        android:layout_alignRight="@+id/power_3"
+        android:layout_alignEnd="@+id/power_3" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CPB 1"
-        android:id="@+id/button8"
-        android:layout_above="@+id/progressBar"
+        android:id="@+id/power_1"
+        android:layout_above="@+id/mana_bar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -114,8 +114,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CPB 2"
-        android:id="@+id/button9"
-        android:layout_alignTop="@+id/button8"
+        android:id="@+id/power_2"
+        android:layout_alignTop="@+id/power_1"
         android:layout_alignRight="@+id/main_button"
         android:layout_alignEnd="@+id/main_button" />
 
@@ -123,10 +123,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CPB 3"
-        android:id="@+id/button10"
-        android:layout_above="@+id/progressBar"
-        android:layout_toRightOf="@+id/button9"
-        android:layout_toEndOf="@+id/button9"
+        android:id="@+id/power_3"
+        android:layout_above="@+id/mana_bar"
+        android:layout_toRightOf="@+id/power_2"
+        android:layout_toEndOf="@+id/power_2"
         android:layout_marginLeft="25dp"
         android:layout_marginStart="25dp" />
 
