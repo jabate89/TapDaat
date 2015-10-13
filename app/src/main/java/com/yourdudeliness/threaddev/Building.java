@@ -10,18 +10,20 @@ public class Building {
     private double costOfNext;
     private double additionalPassive;
 
+
     public Building(String name, double startCost, double passive){
 
         buildingType = name;//name is building type, defined on object creation
         costOfNext = startCost;//start cost is cost of the first building, increments with each purchase
         additionalPassive = passive;//the passive income produced by the first building
-        totalBuildings = 0;//the object is instantiated with 0 buildings
+        totalBuildings = 0;//the object is instantiated with 0 building
     }
 
 
     public void build(){
 
         MainActivity.currScore -= costOfNext;//subtracts the cost of the building
+        MainActivity.checkFunds();
 
         totalBuildings += 1;//increments number of buildings
         MainActivity.currPassive += additionalPassive;//increments passive score in main
@@ -32,5 +34,17 @@ public class Building {
          increase as we increase number of buildings
           */
 
+    }
+
+    public double getCostOfNext(){
+        return costOfNext;
+    }
+
+    public double getTotalBuildings(){
+        return totalBuildings;
+    }
+
+    public String getName(){
+        return buildingType;
     }
 }

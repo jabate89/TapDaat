@@ -13,14 +13,14 @@ import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    protected Button mainButton, n1, n2, n3, p1, p2, p3, deity, cp1, cp2, cp3;
+    protected static Button mainButton, n1, n2, n3, p1, p2, p3, deity, cp1, cp2, cp3;
     protected static TextView scoreBox;
     protected static int currScore = 0;
     protected static int currPassive = 10;
     protected static int currClickValue = 1;
     private final static int SECOND = 1000;
     protected final Handler mHandler = new Handler();
-    private Building neutral1, neutral2, neutral3, pathos1, pathos2, pathos3, pathos4;
+    private static Building neutral1, neutral2, neutral3, pathos1, pathos2, pathos3, pathos4;
 
 
     @Override
@@ -56,10 +56,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (true) {
                     //whatever you want to do if
                     incrementScorePassive();
+                    checkFunds();
                 }
-                mHandler.postDelayed(this, 1000);
+                mHandler.postDelayed(this, SECOND);
             }
-        },1000); // tells it to run itself again in 1 second
+        },SECOND); // tells it to run itself again in 1 second
 
 
 
@@ -111,13 +112,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             break;
             case R.id.neutral_1:
                 neutral1.build();
-                n1.setVisibility(View.INVISIBLE);
+                n1.setText(neutral1.getName() + " " + neutral1.getTotalBuildings());
                 break;
             case R.id.neutral_2:
                 neutral2.build();
+                n2.setText(neutral2.getName() + " " + neutral2.getTotalBuildings());
                 break;
             case R.id.neutral_3:
                 neutral3.build();
+                n3.setText(neutral3.getName() + " " + neutral3.getTotalBuildings());
                 break;
             case R.id.pathos_1:
                 break;
@@ -135,11 +138,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     public void initializeButtons(){
 
-        neutral1 = new Building("Farm", 10, 1);
+        /*
+        Initialize the neutral building objects
+         */
+        neutral1 = new Building("Farm", 10, 2);
         neutral2 = new Building("Blacksmith", 30, 2);
         neutral3 = new Building("Barracks", 50, 5);
 
 
+        /*
+        Assign all the XML buttons to java objects
+         */
         n1 = (Button) findViewById(R.id.neutral_1);
         n2 = (Button) findViewById(R.id.neutral_2);
         n3 = (Button) findViewById(R.id.neutral_3);
@@ -171,6 +180,55 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         p1.setVisibility(View.VISIBLE);
         p2.setVisibility(View.VISIBLE);
         p3.setVisibility(View.VISIBLE);//make the buttons visible
+
+    }
+
+    /*
+    when called, checks available funds against the cost of buildings, disabling
+    buttons when funds are insufficient
+     */
+    public static void checkFunds(){
+
+        if(currScore < neutral1.getCostOfNext()){
+
+            n1.setEnabled(false);
+        } else {
+            n1.setEnabled(true);
+        }
+
+        if(currScore < neutral2.getCostOfNext()){
+
+            n2.setEnabled(false);
+        } else {
+            n2.setEnabled(true);
+        }
+
+        if(currScore < neutral3.getCostOfNext()){
+
+            n3.setEnabled(false);
+        } else {
+            n3.setEnabled(true);
+        }
+
+        if(currScore < pathos1.getCostOfNext()){
+
+            p1.setEnabled(false);
+        } else {
+            p1.setEnabled(true);
+        }
+
+        if(currScore < pathos2.getCostOfNext()){
+
+            p2.setEnabled(false);
+        } else {
+            p2.setEnabled(true);
+        }
+
+        if(currScore < pathos3.getCostOfNext()){
+            p3.setEnabled(false);
+        }else {
+            p3.setEnabled(true);
+        }
 
     }
 
