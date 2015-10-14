@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final static int SECOND = 1000;
     protected final Handler mHandler = new Handler();
     private static Building neutral1, neutral2, neutral3, pathos1, pathos2, pathos3, pathos4;
+    private static boolean pathosEnabled = false;
 
 
     @Override
@@ -180,6 +181,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         p1.setVisibility(View.VISIBLE);
         p2.setVisibility(View.VISIBLE);
         p3.setVisibility(View.VISIBLE);//make the buttons visible
+        pathosEnabled = true;
 
     }
 
@@ -210,24 +212,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             n3.setEnabled(true);
         }
 
-        if(currScore < pathos1.getCostOfNext()){
+        if(pathosEnabled) {
+            if (currScore < pathos1.getCostOfNext()) {
 
-            p1.setEnabled(false);
-        } else {
-            p1.setEnabled(true);
-        }
+                p1.setEnabled(false);
+            } else {
+                p1.setEnabled(true);
+            }
 
-        if(currScore < pathos2.getCostOfNext()){
+            if (currScore < pathos2.getCostOfNext()) {
 
-            p2.setEnabled(false);
-        } else {
-            p2.setEnabled(true);
-        }
+                p2.setEnabled(false);
+            } else {
+                p2.setEnabled(true);
+            }
 
-        if(currScore < pathos3.getCostOfNext()){
-            p3.setEnabled(false);
-        }else {
-            p3.setEnabled(true);
+            if (currScore < pathos3.getCostOfNext()) {
+                p3.setEnabled(false);
+            } else {
+                p3.setEnabled(true);
+            }
         }
 
     }
