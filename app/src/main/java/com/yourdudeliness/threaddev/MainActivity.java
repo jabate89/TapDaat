@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.os.Handler;
 
@@ -20,9 +21,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected static int currClickValue = 1;
     private final static int SECOND = 1000;
     protected final Handler mHandler = new Handler();
+    protected final Handler manaHandler = new Handler();
     private static Building neutral1, neutral2, neutral3, pathos1, pathos2, pathos3, pathos4;
     private static boolean pathosEnabled = false;
+    private ProgressBar manaBar;
 
+    private int chanceRand, coinRand, totalMana = 0;//hold random numbers for generating coins
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mainButton = (Button) findViewById(R.id.main_button);
         scoreBox = (TextView) findViewById(R.id.score_box);
+
+        manaBar = (ProgressBar) findViewById(R.id.mana_bar);
+        manaBar.setMax(900);
+        manaBar.setVisibility(View.VISIBLE);
 
         initializeButtons();
 
@@ -64,6 +72,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         },SECOND); // tells it to run itself again in 1 second
 
 
+        /*
+        Creates a thread which increments mana by one every second
+         */
+        manaHandler.postDelayed(new Runnable (){
+
+            @Override
+            public void run() {
+                if(true) {
+
+                    totalMana += 10;
+                    manaBar.setProgress(totalMana);
+                }
+                manaHandler.postDelayed(this, SECOND);
+            }
+        }, SECOND);
 
     }
 
@@ -108,8 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(v.getId()) {
 
             case R.id.main_button:
-                currScore += currClickValue;//increment the score by click value
-                scoreBox.setText("" + currScore);//print the score to the UI
+                mainButtonClick();
             break;
             case R.id.neutral_1:
                 neutral1.build();
@@ -130,6 +152,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.pathos_3:
                 break;
         }
+    }
+
+
+    private void mainButtonClick(){
+
+        currScore += currClickValue;//increment the score by click value
+        scoreBox.setText("" + currScore);//print the score to the UI
+
     }
 
 
@@ -212,6 +242,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             n3.setEnabled(true);
         }
 
+        /*
+        Statement only runs if the pathos have been enabled, was previously getting
+        a NULL OBJECT error when calling getCostOfNext() before instantiation of the ojbects
+         */
         if(pathosEnabled) {
             if (currScore < pathos1.getCostOfNext()) {
 
