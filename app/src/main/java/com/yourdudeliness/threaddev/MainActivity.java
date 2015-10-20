@@ -8,13 +8,14 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
+import android.os.CountDownTimer;
 
 public class MainActivity extends FragmentActivity {
 
     public final Handler scoreHandler = new Handler();
     private final static int SECOND = 1000;
-    protected static double currClickVal = 1;
+    protected static double currClickVal;
+    protected static double baseClickVal = 1;
     protected static double currScore = 0;
     protected static double currPassive = 10;
     protected static int currMana = 0;
@@ -22,6 +23,21 @@ public class MainActivity extends FragmentActivity {
     public static TextView scoreBox;
     public static Building neutral1, neutral2, neutral3, pathos1, pathos2, pathos3, deity;
     public static boolean pathosEnabled = false; //A flag for when the user has chosen an in-game path
+
+
+
+    /*
+    TEST VARIABLES  DELETE THESE
+     */
+
+    public static int testBonus = 100;
+    public static final Handler upTestHandler = new Handler();
+    public static boolean upgradeTestBool = false;
+    public static int tempIncrease;
+
+    /*
+    DELETE ABOVE DELETE ABOVE
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +81,7 @@ public class MainActivity extends FragmentActivity {
         }, SECOND); // tells it to run itself again in 1 second
 
 
-
+        currClickVal = baseClickVal;
         initializeBuildings();
     }
 
@@ -135,6 +151,37 @@ public class MainActivity extends FragmentActivity {
 
     }
 
+
+
+
+    public static void testUpgradeBonus(){
+
+
+        new CountDownTimer(15000, 200) {
+
+            public void onTick(long millisUntilFinished) {
+                if(!upgradeTestBool){
+                    upgradeTestBool = true;
+                    primary_activity.cp1.setEnabled(false);
+                    currClickVal = baseClickVal + (10 * (int)currPassive);
+
+
+
+                }
+            }
+
+            public void onFinish() {
+                upgradeTestBool = false;
+                currClickVal = baseClickVal;
+                primary_activity.cp1.setEnabled(true);
+
+            }
+        }.start();
+
+
+
+
+    }
 
 
 

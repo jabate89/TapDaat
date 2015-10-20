@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Matthew Sykes\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="C:\Users\Matthew Sykes\AndroidStudioProjects\TapDaatJ\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-a768fcf7c20cf4d5d946e9b1f10e7ef7e46a98e5.jar" />
-    </item>
-    <item
-        jar="C:\Users\Matthew Sykes\AndroidStudioProjects\TapDaatJ\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="C:\Users\Matthew Sykes\AndroidStudioProjects\TapDaatJ\app\build\intermediates\pre-dexed\debug\classes-915364cd7f71617bbd37fd1b5893d35934d840d1.jar" />
-    </item>
-    <item
-        jar="C:\Users\Matthew Sykes\AndroidStudioProjects\TapDaatJ\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jar="/Users/TheDude/Dropbox/_DEV/TapDaatLaptop/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="C:\Users\Matthew Sykes\AndroidStudioProjects\TapDaatJ\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-18ce581d502cda090d21630e12363d78a2812ddb.jar" />
+        <dex dex="/Users/TheDude/Dropbox/_DEV/TapDaatLaptop/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-6f524e9b48a1ccf5a85849dc8e01f55d1501d500.jar" />
     </item>
     <item
-        jar="C:\Users\Matthew Sykes\AndroidStudioProjects\TapDaatJ\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jar="/Users/TheDude/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/Users/TheDude/Dropbox/_DEV/TapDaatLaptop/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-5cbb1dc16a55e5bf7878c21d1f868df63e161de1.jar" />
+    </item>
+    <item
+        jar="/Users/TheDude/Dropbox/_DEV/TapDaatLaptop/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/Users/TheDude/Dropbox/_DEV/TapDaatLaptop/app/build/intermediates/pre-dexed/debug/classes-21c9241daa2d53c20f8a20a1546bf4620ad9df06.jar" />
+    </item>
+    <item
+        jar="/Users/TheDude/Dropbox/_DEV/TapDaatLaptop/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="C:\Users\Matthew Sykes\AndroidStudioProjects\TapDaatJ\app\build\intermediates\pre-dexed\debug\classes-73a1c56f34c942770701105db50bd44ad18f56ec.jar" />
+        <dex dex="/Users/TheDude/Dropbox/_DEV/TapDaatLaptop/app/build/intermediates/pre-dexed/debug/classes-58c024383646ad67ca4c8f014e680deb847e8467.jar" />
     </item>
 
 </items>
