@@ -101,6 +101,10 @@ public class primary_activity extends Fragment implements OnClickListener {
 
                 }
                 break;
+            case R.id.power_1:
+                MainActivity.testUpgradeBonus();//DELETE ###############
+                //DELETE ############################
+                break;
         }
     }
 
@@ -125,6 +129,7 @@ public class primary_activity extends Fragment implements OnClickListener {
         p2 = (Button) view.findViewById(R.id.pathos_2);
         p3 = (Button) view.findViewById(R.id.pathos_3);
         deity = (Button) view.findViewById(R.id.deity);
+
 
         coins = new TextView[3];
         coins[0] = (TextView) view.findViewById(R.id.coin_0);
@@ -158,6 +163,12 @@ public class primary_activity extends Fragment implements OnClickListener {
 
         coinGen = new Random();
         coinCollection = new PathosCoins();
+
+        //DELETE   #########################   TESTING STUFF
+        cp1 = (Button) view.findViewById(R.id.power_1);
+        cp1.setOnClickListener(this);
+
+        //DELETE ###########################  TESTING STUFF
     }
 
     public static void incrementScore(){
@@ -170,6 +181,8 @@ public class primary_activity extends Fragment implements OnClickListener {
             coinCollection.generateCoin(coinGen.nextInt(3));
         }
         MainActivity.checkFunds();
+
+
 
     }
 
