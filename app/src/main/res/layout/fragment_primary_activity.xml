@@ -135,25 +135,25 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text="0"
             android:id="@+id/score_box"
             android:layout_above="@+id/neutral_2"
-            android:layout_toLeftOf="@+id/main_button"
-            android:layout_toStartOf="@+id/main_button" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text="0"
             android:id="@+id/coin_0"
-            android:layout_above="@+id/coin_1"
             android:layout_alignLeft="@+id/score_box"
-            android:layout_alignStart="@+id/score_box" />
+            android:layout_alignStart="@+id/score_box"
+            android:layout_above="@+id/coin_1" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text="0"
             android:id="@+id/coin_1"
             android:layout_alignBaseline="@+id/neutral_3"
             android:layout_alignBottom="@+id/neutral_3"
@@ -163,11 +163,34 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text="0"
             android:id="@+id/coin_2"
             android:layout_alignBottom="@+id/neutral_3"
             android:layout_alignLeft="@+id/coin_0"
-            android:layout_alignStart="@+id/coin_0" />
+            android:layout_alignStart="@+id/coin_0"
+            android:layout_alignRight="@+id/coin_1"
+            android:layout_alignEnd="@+id/coin_1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/click_test"
+            android:layout_alignBaseline="@+id/pathos_3"
+            android:layout_alignBottom="@+id/pathos_3"
+            android:layout_alignLeft="@+id/main_button"
+            android:layout_alignStart="@+id/main_button" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/passive_test"
+            android:layout_below="@+id/click_test"
+            android:layout_alignLeft="@+id/click_test"
+            android:layout_alignStart="@+id/click_test" />
     </RelativeLayout>
 
 </FrameLayout>

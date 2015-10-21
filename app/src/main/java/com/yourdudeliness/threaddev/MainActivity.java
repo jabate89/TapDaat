@@ -31,9 +31,6 @@ public class MainActivity extends FragmentActivity {
      */
 
     public static int testBonus = 100;
-    public static final Handler upTestHandler = new Handler();
-    public static boolean upgradeTestBool = false;
-    public static int tempIncrease;
 
     /*
     DELETE ABOVE DELETE ABOVE
@@ -74,6 +71,12 @@ public class MainActivity extends FragmentActivity {
                     checkFunds();
                     currMana += currPassiveMana;
                     primary_activity.manaBar.setProgress(currMana);
+
+
+                    //TEST###################################
+                    primary_activity.clickTest.setText("Click value : " + currClickVal);
+                    primary_activity.passiveTest.setText("Passive value : " + currPassive);
+                    //TEST####################################
 
                 }
                 scoreHandler.postDelayed(this, SECOND);
@@ -154,34 +157,7 @@ public class MainActivity extends FragmentActivity {
 
 
 
-    public static void testUpgradeBonus(){
 
-
-        new CountDownTimer(15000, 200) {
-
-            public void onTick(long millisUntilFinished) {
-                if(!upgradeTestBool){
-                    upgradeTestBool = true;
-                    primary_activity.cp1.setEnabled(false);
-                    currClickVal = baseClickVal + (10 * (int)currPassive);
-
-
-
-                }
-            }
-
-            public void onFinish() {
-                upgradeTestBool = false;
-                currClickVal = baseClickVal;
-                primary_activity.cp1.setEnabled(true);
-
-            }
-        }.start();
-
-
-
-
-    }
 
 
 

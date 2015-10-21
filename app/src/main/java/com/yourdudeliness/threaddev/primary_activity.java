@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.Random;
 
 
@@ -28,10 +30,16 @@ public class primary_activity extends Fragment implements OnClickListener {
     public static Random coinGen;
     public static int isCoin;
     public static PathosCoins coinCollection;
-    /*
-    CAN pass anything desired to newInstance() method, similar to a constructor.
-    Can be used for passing data to a fragment
-     */
+
+
+    //TEST#########################################
+    public static TextView clickTest, passiveTest;
+    //TEST########################################
+
+
+
+
+
     public static primary_activity newInstance() {
         primary_activity fragment = new primary_activity();
 
@@ -102,7 +110,7 @@ public class primary_activity extends Fragment implements OnClickListener {
                 }
                 break;
             case R.id.power_1:
-                MainActivity.testUpgradeBonus();//DELETE ###############
+                SpellCast.testUpgradeBonus();//DELETE ###############
                 //DELETE ############################
                 break;
         }
@@ -131,7 +139,7 @@ public class primary_activity extends Fragment implements OnClickListener {
         deity = (Button) view.findViewById(R.id.deity);
 
 
-        coins = new TextView[3];
+        coins = new TextView[3];//the coins view is used as an array
         coins[0] = (TextView) view.findViewById(R.id.coin_0);
         coins[1] = (TextView)view.findViewById(R.id.coin_1);
         coins[2] = (TextView) view.findViewById(R.id.coin_2);
@@ -168,18 +176,30 @@ public class primary_activity extends Fragment implements OnClickListener {
         cp1 = (Button) view.findViewById(R.id.power_1);
         cp1.setOnClickListener(this);
 
+        clickTest = (TextView) view.findViewById(R.id.click_test);
+        passiveTest = (TextView) view.findViewById(R.id.passive_test);
+
         //DELETE ###########################  TESTING STUFF
     }
 
+    /*
+    Called on click of the main button. Increments and prints the score the the UI,
+    checks if a Pathos Coin is generated (base chance 2%), then randomnly generates
+    one of 3 coins.
+     */
     public static void incrementScore(){
 
         MainActivity.currScore += MainActivity.currClickVal;
         printScore();
-        isCoin = coinGen.nextInt(100);
-        if(isCoin == 69 || isCoin == 41){
 
+
+        isCoin = coinGen.nextInt(100);//generate random number < 100
+
+        if(isCoin == 69 || isCoin == 41){
+            //generate a coin if 69 or 41 is generated
             coinCollection.generateCoin(coinGen.nextInt(3));
         }
+
         MainActivity.checkFunds();
 
 
@@ -187,8 +207,9 @@ public class primary_activity extends Fragment implements OnClickListener {
     }
 
     /*
-    Function accepts a string of "good" or "evil", and initializeds the
-    pathos buttons and their names accordingly
+    Function accepts a string of "good" or "evil", based on user
+    in-game choice. Initializes pathos buttons, sets their names,
+    and makes them visible to user
      */
     public void initializePathos(String type){
 
@@ -219,53 +240,32 @@ public class primary_activity extends Fragment implements OnClickListener {
 
         switch(btn){
             case "n1":
-                n1.setText(MainActivity.neutral1.getName() +  "     "
-                        + (int)MainActivity.neutral1.getTotalBuildings()
-                        + "\n Cost " + (int)MainActivity.neutral1.getCostOfNext()
-                        + "    Output " + MainActivity.neutral1.getCumulativePassive());
+                n1.setText(MainActivity.neutral1.printStats());
                 break;
             case "n2":
-                n2.setText(MainActivity.neutral2.getName() +  "     "
-                        + (int)MainActivity.neutral2.getTotalBuildings()
-                        + "\n Cost " + (int)MainActivity.neutral2.getCostOfNext()
-                        + "    Output " + MainActivity.neutral2.getCumulativePassive());
+                n2.setText(MainActivity.neutral2.printStats());
                 break;
             case "n3":
-                n3.setText(MainActivity.neutral3.getName() +  "     "
-                        + (int)MainActivity.neutral3.getTotalBuildings()
-                        + "\n Cost " + (int)MainActivity.neutral3.getCostOfNext()
-                        + "    Output " + MainActivity.neutral3.getCumulativePassive());
+                n3.setText(MainActivity.neutral3.printStats());
                 break;
             case "p1":
                 if(MainActivity.pathosEnabled) {
-                    p1.setText(MainActivity.pathos1.getName() + "     "
-                            + (int) MainActivity.pathos1.getTotalBuildings()
-                            + "\n Cost " + (int) MainActivity.pathos1.getCostOfNext()
-                            + "    Output " + MainActivity.pathos1.getCumulativePassive());
+                    p1.setText(MainActivity.pathos1.printStats());
                 }
                 break;
             case "p2":
                 if(MainActivity.pathosEnabled) {
-                    p2.setText(MainActivity.pathos2.getName() + "     "
-                            + (int) MainActivity.pathos2.getTotalBuildings()
-                            + "\n Cost " + (int) MainActivity.pathos2.getCostOfNext()
-                            + "    Output " + MainActivity.pathos2.getCumulativePassive());
+                    p2.setText(MainActivity.pathos2.printStats());
                 }
                 break;
             case "p3":
                 if(MainActivity.pathosEnabled) {
-                    p2.setText(MainActivity.pathos2.getName() + "     "
-                            + (int) MainActivity.pathos2.getTotalBuildings()
-                            + "\n Cost " + (int) MainActivity.pathos2.getCostOfNext()
-                            + "    Output " + MainActivity.pathos2.getCumulativePassive());
+                    p3.setText(MainActivity.pathos3.printStats());
                 }
                 break;
             case "deity":
                 if(MainActivity.pathosEnabled) {
-                    deity.setText(MainActivity.deity.getName() + "     "
-                            + (int) MainActivity.deity.getTotalBuildings()
-                            + "\n Cost " + (int) MainActivity.deity.getCostOfNext()
-                            + "    Output " + MainActivity.deity.getCumulativePassive());
+                    deity.setText(MainActivity.deity.printStats());
                 }
                 break;
 
@@ -274,6 +274,8 @@ public class primary_activity extends Fragment implements OnClickListener {
 
 
     }
+
+
 
 
 

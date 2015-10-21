@@ -56,4 +56,11 @@ public class Building {
     }
 
     public int getCumulativePassive() { return cumulativePassive; }
+
+    public String printStats(){
+        return   ( buildingType + "     "
+                + (int) totalBuildings
+                + "\n Cost " + (int) costOfNext
+                + "    Output " + cumulativePassive);
+    }
 }
