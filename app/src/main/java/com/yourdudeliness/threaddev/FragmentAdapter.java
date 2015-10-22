@@ -24,9 +24,10 @@ public class FragmentAdapter extends FragmentPagerAdapter {
             case 0:
                 return primary_activity.newInstance();
             case 1:
-                return Trophies.newInstance();
+                return
+                        Upgrades.newInstance();
             default:
-                return Upgrades.newInstance();
+                return Trophies.newInstance();
         }
 
     }
