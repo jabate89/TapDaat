@@ -50,5 +50,8 @@ public class Upgrades extends Fragment {
         return thisView;
     }
 
+    /*@Override
+    public void onClick(View v) {
+    }*/
 
 }
