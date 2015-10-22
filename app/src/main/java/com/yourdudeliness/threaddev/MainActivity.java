@@ -105,6 +105,22 @@ public class MainActivity extends FragmentActivity {
     */
     public static void checkFunds(){
 
+        if(currMana < 750){
+            primary_activity.cp1.setEnabled(false);
+        } else {
+            primary_activity.cp1.setEnabled(true);
+        }
+        if(currMana < 800){
+            //primary_activity.cp2.setEnabled(false);
+        } else {
+            //primary_activity.cp2.setEnabled(true);
+        }
+        if(currMana < 900){
+           // primary_activity.cp3.setEnabled(false);
+        } else {
+            //primary_activity.cp3.setEnabled(true);
+        }
+
         if(currScore < neutral1.getCostOfNext()){
 
             primary_activity.n1.setEnabled(false);
