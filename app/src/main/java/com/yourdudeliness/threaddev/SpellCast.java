@@ -16,6 +16,7 @@ public class SpellCast {
             public void onTick(long millisUntilFinished) {
                     primary_activity.cp1.setEnabled(false);
                     MainActivity.currClickVal = MainActivity.baseClickVal + (10 * (int)MainActivity.currPassive);
+                    MainActivity.currMana = 0;
 
 
 
