@@ -54,9 +54,6 @@ public class primary_activity extends Fragment implements OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
-
     }
 
 
@@ -201,6 +198,7 @@ public class primary_activity extends Fragment implements OnClickListener {
         }
 
         MainActivity.checkFunds();
+        UpgradesFragment.updateUpgrades();
 
 
 

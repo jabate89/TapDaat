@@ -78,10 +78,12 @@ public class MainActivity extends FragmentActivity {
                     primary_activity.passiveTest.setText("Passive value : " + currPassive);
                     //TEST####################################
 
+
                 }
                 scoreHandler.postDelayed(this, SECOND);
             }
         }, SECOND); // tells it to run itself again in 1 second
+
 
 
         currClickVal = baseClickVal;
