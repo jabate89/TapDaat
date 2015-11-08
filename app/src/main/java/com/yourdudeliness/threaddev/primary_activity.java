@@ -66,7 +66,6 @@ public class primary_activity extends Fragment implements OnClickListener {
         initializeButtons(thisView);
 
 
-
         return thisView;
     }
 
@@ -119,8 +118,6 @@ public class primary_activity extends Fragment implements OnClickListener {
     id's in the primary_activity.xml
      */
     public void initializeButtons(View view){
-
-
 
         /*
         Assign all the XML buttons to java objects
@@ -198,8 +195,6 @@ public class primary_activity extends Fragment implements OnClickListener {
         }
 
         MainActivity.checkFunds();
-        UpgradesFragment.updateUpgrades();
-
 
 
     }
@@ -236,6 +231,7 @@ public class primary_activity extends Fragment implements OnClickListener {
 
     public static void updateButton(String btn){
 
+        //UpgradesFragment.updateUpgrades;
         switch(btn){
             case "n1":
                 n1.setText(MainActivity.neutral1.printStats());

@@ -107,6 +107,7 @@ public class MainActivity extends FragmentActivity {
     */
     public static void checkFunds(){
 
+
         if(currMana < 750){
             primary_activity.cp1.setEnabled(false);
         } else {
