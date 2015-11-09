@@ -15,7 +15,7 @@ public class MainActivity extends FragmentActivity {
     public final Handler scoreHandler = new Handler();
     private final static int SECOND = 1000;
     protected static double currClickVal;
-    protected static double baseClickVal = 1;
+    protected static double baseClickVal = 200;
     protected static double currScore = 0;
     protected static double currPassive = 10;
     protected static int currMana = 0;
@@ -72,6 +72,7 @@ public class MainActivity extends FragmentActivity {
                     currMana += currPassiveMana;
                     primary_activity.manaBar.setProgress(currMana);
 
+                    updatePassive();
 
                     //TEST###################################
                     primary_activity.clickTest.setText("Click value : " + currClickVal);
@@ -92,12 +93,18 @@ public class MainActivity extends FragmentActivity {
 
 
 
+
     private void initializeBuildings(){
 
         neutral1 = new Building("Farm", 10, 1);
         neutral2 = new Building("Blacksmith", 30, 5);
         neutral3 = new Building("Barracks", 50, 20);
 
+    }
+    public static void updatePassive(){
+        currPassive = neutral1.getCumulativePassive()
+                + neutral2.getCumulativePassive()
+                + neutral3.getCumulativePassive();
     }
 
 

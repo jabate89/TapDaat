@@ -41,4 +41,14 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="tierHere"
+        android:id="@+id/up_tier"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/up_name"
+        android:layout_toEndOf="@+id/up_name" />
+
 </RelativeLayout>
