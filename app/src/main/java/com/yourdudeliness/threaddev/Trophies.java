@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +21,7 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class Trophies extends Fragment {
+
 
     public static Trophies newInstance() {
         Trophies fragment = new Trophies();
@@ -33,6 +36,7 @@ public class Trophies extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
     }
 
