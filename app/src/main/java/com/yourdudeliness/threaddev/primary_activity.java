@@ -56,8 +56,6 @@ public class primary_activity extends Fragment implements OnClickListener {
 
     }
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -79,15 +77,15 @@ public class primary_activity extends Fragment implements OnClickListener {
                 break;
             case R.id.neutral_1:
                 MainActivity.neutral1.build();
-                updateButton("n1");
+                updateButton("neutral1");
                 break;
             case R.id.neutral_2:
                 MainActivity.neutral2.build();
-                updateButton("n2");
+                updateButton("neutral2");
                 break;
             case R.id.neutral_3:
                 MainActivity.neutral3.build();
-                updateButton("n3");
+                updateButton("neutral3");
                 break;
             case R.id.pathos_1:
                 if(MainActivity.pathosEnabled){
@@ -110,7 +108,10 @@ public class primary_activity extends Fragment implements OnClickListener {
                 //DELETE ############################
                 break;
         }
+
     }
+
+
 
 
     /*
@@ -138,9 +139,9 @@ public class primary_activity extends Fragment implements OnClickListener {
         coins[1] = (TextView)view.findViewById(R.id.coin_1);
         coins[2] = (TextView) view.findViewById(R.id.coin_2);
 
-        updateButton("n1");
-        updateButton("n2");
-        updateButton("n3");
+        updateButton("neutral1");
+        updateButton("neutral2");
+        updateButton("neutral3");
         updateButton("p1");
         updateButton("p2");
         updateButton("p3");
@@ -233,13 +234,13 @@ public class primary_activity extends Fragment implements OnClickListener {
 
         //UpgradesFragment.updateUpgrades;
         switch(btn){
-            case "n1":
+            case "neutral1":
                 n1.setText(MainActivity.neutral1.printStats());
                 break;
-            case "n2":
+            case "neutral2":
                 n2.setText(MainActivity.neutral2.printStats());
                 break;
-            case "n3":
+            case "neutral3":
                 n3.setText(MainActivity.neutral3.printStats());
                 break;
             case "p1":

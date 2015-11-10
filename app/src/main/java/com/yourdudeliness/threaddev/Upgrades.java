@@ -42,9 +42,9 @@ public class Upgrades extends Fragment {
     }
 
     private void populateUpgrades() {
-        myupgrades.add(new Up_Holder("Farm1", 200, R.drawable.house1, "Increase base farm production 100%"));
-        myupgrades.add(new Up_Holder("Farm2", 7000, R.drawable.house2, "Increase base farm production 200%"));
-        myupgrades.add(new Up_Holder("Farm3", 10000000, R.drawable.house3, "Increase base farm production 300%"));
+        //myupgrades.add(new Up_Holder("Farm1", 200, R.drawable.house1, "Increase base farm production 100%"));
+        //myupgrades.add(new Up_Holder("Farm2", 7000, R.drawable.house2, "Increase base farm production 200%"));
+        //myupgrades.add(new Up_Holder("Farm3", 10000000, R.drawable.house3, "Increase base farm production 300%"));
     }
 
 

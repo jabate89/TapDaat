@@ -43,13 +43,13 @@ public class UpgradesFragment extends Fragment  {
 
     }
     private void populateUpgrades() {
-        myupgrades.add(new Up_Holder("Farm1", 200, R.drawable.money1, "Increase base farm production 100%"));
-        myupgrades.add(new Up_Holder("Farm1", 7000, R.drawable.money2, "Increase base farm production 200%"));
-        myupgrades.add(new Up_Holder("Farm1", 10000000, R.drawable.money3, "Increase base farm production 300%"));
+        myupgrades.add(new Up_Holder("Farm",1, 200, R.drawable.money1, "Increase base farm production 100%"));
+        myupgrades.add(new Up_Holder("Farm",2, 7000, R.drawable.money2, "Increase base farm production 200%"));
+        myupgrades.add(new Up_Holder("Farm",3, 10000000, R.drawable.money3, "Increase base farm production 300%"));
 
-        myupgrades.add(new Up_Holder("Inn1", 2500, R.drawable.house1, "Increase base farm production 100%"));
-        myupgrades.add(new Up_Holder("Inn2", 850000, R.drawable.house2, "Increase base farm production 200%"));
-        myupgrades.add(new Up_Holder("Inn3", 130000000, R.drawable.house3, "Increase base farm production 300%"));
+        myupgrades.add(new Up_Holder("Inn",1, 2500, R.drawable.house1, "Increase base farm production 100%"));
+        myupgrades.add(new Up_Holder("Inn",2, 850000, R.drawable.house2, "Increase base farm production 200%"));
+        myupgrades.add(new Up_Holder("Inn", 3, 130000000, R.drawable.house3, "Increase base farm production 300%"));
     }
     public void updateUpgrades(){
         adapter.notifyDataSetChanged();
@@ -65,6 +65,45 @@ public class UpgradesFragment extends Fragment  {
         list = (ListView) view.findViewById(R.id.list);
 
         list.setAdapter(adapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
+                Up_Holder clicked = myupgrades.get(position);
+                String message = "You clicked position " + position
+                        + "Which is " + clicked.getName();
+                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+
+                MainActivity.currScore -= clicked.getCost();
+
+                switch (clicked.getName()) {
+                    case "Farm":
+                        switch (clicked.getTier()) {
+                            case 1:
+                                MainActivity.neutral1.setPassiveMultiplier(2);
+                            case 2:
+                                MainActivity.neutral1.setPassiveMultiplier(3);
+                            case 3:
+                                MainActivity.neutral1.setPassiveMultiplier(4);
+                        }
+                        primary_activity.updateButton("neutral1");
+                        break;
+                    case "Inn":
+                        switch (clicked.getTier()) {
+                            case 1:
+                                MainActivity.neutral2.setPassiveMultiplier(2);
+                            case 2:
+                                MainActivity.neutral2.setPassiveMultiplier(3);
+                            case 3:
+                                MainActivity.neutral2.setPassiveMultiplier(4);
+                        }
+                        primary_activity.updateButton("neutral2");
+                        break;
+
+                }
+
+
+            }
+        });
 
 
         return view;
@@ -78,23 +117,16 @@ public class UpgradesFragment extends Fragment  {
 
 
     private void ClickCallback(){
-        ListView list = (ListView) view.findViewById(R.id.list);
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent,View viewClicked,int position,long id){
-                Up_Holder clicked = myupgrades.get(position);
-                String message = "You clicked position " + position
-                                + "Which is " + clicked.getName();
-                Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
-            }
-        });
+        list = (ListView) view.findViewById(R.id.list);
+
     }
 
-    /*@Override
+    /*
+    @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Log.i("DataListFragment", "Item clicked: " + id);
-    }*/
-
+    }
+*/
     public class myAdapter extends ArrayAdapter<Up_Holder>{
 
         Holder holder;
@@ -116,12 +148,15 @@ public class UpgradesFragment extends Fragment  {
                 holder = new Holder();
                 holder.up_thumb = (ImageView) view.findViewById(R.id.up_thumbnail);
                 holder.up_name = (TextView) view.findViewById(R.id.up_name);
+                holder.up_tier = (TextView) view.findViewById(R.id.up_tier);
                 holder.up_cost = (TextView) view.findViewById(R.id.up_cost);
                 holder.up_desc = (TextView) view.findViewById(R.id.up_description);
-                Up_Holder currentUp = getItem(position);
+
+            Up_Holder currentUp = getItem(position);
 
                 holder.up_thumb.setImageResource(currentUp.getIconID());
                 holder.up_name.setText(currentUp.getName());
+                holder.up_tier.setText(" Tier " + Integer.toString(currentUp.getTier()));
                 holder.up_cost.setText(Integer.toString(currentUp.getCost()));
                 holder.up_desc.setText(currentUp.getBonus());
 
@@ -144,6 +179,7 @@ public class UpgradesFragment extends Fragment  {
         public class Holder{
             ImageView up_thumb;
             TextView up_name;
+            TextView up_tier;
             TextView up_cost;
             TextView up_desc;
         }
