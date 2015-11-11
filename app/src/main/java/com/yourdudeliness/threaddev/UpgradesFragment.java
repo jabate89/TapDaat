@@ -3,7 +3,6 @@ package com.yourdudeliness.threaddev;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,49 +64,12 @@ public class UpgradesFragment extends Fragment  {
         list = (ListView) view.findViewById(R.id.list);
 
         list.setAdapter(adapter);
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
-                Up_Holder clicked = myupgrades.get(position);
-                String message = "You clicked position " + position
-                        + "Which is " + clicked.getName();
-                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-
-                MainActivity.currScore -= clicked.getCost();
-
-                switch (clicked.getName()) {
-                    case "Farm":
-                        switch (clicked.getTier()) {
-                            case 1:
-                                MainActivity.neutral1.setPassiveMultiplier(2);
-                            case 2:
-                                MainActivity.neutral1.setPassiveMultiplier(3);
-                            case 3:
-                                MainActivity.neutral1.setPassiveMultiplier(4);
-                        }
-                        primary_activity.updateButton("neutral1");
-                        break;
-                    case "Inn":
-                        switch (clicked.getTier()) {
-                            case 1:
-                                MainActivity.neutral2.setPassiveMultiplier(2);
-                            case 2:
-                                MainActivity.neutral2.setPassiveMultiplier(3);
-                            case 3:
-                                MainActivity.neutral2.setPassiveMultiplier(4);
-                        }
-                        primary_activity.updateButton("neutral2");
-                        break;
-
-                }
-
-
-            }
-        });
-
+        ClickCallback();
 
         return view;
     }
+
+
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -118,7 +80,59 @@ public class UpgradesFragment extends Fragment  {
 
     private void ClickCallback(){
         list = (ListView) view.findViewById(R.id.list);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
+                Up_Holder clicked = myupgrades.get(position);
+                String message = "You clicked position " + position
+                        + "Which is " + clicked.getName();
+                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
 
+                if(MainActivity.currScore >= clicked.getCost()) {
+
+                    MainActivity.currScore -= clicked.getCost();
+
+                    switch (clicked.getName()) {
+                        case "Farm":
+                            switch (clicked.getTier()) {
+                                case 1:
+                                    MainActivity.neutral1.setBasePassive(2);
+                                    break;
+                                case 2:
+                                    MainActivity.neutral1.setBasePassive(3);
+                                    break;
+                                case 3:
+                                    MainActivity.neutral1.setBasePassive(4);
+                                    break;
+
+                            }
+                            myupgrades.remove(position);
+                            adapter.notifyDataSetChanged();
+                            primary_activity.updateButton("neutral1");
+                            break;
+
+                        case "Inn":
+                            switch (clicked.getTier()) {
+                                case 1:
+                                    MainActivity.neutral2.setBasePassive(2);
+                                    break;
+                                case 2:
+                                    MainActivity.neutral2.setBasePassive(3);
+                                    break;
+                                case 3:
+                                    MainActivity.neutral2.setBasePassive(4);
+                                    break;
+                            }
+                            myupgrades.remove(position);
+                            adapter.notifyDataSetChanged();
+                            primary_activity.updateButton("neutral2");
+                            break;
+
+                    }
+                }
+
+            }
+        });
     }
 
     /*
@@ -133,6 +147,8 @@ public class UpgradesFragment extends Fragment  {
         public myAdapter(Context context) {
             super(context,R.layout.list_item, myupgrades);
         }
+
+        //list = (ListView) view.findViewById(R.id.list);
 
 
         @Override

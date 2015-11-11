@@ -18,7 +18,6 @@ public class Building {
         buildingType = name;//name is building type, defined on object creation
         costOfNext = startCost;//start cost is cost of the first building, increments with each purchase
         BasePassive = passive;//the passive income produced by the first building
-        passiveMultiplier = 1;
         totalBuildings = 0;//the object is instantiated with 0 building
         cumulativePassive = 0; // the Passive of all buildings of same type
     }
@@ -32,7 +31,7 @@ public class Building {
             MainActivity.checkFunds();
 
             totalBuildings += 1;//increments number of buildings
-            cumulativePassive = BasePassive * passiveMultiplier * totalBuildings;
+            cumulativePassive = BasePassive * totalBuildings;
             MainActivity.updatePassive();
             //MainActivity.currPassive += BasePassive * passiveMultiplier;//increments passive score in main
 
@@ -58,7 +57,7 @@ public class Building {
         return buildingType;
     }
 
-    public void setPassiveMultiplier(int multiplier){passiveMultiplier = passiveMultiplier * multiplier;}
+    public void setBasePassive(int multiplier){BasePassive = BasePassive * multiplier;}
 
     public int getCumulativePassive() { return cumulativePassive; }
 
