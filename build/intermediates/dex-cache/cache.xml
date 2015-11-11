@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/Users/Awesomeness/Dropbox/_FALL2015/4310_stalica/TapDaatNew/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jar="/Users/edincristofi/TapDaat/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="/Users/Awesomeness/Dropbox/_FALL2015/4310_stalica/TapDaatNew/app/build/intermediates/pre-dexed/debug/classes-b87625e1b213a724dca9692b4e4dd2b6033a8f63.jar" />
+        <dex dex="/Users/edincristofi/TapDaat/app/build/intermediates/pre-dexed/debug/classes-ce395ba2170eb499e25187ade0ce0f9925d5b67a.jar" />
     </item>
     <item
-        jar="/Users/Awesomeness/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jar="/Users/edincristofi/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="/Users/Awesomeness/Dropbox/_FALL2015/4310_stalica/TapDaatNew/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-2b68dba3521f2e908a9568b49591b5f6ec7443d1.jar" />
+        <dex dex="/Users/edincristofi/TapDaat/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-ef4dc489c4a7ea1163d0438a4d946b79c3d229a6.jar" />
     </item>
     <item
-        jar="/Users/Awesomeness/Dropbox/_FALL2015/4310_stalica/TapDaatNew/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="/Users/Awesomeness/Dropbox/_FALL2015/4310_stalica/TapDaatNew/app/build/intermediates/pre-dexed/debug/classes-eea85b6b8399d20dcc6410e4d460c133f8092a5d.jar" />
-    </item>
-    <item
-        jar="/Users/Awesomeness/Dropbox/_FALL2015/4310_stalica/TapDaatNew/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jar="/Users/edincristofi/TapDaat/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="/Users/Awesomeness/Dropbox/_FALL2015/4310_stalica/TapDaatNew/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-71a3cb49a64b9209dbedb4aa64419faec39e3270.jar" />
+        <dex dex="/Users/edincristofi/TapDaat/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-d4253d39d684253d98c54a86d53999406b7a18a4.jar" />
+    </item>
+    <item
+        jar="/Users/edincristofi/TapDaat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/edincristofi/TapDaat/app/build/intermediates/pre-dexed/debug/classes-708c03ba8d461ffb0fa8149860091ce959d52380.jar" />
     </item>
 
 </items>

@@ -4,6 +4,142 @@
 
 
     <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="I hold the trophies..." />
+        android:text="Edin owns this page...." />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_gravity="center_horizontal|top"
+        android:fillViewport="false" >
+
+        <EditText
+            android:layout_width="85dp"
+            android:layout_height="109dp"
+            android:id="@+id/editText2"
+            android:layout_gravity="left|top"
+            android:text="Spot #1" />
+    </ScrollView>
+
+    <EditText
+        android:layout_width="85dp"
+        android:layout_height="66dp"
+        android:id="@+id/editText"
+        android:layout_gravity="center_horizontal|top"
+        android:text="Spot #2" />
+
+    <EditText
+        android:layout_width="85dp"
+        android:layout_height="66dp"
+        android:id="@+id/editText3"
+        android:layout_gravity="right|top"
+        android:text="Spot #3" />
+
+    <EditText
+        android:layout_width="85dp"
+        android:layout_height="66dp"
+        android:id="@+id/editText4"
+        android:layout_gravity="left|center_vertical"
+        android:text="Spot #4" />
+
+    <EditText
+        android:layout_width="85dp"
+        android:layout_height="66dp"
+        android:id="@+id/editText5"
+        android:layout_gravity="center"
+        android:text="Spot #5" />
+
+    <EditText
+        android:layout_width="85dp"
+        android:layout_height="66dp"
+        android:id="@+id/editText6"
+        android:layout_gravity="right|center_vertical"
+        android:text="Spot #6" />
+
+    <EditText
+        android:layout_width="85dp"
+        android:layout_height="66dp"
+        android:id="@+id/editText7"
+        android:layout_gravity="left|bottom"
+        android:text="Spot #7" />
+
+    <EditText
+        android:layout_width="85dp"
+        android:layout_height="66dp"
+        android:id="@+id/editText8"
+        android:layout_gravity="center_horizontal|bottom"
+        android:text="Spot #8" />
+
+    <EditText
+        android:layout_width="85dp"
+        android:layout_height="66dp"
+        android:id="@+id/editText9"
+        android:layout_gravity="right|bottom"
+        android:text="Spot #9" />
+
+    <EditText
+        android:layout_width="99dp"
+        android:layout_height="99dp"
+        android:id="@+id/imageView"
+        android:layout_gravity="left|top"
+        android:src="Trophey#1"
+        android:text="Trophy#1" />
+
+    <EditText
+        android:layout_width="99dp"
+        android:layout_height="99dp"
+        android:id="@+id/imageView2"
+        android:layout_gravity="center_horizontal|top"
+        android:src="Trophey#1"
+        android:text="trophy#2" />
+
+    <ImageView
+        android:layout_width="99dp"
+        android:layout_height="99dp"
+        android:id="@+id/imageView3"
+        android:layout_gravity="right|top"
+        android:src="Trophey#1" />
+
+    <ImageView
+        android:layout_width="99dp"
+        android:layout_height="99dp"
+        android:id="@+id/imageView4"
+        android:layout_gravity="left|center_vertical"
+        android:src="Trophey#1" />
+
+    <ImageView
+        android:layout_width="99dp"
+        android:layout_height="99dp"
+        android:id="@+id/imageView5"
+        android:layout_gravity="center"
+        android:src="Trophey#1" />
+
+    <ImageView
+        android:layout_width="99dp"
+        android:layout_height="99dp"
+        android:id="@+id/imageView6"
+        android:layout_gravity="right|center_vertical"
+        android:src="Trophey#1" />
+
+    <ImageView
+        android:layout_width="99dp"
+        android:layout_height="99dp"
+        android:id="@+id/imageView7"
+        android:layout_gravity="left|bottom"
+        android:src="Trophey#1" />
+
+    <ImageView
+        android:layout_width="99dp"
+        android:layout_height="99dp"
+        android:id="@+id/imageView8"
+        android:layout_gravity="center_horizontal|bottom"
+        android:src="Trophey#1" />
+
+    <ImageView
+        android:layout_width="99dp"
+        android:layout_height="99dp"
+        android:id="@+id/imageView9"
+        android:layout_gravity="right|bottom"
+        android:src="Trophey#1" />
 
 </FrameLayout>
