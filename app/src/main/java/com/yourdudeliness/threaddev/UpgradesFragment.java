@@ -42,33 +42,76 @@ public class UpgradesFragment extends Fragment  {
 
     }
     private void populateUpgrades() {
-        myupgrades.add(new Up_Holder("Farm",1, 200, R.drawable.money1, "Increase base farm production 100%"));
-        myupgrades.add(new Up_Holder("Farm",2, 7000, R.drawable.money2, "Increase base farm production 200%"));
-        myupgrades.add(new Up_Holder("Farm",3, 10000000, R.drawable.money3, "Increase base farm production 300%"));
+        //First Upgrades placed statically
+        myupgrades.add(new Up_Holder("Farm",1, 200, R.drawable.house1, "Increase base farm production 100%"));
 
-        myupgrades.add(new Up_Holder("Inn",1, 2500, R.drawable.house1, "Increase base farm production 100%"));
-        myupgrades.add(new Up_Holder("Inn",2, 850000, R.drawable.house2, "Increase base farm production 200%"));
-        myupgrades.add(new Up_Holder("Inn", 3, 130000000, R.drawable.house3, "Increase base farm production 300%"));
+        myupgrades.add(new Up_Holder("Inn",1, 2500, R.drawable.inn1, "Increase base Inn production 100%"));
+
+        myupgrades.add(new Up_Holder("Blacksmith",1,12000,R.drawable.money1,"Increase base blacksmith production 100%"));
+
     }
+    //Simple helper function for updating the ArrayList
     public void updateUpgrades(){
         adapter.notifyDataSetChanged();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
+        //Inflater for Listview xml
         view = inflater.inflate(R.layout.fragment_upgrades,container,false);
 
+        //Fill list with initial upgrades
         populateUpgrades();
+
+        //Create adapter for ListView
         adapter = new myAdapter(getActivity());
+
+        //Attach List view to layout
         list = (ListView) view.findViewById(R.id.list);
 
+        //Attach data to ArrayList Adapter
         list.setAdapter(adapter);
+
+        //Initialize
         ClickCallback();
 
         return view;
     }
 
+    private void nextUpgrade(String name,int t){
+        switch (name) {
+            case "Farm":
+                switch (t){
+                    case 1:
+                        myupgrades.add(0,new Up_Holder("Farm",2, 7000, R.drawable.house2, "Increase base farm production 200%"));
+                        break;
+                    case 2:
+                        myupgrades.add(0,new Up_Holder("Farm",3, 10000000, R.drawable.house3, "Increase base farm production 300%"));
+                        break;
+                }
+                break;
+            case "Inn":
+                switch (t){
+                    case 1:
+                        myupgrades.add(1,new Up_Holder("Inn",2, 850000, R.drawable.inn2, "Increase base Inn production 200%"));
+                        break;
+                    case 2:
+                        myupgrades.add(1,new Up_Holder("Inn",3, 130000000, R.drawable.inn3, "Increase base Inn production 300%"));
+                        break;
+                }
+                break;
+            case "Blacksmith":
+                switch (t){
+                    case 1:
+                        myupgrades.add(2,new Up_Holder("Blacksmith",2,400000,R.drawable.money2,"Increase base blacksmith production 200%"));
+                        break;
+                    case 2:
+                        myupgrades.add(2,new Up_Holder("Blacksmith", 3, 650000000, R.drawable.money3, "Increase base blacksmith production 300%"));
+                        break;
+                }
+                break;
+        }
+    }
 
 
     @Override
@@ -94,6 +137,7 @@ public class UpgradesFragment extends Fragment  {
 
                     switch (clicked.getName()) {
                         case "Farm":
+
                             switch (clicked.getTier()) {
                                 case 1:
                                     MainActivity.neutral1.setBasePassive(2);
@@ -104,9 +148,9 @@ public class UpgradesFragment extends Fragment  {
                                 case 3:
                                     MainActivity.neutral1.setBasePassive(4);
                                     break;
-
                             }
                             myupgrades.remove(position);
+                            nextUpgrade(clicked.getName(), clicked.getTier());
                             adapter.notifyDataSetChanged();
                             primary_activity.updateButton("neutral1");
                             break;
@@ -124,8 +168,26 @@ public class UpgradesFragment extends Fragment  {
                                     break;
                             }
                             myupgrades.remove(position);
+                            nextUpgrade(clicked.getName(), clicked.getTier());
                             adapter.notifyDataSetChanged();
                             primary_activity.updateButton("neutral2");
+                            break;
+                        case "Blacksmith":
+                            switch (clicked.getTier()) {
+                                case 1:
+                                    MainActivity.neutral3.setBasePassive(2);
+                                    break;
+                                case 2:
+                                    MainActivity.neutral3.setBasePassive(3);
+                                    break;
+                                case 3:
+                                    MainActivity.neutral3.setBasePassive(4);
+                                    break;
+                            }
+                            myupgrades.remove(position);
+                            nextUpgrade(clicked.getName(), clicked.getTier());
+                            adapter.notifyDataSetChanged();
+                            primary_activity.updateButton("neutral3");
                             break;
 
                     }

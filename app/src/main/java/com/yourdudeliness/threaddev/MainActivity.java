@@ -97,8 +97,8 @@ public class MainActivity extends FragmentActivity {
     private void initializeBuildings(){
 
         neutral1 = new Building("Farm", 10, 1);
-        neutral2 = new Building("Blacksmith", 30, 5);
-        neutral3 = new Building("Barracks", 50, 20);
+        neutral2 = new Building("Inn", 30, 5);
+        neutral3 = new Building("Blacksmith", 50, 20);
 
     }
     public static void updatePassive(){
