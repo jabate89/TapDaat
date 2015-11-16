@@ -3,7 +3,6 @@ package com.yourdudeliness.threaddev;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,71 +42,77 @@ public class UpgradesFragment extends Fragment  {
 
     }
     private void populateUpgrades() {
-        myupgrades.add(new Up_Holder("Farm",1, 200, R.drawable.money1, "Increase base farm production 100%"));
-        myupgrades.add(new Up_Holder("Farm",2, 7000, R.drawable.money2, "Increase base farm production 200%"));
-        myupgrades.add(new Up_Holder("Farm",3, 10000000, R.drawable.money3, "Increase base farm production 300%"));
+        //First Upgrades placed statically
+        myupgrades.add(new Up_Holder("Farm",1, 200, R.drawable.house1, "Increase base farm production 100%"));
 
-        myupgrades.add(new Up_Holder("Inn",1, 2500, R.drawable.house1, "Increase base farm production 100%"));
-        myupgrades.add(new Up_Holder("Inn",2, 850000, R.drawable.house2, "Increase base farm production 200%"));
-        myupgrades.add(new Up_Holder("Inn", 3, 130000000, R.drawable.house3, "Increase base farm production 300%"));
+        myupgrades.add(new Up_Holder("Inn",1, 2500, R.drawable.inn1, "Increase base Inn production 100%"));
+
+        myupgrades.add(new Up_Holder("Blacksmith",1,12000,R.drawable.money1,"Increase base blacksmith production 100%"));
+
     }
+    //Simple helper function for updating the ArrayList
     public void updateUpgrades(){
         adapter.notifyDataSetChanged();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
+        //Inflater for Listview xml
         view = inflater.inflate(R.layout.fragment_upgrades,container,false);
 
+        //Fill list with initial upgrades
         populateUpgrades();
+
+        //Create adapter for ListView
         adapter = new myAdapter(getActivity());
+
+        //Attach List view to layout
         list = (ListView) view.findViewById(R.id.list);
 
+        //Attach data to ArrayList Adapter
         list.setAdapter(adapter);
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
-                Up_Holder clicked = myupgrades.get(position);
-                String message = "You clicked position " + position
-                        + "Which is " + clicked.getName();
-                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
 
-                MainActivity.currScore -= clicked.getCost();
-
-                switch (clicked.getName()) {
-                    case "Farm":
-                        switch (clicked.getTier()) {
-                            case 1:
-                                MainActivity.neutral1.setPassiveMultiplier(2);
-                            case 2:
-                                MainActivity.neutral1.setPassiveMultiplier(3);
-                            case 3:
-                                MainActivity.neutral1.setPassiveMultiplier(4);
-                        }
-                        primary_activity.updateButton("neutral1");
-                        break;
-                    case "Inn":
-                        switch (clicked.getTier()) {
-                            case 1:
-                                MainActivity.neutral2.setPassiveMultiplier(2);
-                            case 2:
-                                MainActivity.neutral2.setPassiveMultiplier(3);
-                            case 3:
-                                MainActivity.neutral2.setPassiveMultiplier(4);
-                        }
-                        primary_activity.updateButton("neutral2");
-                        break;
-
-                }
-
-
-            }
-        });
-
+        //Initialize
+        ClickCallback();
 
         return view;
     }
+
+    private void nextUpgrade(String name,int t){
+        switch (name) {
+            case "Farm":
+                switch (t){
+                    case 1:
+                        myupgrades.add(0,new Up_Holder("Farm",2, 7000, R.drawable.house2, "Increase base farm production 200%"));
+                        break;
+                    case 2:
+                        myupgrades.add(0,new Up_Holder("Farm",3, 10000000, R.drawable.house3, "Increase base farm production 300%"));
+                        break;
+                }
+                break;
+            case "Inn":
+                switch (t){
+                    case 1:
+                        myupgrades.add(1,new Up_Holder("Inn",2, 850000, R.drawable.inn2, "Increase base Inn production 200%"));
+                        break;
+                    case 2:
+                        myupgrades.add(1,new Up_Holder("Inn",3, 130000000, R.drawable.inn3, "Increase base Inn production 300%"));
+                        break;
+                }
+                break;
+            case "Blacksmith":
+                switch (t){
+                    case 1:
+                        myupgrades.add(2,new Up_Holder("Blacksmith",2,400000,R.drawable.money2,"Increase base blacksmith production 200%"));
+                        break;
+                    case 2:
+                        myupgrades.add(2,new Up_Holder("Blacksmith", 3, 650000000, R.drawable.money3, "Increase base blacksmith production 300%"));
+                        break;
+                }
+                break;
+        }
+    }
+
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -118,7 +123,78 @@ public class UpgradesFragment extends Fragment  {
 
     private void ClickCallback(){
         list = (ListView) view.findViewById(R.id.list);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
+                Up_Holder clicked = myupgrades.get(position);
+                String message = "You clicked position " + position
+                        + "Which is " + clicked.getName();
+                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
 
+                if(MainActivity.currScore >= clicked.getCost()) {
+
+                    MainActivity.currScore -= clicked.getCost();
+
+                    switch (clicked.getName()) {
+                        case "Farm":
+
+                            switch (clicked.getTier()) {
+                                case 1:
+                                    MainActivity.neutral1.setBasePassive(2);
+                                    break;
+                                case 2:
+                                    MainActivity.neutral1.setBasePassive(3);
+                                    break;
+                                case 3:
+                                    MainActivity.neutral1.setBasePassive(4);
+                                    break;
+                            }
+                            myupgrades.remove(position);
+                            nextUpgrade(clicked.getName(), clicked.getTier());
+                            adapter.notifyDataSetChanged();
+                            primary_activity.updateButton("neutral1");
+                            break;
+
+                        case "Inn":
+                            switch (clicked.getTier()) {
+                                case 1:
+                                    MainActivity.neutral2.setBasePassive(2);
+                                    break;
+                                case 2:
+                                    MainActivity.neutral2.setBasePassive(3);
+                                    break;
+                                case 3:
+                                    MainActivity.neutral2.setBasePassive(4);
+                                    break;
+                            }
+                            myupgrades.remove(position);
+                            nextUpgrade(clicked.getName(), clicked.getTier());
+                            adapter.notifyDataSetChanged();
+                            primary_activity.updateButton("neutral2");
+                            break;
+                        case "Blacksmith":
+                            switch (clicked.getTier()) {
+                                case 1:
+                                    MainActivity.neutral3.setBasePassive(2);
+                                    break;
+                                case 2:
+                                    MainActivity.neutral3.setBasePassive(3);
+                                    break;
+                                case 3:
+                                    MainActivity.neutral3.setBasePassive(4);
+                                    break;
+                            }
+                            myupgrades.remove(position);
+                            nextUpgrade(clicked.getName(), clicked.getTier());
+                            adapter.notifyDataSetChanged();
+                            primary_activity.updateButton("neutral3");
+                            break;
+
+                    }
+                }
+
+            }
+        });
     }
 
     /*
@@ -133,6 +209,8 @@ public class UpgradesFragment extends Fragment  {
         public myAdapter(Context context) {
             super(context,R.layout.list_item, myupgrades);
         }
+
+        //list = (ListView) view.findViewById(R.id.list);
 
 
         @Override

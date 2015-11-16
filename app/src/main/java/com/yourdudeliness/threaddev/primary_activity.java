@@ -232,7 +232,7 @@ public class primary_activity extends Fragment implements OnClickListener {
 
     public static void updateButton(String btn){
 
-        //UpgradesFragment.updateUpgrades;
+
         switch(btn){
             case "neutral1":
                 n1.setText(MainActivity.neutral1.printStats());
