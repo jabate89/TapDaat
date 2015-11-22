@@ -33,7 +33,7 @@ public class primary_activity extends Fragment implements OnClickListener {
 
 
     //TEST#########################################
-    public static TextView clickTest, passiveTest;
+    public static TextView clickTest, passiveTest,testbox;
     //TEST########################################
 
 
@@ -173,6 +173,7 @@ public class primary_activity extends Fragment implements OnClickListener {
 
         clickTest = (TextView) view.findViewById(R.id.click_test);
         passiveTest = (TextView) view.findViewById(R.id.passive_test);
+        testbox = (TextView) view.findViewById(R.id.tester);
 
         //DELETE ###########################  TESTING STUFF
     }

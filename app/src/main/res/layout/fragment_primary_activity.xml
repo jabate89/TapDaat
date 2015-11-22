@@ -191,6 +191,16 @@
             android:layout_below="@+id/click_test"
             android:layout_alignLeft="@+id/click_test"
             android:layout_alignStart="@+id/click_test" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/tester"
+            android:layout_alignTop="@+id/deity"
+            android:layout_alignRight="@+id/mana_bar"
+            android:layout_alignEnd="@+id/mana_bar" />
     </RelativeLayout>
 
 </FrameLayout>
