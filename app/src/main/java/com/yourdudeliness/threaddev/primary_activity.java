@@ -28,7 +28,7 @@ public class primary_activity extends Fragment implements OnClickListener {
     public static TextView scoreBox;
     public static TextView [] coins;
     public static Random coinGen;
-    public static int isCoin;
+    public static int isCoin, coinChance = 2;
     public static PathosCoins coinCollection;
 
 
@@ -190,8 +190,8 @@ public class primary_activity extends Fragment implements OnClickListener {
 
         isCoin = coinGen.nextInt(100);//generate random number < 100
 
-        if(isCoin == 69 || isCoin == 41){
-            //generate a coin if 69 or 41 is generated
+        if(isCoin < coinChance){
+            //generate a coin if rand is less than the percentage chance of receiving a coin
             coinCollection.generateCoin(coinGen.nextInt(3));
         }
 
