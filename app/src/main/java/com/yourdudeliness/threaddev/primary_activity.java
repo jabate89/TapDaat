@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Random;
 
 
@@ -29,12 +31,8 @@ public class primary_activity extends Fragment implements OnClickListener {
     public static TextView [] coins;
     public static Random coinGen;
     public static int isCoin, coinChance = 2;
-    public static PathosCoins coinCollection;
-
-
-    //TEST#########################################
-    public static TextView clickTest, passiveTest;
-    //TEST########################################
+    public static NumberFormat format;
+    public static TextView clickTest, passiveTest;//displays the current passive and active scoring values
 
 
 
@@ -89,18 +87,21 @@ public class primary_activity extends Fragment implements OnClickListener {
                 break;
             case R.id.pathos_1:
                 if(MainActivity.pathosEnabled){
-
+                    MainActivity.pathos1.build();
+                    updateButton("pathos1");
                 }
                 break;
             case R.id.pathos_2:
                 if(MainActivity.pathosEnabled){
-
+                    MainActivity.pathos2.build();
+                    updateButton("pathos2");
                 }
                 break;
 
             case R.id.pathos_3:
                 if(MainActivity.pathosEnabled){
-
+                    MainActivity.pathos3.build();
+                    updateButton("pathos3");
                 }
                 break;
             case R.id.power_1:
@@ -120,6 +121,7 @@ public class primary_activity extends Fragment implements OnClickListener {
      */
     public void initializeButtons(View view){
 
+        format = new DecimalFormat("0.##E0");
         /*
         Assign all the XML buttons to java objects
          */
@@ -165,7 +167,6 @@ public class primary_activity extends Fragment implements OnClickListener {
 
 
         coinGen = new Random();
-        coinCollection = new PathosCoins();
 
         //DELETE   #########################   TESTING STUFF
         cp1 = (Button) view.findViewById(R.id.power_1);
@@ -192,7 +193,7 @@ public class primary_activity extends Fragment implements OnClickListener {
 
         if(isCoin < coinChance){
             //generate a coin if rand is less than the percentage chance of receiving a coin
-            coinCollection.generateCoin(coinGen.nextInt(3));
+            MainActivity.coinCollection.generateCoin(coinGen.nextInt(3));
         }
 
         MainActivity.checkFunds();
@@ -208,13 +209,13 @@ public class primary_activity extends Fragment implements OnClickListener {
     public void initializePathos(String type){
 
         if(type == "good"){
-            MainActivity.pathos1 = new Building("Good 1", 100, 50);
-            MainActivity.pathos2 = new Building("Good 2", 300, 80);
-            MainActivity.pathos3 = new Building("Good 3", 1000, 200);
+            MainActivity.pathos1 = new Building("Bank", 55000, 200);
+            MainActivity.pathos2 = new Building("Good 2", 450000, 2000);
+            MainActivity.pathos3 = new Building("Good 3", 145000000, 100000);
         }else {
-            MainActivity.pathos1 = new Building("Evil 1", 100, 50);
-            MainActivity.pathos2 = new Building("Evil 2", 300, 80);
-            MainActivity.pathos3 = new Building("Evil 3", 1000, 200);
+            MainActivity.pathos1 = new Building("Prison", 5500, 200);
+            MainActivity.pathos2 = new Building("Evil 2", 450000, 2000);
+            MainActivity.pathos3 = new Building("Evil 3", 145000000, 100000);
         }
 
         p1.setVisibility(View.VISIBLE);
@@ -227,7 +228,12 @@ public class primary_activity extends Fragment implements OnClickListener {
 
     public static void printScore(){
 
-        scoreBox.setText((int)MainActivity.currScore + "");
+            scoreBox.setText("Bounty  " + (int)MainActivity.currScore);
+            MainActivity.coinCollection.printCoin();
+        primary_activity.clickTest.setText("Clk " + MainActivity.currClickVal);
+        primary_activity.passiveTest.setText("Sec " + MainActivity.currPassive);
+
+
     }
 
     public static void updateButton(String btn){
