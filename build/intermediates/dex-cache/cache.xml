@@ -2,18 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/Users/Awesomeness/Documents/AndroidStudio/TapDaat/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/jars/classes.jar"
+        jar="/Users/juliusabate/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
-        <dex dex="/Users/Awesomeness/Documents/AndroidStudio/TapDaat/app/build/intermediates/pre-dexed/debug/classes-e27f59bf342ed6edf376abec9745c28d4dae82e8.jar" />
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/Users/juliusabate/Documents/Android Studio/LaptopLocal/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-49ff8d3521962e2ed183b0de9aac3141fd0028ba.jar" />
     </item>
     <item
-        jar="/Users/Awesomeness/Documents/AndroidStudio/TapDaat/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.1.0/jars/classes.jar"
+        jar="/Users/juliusabate/Documents/Android Studio/LaptopLocal/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
-        <dex dex="/Users/Awesomeness/Documents/AndroidStudio/TapDaat/app/build/intermediates/pre-dexed/debug/classes-188dd2b50230fd72f015af46d4a18e8d83ace6a9.jar" />
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/Users/juliusabate/Documents/Android Studio/LaptopLocal/app/build/intermediates/pre-dexed/debug/classes-598187e0ec132b88621eea44ad75afe90379853a.jar" />
+    </item>
+    <item
+        jar="/Users/juliusabate/Documents/Android Studio/LaptopLocal/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/Users/juliusabate/Documents/Android Studio/LaptopLocal/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-112619501c75c1d0b2d9e2b79d9ce36ba9280d1c.jar" />
+    </item>
+    <item
+        jar="/Users/juliusabate/Documents/Android Studio/LaptopLocal/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/juliusabate/Documents/Android Studio/LaptopLocal/app/build/intermediates/pre-dexed/debug/classes-25ba0029f258d5d9ecc9d8302df2a571ad37507c.jar" />
     </item>
 
 </items>
