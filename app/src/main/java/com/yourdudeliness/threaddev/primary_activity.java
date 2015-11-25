@@ -8,10 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.Random;
 
@@ -23,12 +22,13 @@ import java.util.Random;
  */
 public class primary_activity extends Fragment implements OnClickListener {
 
-    protected static Button mainButton, n1, n2, n3, p1, p2, p3, deity, cp1, cp2, cp3;
+    protected static Button n1, n2, n3, p1, p2, p3, deity, cp1, cp2, cp3;
+    protected static ImageButton mainButton;
     public static ProgressBar manaBar;
     public static TextView scoreBox;
     public static TextView [] coins;
     public static Random coinGen;
-    public static int isCoin;
+    public static int isCoin, coinChance = 2;
     public static PathosCoins coinCollection;
 
 
@@ -123,7 +123,7 @@ public class primary_activity extends Fragment implements OnClickListener {
         /*
         Assign all the XML buttons to java objects
          */
-        mainButton = (Button) view.findViewById(R.id.main_button);
+        mainButton = (ImageButton) view.findViewById(R.id.main_button);
         n1 = (Button) view.findViewById(R.id.neutral_1);
         n2 = (Button) view.findViewById(R.id.neutral_2);
         n3 = (Button) view.findViewById(R.id.neutral_3);
@@ -135,9 +135,9 @@ public class primary_activity extends Fragment implements OnClickListener {
 
 
         coins = new TextView[3];//the coins view is used as an array
-        coins[0] = (TextView) view.findViewById(R.id.coin_0);
-        coins[1] = (TextView)view.findViewById(R.id.coin_1);
-        coins[2] = (TextView) view.findViewById(R.id.coin_2);
+        coins[0] = (TextView) view.findViewById(R.id.elf);
+        coins[1] = (TextView)view.findViewById(R.id.human);
+        coins[2] = (TextView) view.findViewById(R.id.orc);
 
         updateButton("neutral1");
         updateButton("neutral2");
@@ -190,8 +190,8 @@ public class primary_activity extends Fragment implements OnClickListener {
 
         isCoin = coinGen.nextInt(100);//generate random number < 100
 
-        if(isCoin == 69 || isCoin == 41){
-            //generate a coin if 69 or 41 is generated
+        if(isCoin < coinChance){
+            //generate a coin if rand is less than the percentage chance of receiving a coin
             coinCollection.generateCoin(coinGen.nextInt(3));
         }
 
