@@ -6,22 +6,24 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin">
+        android:paddingLeft="1dp"
+        android:paddingRight="1dp"
+        android:paddingTop="1dp"
+        android:paddingBottom="1dp"
+        android:background="#8B2500"
+        >
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:text="Get Money"
             android:id="@+id/main_button"
+            android:background="@drawable/coin"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/power_1"
-            android:layout_toEndOf="@+id/power_1" />
+            android:layout_centerHorizontal="true"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Neutral 1"
             android:id="@+id/neutral_1"
@@ -30,7 +32,7 @@
             android:layout_alignParentEnd="true" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Neutral 2"
             android:id="@+id/neutral_2"
@@ -39,7 +41,7 @@
             android:layout_alignParentEnd="true" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Neutral 3"
             android:id="@+id/neutral_3"
@@ -48,7 +50,7 @@
             android:layout_alignEnd="@+id/neutral_2" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Pathos 1"
             android:id="@+id/pathos_1"
@@ -58,7 +60,7 @@
             android:visibility="invisible"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Pathos 2"
             android:id="@+id/pathos_2"
@@ -68,7 +70,7 @@
             android:visibility="invisible"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Pathos 3"
             android:id="@+id/pathos_3"
@@ -78,7 +80,7 @@
             android:visibility="invisible"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Deity"
             android:id="@+id/deity"
@@ -103,7 +105,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CPB 1"
+            android:text="Plunder"
             android:id="@+id/power_1"
             android:layout_above="@+id/mana_bar"
             android:layout_alignParentLeft="true"
@@ -142,34 +144,41 @@
             android:layout_alignParentStart="true" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:text="0"
-            android:id="@+id/coin_0"
+            android:id="@+id/elf"
             android:layout_alignLeft="@+id/score_box"
             android:layout_alignStart="@+id/score_box"
-            android:layout_above="@+id/coin_1" />
+            android:layout_above="@+id/human"
+            android:background="@drawable/elf_gem"
+            android:gravity="center"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:text="0"
-            android:id="@+id/coin_1"
-            android:layout_alignBaseline="@+id/neutral_3"
-            android:layout_alignBottom="@+id/neutral_3"
-            android:layout_alignLeft="@+id/coin_0"
-            android:layout_alignStart="@+id/coin_0" />
+            android:id="@+id/human"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/orc"
+            android:layout_alignRight="@+id/elf"
+            android:layout_alignEnd="@+id/elf"
+            android:background="@drawable/human_gem"
+            android:gravity="center"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:text="0"
-            android:id="@+id/coin_2"
-            android:layout_alignBottom="@+id/neutral_3"
-            android:layout_alignLeft="@+id/coin_0"
-            android:layout_alignStart="@+id/coin_0"
-            android:layout_alignRight="@+id/coin_1"
-            android:layout_alignEnd="@+id/coin_1" />
+            android:id="@+id/orc"
+            android:layout_alignLeft="@+id/elf"
+            android:layout_alignStart="@+id/elf"
+            android:background="@drawable/orc_gem"
+            android:gravity="center"
+            android:layout_above="@+id/main_button"
+            android:layout_alignRight="@+id/human"
+            android:layout_alignEnd="@+id/human" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -177,10 +186,9 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Small Text"
             android:id="@+id/click_test"
-            android:layout_alignBaseline="@+id/pathos_3"
-            android:layout_alignBottom="@+id/pathos_3"
-            android:layout_alignLeft="@+id/main_button"
-            android:layout_alignStart="@+id/main_button" />
+            android:layout_above="@+id/passive_test"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -188,19 +196,9 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Small Text"
             android:id="@+id/passive_test"
-            android:layout_below="@+id/click_test"
-            android:layout_alignLeft="@+id/click_test"
-            android:layout_alignStart="@+id/click_test" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/tester"
-            android:layout_alignTop="@+id/deity"
-            android:layout_alignRight="@+id/mana_bar"
-            android:layout_alignEnd="@+id/mana_bar" />
+            android:layout_alignBottom="@+id/neutral_2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
     </RelativeLayout>
 
 </FrameLayout>
