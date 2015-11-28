@@ -8,9 +8,9 @@ public class Building {
     private String buildingType;
     private int totalBuildings;
     private int costOfNext;
-    private int BasePassive;
+    private double BasePassive;
     private int passiveMultiplier;
-    private int cumulativePassive;
+    private double cumulativePassive;
 
 
     public Building(String name, int startCost, int passive){
@@ -23,9 +23,9 @@ public class Building {
     }
 
 
-    public void build(){
+    public void build() {
 
-        if(costOfNext <= MainActivity.currScore) {
+        if (costOfNext <= MainActivity.currScore) {
             MainActivity.currScore -= costOfNext;//subtracts the cost of the building
             primary_activity.printScore();
             MainActivity.checkFunds();
@@ -42,6 +42,52 @@ public class Building {
              increase as we increase number of buildings
               */
 
+        switch (buildingType) {
+            case "Farm":
+                primary_activity.testbox.setText("Add upgrade");
+                switch (totalBuildings) {
+                    case 5:
+                        primary_activity.testbox.setText("Add upgrade Case 5");
+                        UpgradesFragment.nextUpgrade("Farm", 0);
+                        break;
+                    case 25:
+                        UpgradesFragment.nextUpgrade("Farm", 1);
+                        primary_activity.testbox.setText("Add upgrade Case 25");
+                        break;
+                    case 75:
+                        UpgradesFragment.nextUpgrade("Farm", 2);
+                        break;
+                }
+                break;
+
+            case "Inn":
+                switch (totalBuildings) {
+                    case 5:
+                        UpgradesFragment.nextUpgrade("Inn", 0);
+                        break;
+                    case 25:
+                        UpgradesFragment.nextUpgrade("Inn", 1);
+                        break;
+                    case 75:
+                        UpgradesFragment.nextUpgrade("Inn", 2);
+                        break;
+                }
+                break;
+
+            case "Blacksmith":
+                switch (totalBuildings) {
+                    case 5:
+                        UpgradesFragment.nextUpgrade(buildingType, 0);
+                        break;
+                    case 25:
+                        UpgradesFragment.nextUpgrade(buildingType, 1);
+                        break;
+                    case 75:
+                        UpgradesFragment.nextUpgrade(buildingType, 2);
+                        break;
+                }
+                break;
+        }
 
     }
 
@@ -57,9 +103,13 @@ public class Building {
         return buildingType;
     }
 
-    public void setBasePassive(int multiplier){BasePassive = BasePassive * multiplier;}
+    public void setBasePassive(double multiplier){BasePassive = BasePassive * multiplier;}
 
-    public int getCumulativePassive() { return cumulativePassive; }
+    public void updateCumulativePassive(){
+        cumulativePassive = BasePassive * totalBuildings;
+    }
+
+    public double getCumulativePassive() { return cumulativePassive; }
 
     public String printStats(){
         return   ( buildingType + "     "

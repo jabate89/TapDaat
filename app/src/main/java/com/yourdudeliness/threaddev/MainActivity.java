@@ -16,6 +16,8 @@ public class MainActivity extends FragmentActivity {
     private final static int SECOND = 1000;
     protected static double currClickVal;
     protected static double baseClickVal = 200;
+    protected static int totalClicks;
+    protected static int totalClickValue;
     protected static double currScore = 0;
     protected static double currPassive = 10;
     protected static int currMana = 0;
@@ -178,7 +180,14 @@ public class MainActivity extends FragmentActivity {
     }
 
 
-
+    static void setBaseClickVal(int val)
+    {
+        currClickVal += val;
+    }
+    static void setBaseClickVal(double val)
+    {
+        currClickVal *= val;
+    }
 
 
 

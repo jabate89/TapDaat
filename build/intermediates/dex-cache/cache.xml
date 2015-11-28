@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/Users/juliusabate/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="/Users/juliusabate/Documents/Android Studio/LaptopLocal/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-49ff8d3521962e2ed183b0de9aac3141fd0028ba.jar" />
-    </item>
-    <item
-        jar="/Users/juliusabate/Documents/Android Studio/LaptopLocal/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="/Users/juliusabate/Documents/Android Studio/LaptopLocal/app/build/intermediates/pre-dexed/debug/classes-598187e0ec132b88621eea44ad75afe90379853a.jar" />
-    </item>
-    <item
-        jar="/Users/juliusabate/Documents/Android Studio/LaptopLocal/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jar="C:\Users\EROBOS\AndroidStudioProjects\TapDaatfixed\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="/Users/juliusabate/Documents/Android Studio/LaptopLocal/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-112619501c75c1d0b2d9e2b79d9ce36ba9280d1c.jar" />
+        <dex dex="C:\Users\EROBOS\AndroidStudioProjects\TapDaatfixed\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-ecd7fb9252067bd432ff1b754b4da041e08fc719.jar" />
     </item>
     <item
-        jar="/Users/juliusabate/Documents/Android Studio/LaptopLocal/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jar="C:\Users\EROBOS\AndroidStudioProjects\TapDaatfixed\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="C:\Users\EROBOS\AndroidStudioProjects\TapDaatfixed\app\build\intermediates\pre-dexed\debug\classes-420e2c4e14e8d24fb116751a7811bec4ed28930d.jar" />
+    </item>
+    <item
+        jar="C:\Users\EROBOS\AppData\Local\Android\sdk2\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="C:\Users\EROBOS\AndroidStudioProjects\TapDaatfixed\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-b56767b76bc3023784d084f2efb46e0dc95a953d.jar" />
+    </item>
+    <item
+        jar="C:\Users\EROBOS\AndroidStudioProjects\TapDaatfixed\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="/Users/juliusabate/Documents/Android Studio/LaptopLocal/app/build/intermediates/pre-dexed/debug/classes-25ba0029f258d5d9ecc9d8302df2a571ad37507c.jar" />
+        <dex dex="C:\Users\EROBOS\AndroidStudioProjects\TapDaatfixed\app\build\intermediates\pre-dexed\debug\classes-627862bb2c55d7a969b274a7ca1f89683fd3cced.jar" />
     </item>
 
 </items>
