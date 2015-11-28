@@ -47,8 +47,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_MAIN_TABLE = "CREATE TABLE" + TABLE_MAIN +
-                "(" + KEY_MAIN_CURR_SCORE + "INTEGER PRIMARY KEY," +
+        String CREATE_MAIN_TABLE = "CREATE TABLE " + TABLE_MAIN +
+                "(" + KEY_MAIN_CURR_SCORE + " INTEGER PRIMARY KEY, " +
                 KEY_MAIN_CURR_PASSIVE + " INTEGER  " +
                 KEY_MAIN_BASE_CLICK_VALUE + " INTEGER  " +
                 KEY_MAIN_CURR_CLICK_VALUE + " INTEGER " +
@@ -72,5 +72,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return sInstance;
     }
-    public void addPost
+    public void addPost(){}
 }

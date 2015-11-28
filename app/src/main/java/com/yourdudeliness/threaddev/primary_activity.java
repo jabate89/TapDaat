@@ -11,8 +11,6 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.Random;
 
 
@@ -30,6 +28,7 @@ public class primary_activity extends Fragment implements OnClickListener {
     public static Random coinGen;
     public static int isCoin;
     public static PathosCoins coinCollection;
+    private static int clickCoinsflag = 0;
 
 
     //TEST#########################################
@@ -74,6 +73,17 @@ public class primary_activity extends Fragment implements OnClickListener {
 
             case R.id.main_button:
                 incrementScore();
+                MainActivity.totalClicks++;
+                switch(MainActivity.totalClicks){
+                    case 10:
+                        UpgradesFragment.nextUpgrade("ClickingNumber",0);
+                        break;
+                    case 500:
+                        UpgradesFragment.nextUpgrade("ClickingNumber",1);
+                        break;
+                    case 2500:
+                        UpgradesFragment.nextUpgrade("ClickingNumber",2);
+                }
                 break;
             case R.id.neutral_1:
                 MainActivity.neutral1.build();
@@ -186,8 +196,25 @@ public class primary_activity extends Fragment implements OnClickListener {
     public static void incrementScore(){
 
         MainActivity.currScore += MainActivity.currClickVal;
+        MainActivity.totalClickValue += MainActivity.currClickVal;
+        primary_activity.testbox.setText(Integer.toString(MainActivity.totalClickValue));
         printScore();
+        if(MainActivity.totalClickValue > 499 && MainActivity.totalClickValue < 5000000)
+            if(clickCoinsflag == 0) {
+                UpgradesFragment.nextUpgrade("ClickingCoins", 0);
+                clickCoinsflag++;
+            }
+        else if(MainActivity.totalClickValue == 5000000)
+                if(clickCoinsflag == 1) {
+                    UpgradesFragment.nextUpgrade("ClickingCoins", 1);
+                    clickCoinsflag++;
+                }
 
+        else if(MainActivity.totalClickValue == 1000000000)//"Integer numner too Large" When using 5Billion
+                if(clickCoinsflag == 2) {
+                    UpgradesFragment.nextUpgrade("ClickingCoins", 2);
+                    clickCoinsflag++;
+                }
 
         isCoin = coinGen.nextInt(100);//generate random number < 100
 

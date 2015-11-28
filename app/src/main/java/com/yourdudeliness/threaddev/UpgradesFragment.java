@@ -124,6 +124,35 @@ public class UpgradesFragment extends Fragment  {
                 }
                 adapter.notifyDataSetChanged();
                 break;
+
+            case "ClickingNumber":
+                switch (t){
+                    case 0:
+                        myupgrades.add(0,new Up_Holder("Treasure",1,500,R.drawable.yen,"Increase base clicking reward by 4"));
+                        break;
+                    case 1:
+                        myupgrades.add(0,new Up_Holder("Treasure",2,5000,R.drawable.dollar,"Increase base clicking reward by 45"));
+                        break;
+                    case 2:
+                        myupgrades.add(0,new Up_Holder("Treasure", 3, 5000000, R.drawable.euro, "Increase base clicking reward by 4950"));
+                        break;
+                }
+                adapter.notifyDataSetChanged();
+                break;
+            case "ClickingCoins":
+                switch (t){
+                    case 0:
+                        myupgrades.add(0,new Up_Holder("ClickBonus",1,10000,R.drawable.yen,"Increase clicking reward by 25% and the production of all buildings by 25%"));
+                        break;
+                    case 1:
+                        myupgrades.add(0,new Up_Holder("ClickBonus",2,50000000,R.drawable.dollar,"Increase clicking reward by 25% and the production of all buildings by 25%"));
+                        break;
+                    case 2:
+                        myupgrades.add(0,new Up_Holder("ClickBonus", 3, 1000000000, R.drawable.euro, "Increase clicking reward by 25% and the production of all buildings by 25%"));
+                        break;
+                }
+                adapter.notifyDataSetChanged();
+                break;
         }
 
     }
@@ -207,6 +236,47 @@ public class UpgradesFragment extends Fragment  {
                             MainActivity.neutral3.updateCumulativePassive();
                             primary_activity.updateButton("neutral3");
                             break;
+                        case "Treasure":
+                            switch (clicked.getTier()) {
+                                case 1:
+                                    MainActivity.setBaseClickVal(4);
+                                    break;
+                                case 2:
+                                    MainActivity.setBaseClickVal(45);
+                                    break;
+                                case 3:
+                                    MainActivity.setBaseClickVal(4950);
+                                    break;
+                            }
+                            myupgrades.remove(position);
+                            //nextUpgrade(clicked.getName(), clicked.getTier());
+                            adapter.notifyDataSetChanged();
+                            break;
+                        case "ClickingBonus":
+                            switch (clicked.getTier()) {
+                                case 1:
+                                    MainActivity.neutral1.setBasePassive(1.25);
+                                    MainActivity.neutral2.setBasePassive(1.25);
+                                    MainActivity.neutral3.setBasePassive(1.25);
+                                    MainActivity.setBaseClickVal(1.25);
+                                    break;
+                                case 2:
+                                    MainActivity.neutral1.setBasePassive(1.25);
+                                    MainActivity.neutral2.setBasePassive(1.25);
+                                    MainActivity.neutral3.setBasePassive(1.25);
+                                    MainActivity.setBaseClickVal(1.25);
+                                    break;
+                                case 3:
+                                    MainActivity.neutral1.setBasePassive(1.25);
+                                    MainActivity.neutral2.setBasePassive(1.25);
+                                    MainActivity.neutral3.setBasePassive(1.25);
+                                    MainActivity.setBaseClickVal(1.25);
+                                    break;
+                            }
+                            myupgrades.remove(position);
+                            //nextUpgrade(clicked.getName(), clicked.getTier());
+                            adapter.notifyDataSetChanged();
+                            break;
 
                     }
                 }
@@ -254,7 +324,7 @@ public class UpgradesFragment extends Fragment  {
                 holder.up_name.setText(currentUp.getName());
                 holder.up_tier.setText(" Tier " + Integer.toString(currentUp.getTier()));
                 holder.up_cost.setText(Integer.toString(currentUp.getCost()));
-                holder.up_desc.setText(currentUp.getBonus());
+            holder.up_desc.setText(currentUp.getBonus());
 
                 /*
                 ImageView imageView = (ImageView) view.findViewById(R.id.up_thumbnail);

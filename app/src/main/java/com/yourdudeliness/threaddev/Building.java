@@ -8,9 +8,9 @@ public class Building {
     private String buildingType;
     private int totalBuildings;
     private int costOfNext;
-    private int BasePassive;
+    private double BasePassive;
     private int passiveMultiplier;
-    private int cumulativePassive;
+    private double cumulativePassive;
 
 
     public Building(String name, int startCost, int passive){
@@ -103,13 +103,13 @@ public class Building {
         return buildingType;
     }
 
-    public void setBasePassive(int multiplier){BasePassive = BasePassive * multiplier;}
+    public void setBasePassive(double multiplier){BasePassive = BasePassive * multiplier;}
 
     public void updateCumulativePassive(){
         cumulativePassive = BasePassive * totalBuildings;
     }
 
-    public int getCumulativePassive() { return cumulativePassive; }
+    public double getCumulativePassive() { return cumulativePassive; }
 
     public String printStats(){
         return   ( buildingType + "     "
