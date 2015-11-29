@@ -1,14 +1,14 @@
 package com.yourdudeliness.threaddev;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.os.CountDownTimer;
 
 public class MainActivity extends FragmentActivity {
 
@@ -180,13 +180,36 @@ public class MainActivity extends FragmentActivity {
     }
 
 
-    static void setBaseClickVal(int val)
+    static void setBaseClickVal(double val)
     {
         currClickVal += val;
     }
-    static void setBaseClickVal(double val)
-    {
-        currClickVal *= val;
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences sharedPreferences = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putLong(getString(R.string.Bounty),(long)currScore);
+        editor.putInt(getString(R.string.saved_totalClicks),totalClicks);
+        editor.putInt(getString(R.string.Farm_total_buildings),neutral1.getTotalBuildings());
+        editor.putInt(getString(R.string.Farm_cost), neutral1.getCostOfNext());
+        editor.putLong(getString(R.string.Farm_Passive), (long) neutral1.getCumulativePassive());
+        editor.putLong(getString(R.string.Farm_Base),(long)neutral1.getBasePassive());
+
+        editor.apply();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences sharedPreferences = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
+        currScore = sharedPreferences.getLong(getString(R.string.Bounty),0);
+        neutral1.setCostOfNext(sharedPreferences.getInt(getString(R.string.Farm_cost), 10));
+        neutral1.setTotalBuildings(sharedPreferences.getInt(getString(R.string.Farm_total_buildings), 0));
+        neutral1.setCumulativePassive((double) sharedPreferences.getLong(getString(R.string.Farm_Passive), 0));
+        neutral1.setBasePassive(sharedPreferences.getLong(getString(R.string.Farm_Base), 1));
     }
 
 

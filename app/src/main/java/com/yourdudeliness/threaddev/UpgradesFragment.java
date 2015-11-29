@@ -99,13 +99,13 @@ public class UpgradesFragment extends Fragment  {
             case "Inn":
                 switch (t){
                     case 0:
-                        myupgrades.add(0,new Up_Holder("Inn",1, 2500, R.drawable.inn1, "Increase base Inn production 100%"));
+                        myupgrades.add(1,new Up_Holder("Inn",1, 2500, R.drawable.inn1, "Increase base Inn production 100%"));
                         break;
                     case 1:
-                        myupgrades.add(0,new Up_Holder("Inn",2, 850000, R.drawable.inn2, "Increase base Inn production 200%"));
+                        myupgrades.add(1,new Up_Holder("Inn",2, 850000, R.drawable.inn2, "Increase base Inn production 200%"));
                         break;
                     case 2:
-                        myupgrades.add(0,new Up_Holder("Inn",3, 130000000, R.drawable.inn3, "Increase base Inn production 300%"));
+                        myupgrades.add(1,new Up_Holder("Inn",3, 130000000, R.drawable.inn3, "Increase base Inn production 300%"));
                         break;
                 }
                 adapter.notifyDataSetChanged();
@@ -113,13 +113,13 @@ public class UpgradesFragment extends Fragment  {
             case "Blacksmith":
                 switch (t){
                     case 0:
-                        myupgrades.add(0,new Up_Holder("Blacksmith",1,12000,R.drawable.money1,"Increase base blacksmith production 100%"));
+                        myupgrades.add(2,new Up_Holder("Blacksmith",1,12000,R.drawable.money1,"Increase base blacksmith production 100%"));
                         break;
                     case 1:
-                        myupgrades.add(0,new Up_Holder("Blacksmith",2,400000,R.drawable.money2,"Increase base blacksmith production 200%"));
+                        myupgrades.add(2,new Up_Holder("Blacksmith",2,400000,R.drawable.money2,"Increase base blacksmith production 200%"));
                         break;
                     case 2:
-                        myupgrades.add(0,new Up_Holder("Blacksmith", 3, 650000000, R.drawable.money3, "Increase base blacksmith production 300%"));
+                        myupgrades.add(2,new Up_Holder("Blacksmith", 3, 650000000, R.drawable.money3, "Increase base blacksmith production 300%"));
                         break;
                 }
                 adapter.notifyDataSetChanged();

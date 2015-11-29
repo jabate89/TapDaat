@@ -91,7 +91,7 @@ public class Building {
 
     }
 
-    public double getCostOfNext(){
+    public int getCostOfNext(){
         return costOfNext;
     }
 
@@ -116,5 +116,25 @@ public class Building {
                 + (int) totalBuildings
                 + "\n Cost " + (int) costOfNext
                 + "    Output " + cumulativePassive);
+    }
+
+    public int getTotalBuildings() {
+        return totalBuildings;
+    }
+
+    public double getBasePassive() {
+        return BasePassive;
+    }
+
+    public void setCostOfNext(int costOfNext) {
+        this.costOfNext = costOfNext;
+    }
+
+    public void setTotalBuildings(int totalBuildings) {
+        this.totalBuildings = totalBuildings;
+    }
+
+    public void setCumulativePassive(double cumulativePassive) {
+        this.cumulativePassive = cumulativePassive;
     }
 }

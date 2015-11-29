@@ -1,8 +1,14 @@
 <resources>
-    <string name="app_name">ThreadDev</string>
+    <string name="app_name">TapDaat</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="saved_totalClicks">TotalClicks</string>
+    <string name="Farm_total_buildings">FarmBuildings</string>
+    <string name="Farm_cost">FarmCost</string>
+    <string name="Farm_Passive">FarmPassive</string>
+    <string name="Farm_Base">FarmBase</string>
+    <string name="Bounty">Bounty</string>
 </resources>
