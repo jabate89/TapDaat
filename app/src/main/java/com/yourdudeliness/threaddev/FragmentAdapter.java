@@ -27,7 +27,7 @@ public class FragmentAdapter extends FragmentPagerAdapter {
             case 1:
                 return UpgradesFragment.newInstance();
             default:
-                return Trophies.newInstance();
+                return ExpandableListMainActivity.newInstance();
         }
 
     }
