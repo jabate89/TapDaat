@@ -44,15 +44,15 @@ public class Building {
 
         switch (buildingType) {
             case "Farm":
-                primary_activity.testbox.setText("Add upgrade");
+                //primary_activity.testbox.setText("Add upgrade");
                 switch (totalBuildings) {
                     case 5:
-                        primary_activity.testbox.setText("Add upgrade Case 5");
+                        //primary_activity.testbox.setText("Add upgrade Case 5");
                         UpgradesFragment.nextUpgrade("Farm", 0);
                         break;
                     case 25:
                         UpgradesFragment.nextUpgrade("Farm", 1);
-                        primary_activity.testbox.setText("Add upgrade Case 25");
+                        //primary_activity.testbox.setText("Add upgrade Case 25");
                         break;
                     case 75:
                         UpgradesFragment.nextUpgrade("Farm", 2);

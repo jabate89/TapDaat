@@ -38,6 +38,9 @@ public class primary_activity extends Fragment implements OnClickListener {
 
 
 
+
+
+
     public static primary_activity newInstance() {
         primary_activity fragment = new primary_activity();
 
@@ -74,7 +77,7 @@ public class primary_activity extends Fragment implements OnClickListener {
                 incrementScore();
                 MainActivity.totalClicks++;
                 switch(MainActivity.totalClicks){
-                    case 10:
+                    case 100:
                         UpgradesFragment.nextUpgrade("ClickingNumber",0);
                         break;
                     case 500:
@@ -185,7 +188,7 @@ public class primary_activity extends Fragment implements OnClickListener {
 
         clickTest = (TextView) view.findViewById(R.id.click_test);
         passiveTest = (TextView) view.findViewById(R.id.passive_test);
-        testbox = (TextView) view.findViewById(R.id.tester);
+        //testbox = (TextView) view.findViewById(R.id.tester);
 
         //DELETE ###########################  TESTING STUFF
     }
@@ -199,14 +202,14 @@ public class primary_activity extends Fragment implements OnClickListener {
 
         MainActivity.currScore += MainActivity.currClickVal;
         MainActivity.totalClickValue += MainActivity.currClickVal;
-        primary_activity.testbox.setText(Integer.toString(MainActivity.totalClickValue));
+        //primary_activity.testbox.setText(Integer.toString(MainActivity.totalClickValue));
         printScore();
-        if(MainActivity.totalClickValue > 499 && MainActivity.totalClickValue < 5000000)
+        if(MainActivity.totalClickValue > 500 && MainActivity.totalClickValue < 5000000)
             if(clickCoinsflag == 0) {
                 UpgradesFragment.nextUpgrade("ClickingCoins", 0);
                 clickCoinsflag++;
             }
-        else if(MainActivity.totalClickValue == 5000000)
+        else if(MainActivity.totalClickValue >= 5000000 && MainActivity.totalClickValue < 1000000000)
                 if(clickCoinsflag == 1) {
                     UpgradesFragment.nextUpgrade("ClickingCoins", 1);
                     clickCoinsflag++;
