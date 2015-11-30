@@ -16,8 +16,6 @@ public class MainActivity extends FragmentActivity {
     private final static int SECOND = 1000;
     protected static double currClickVal;
     protected static double baseClickVal = 200;
-    protected static int totalClicks;
-    protected static int totalClickValue;
     protected static double currScore = 0;
     protected static double currPassive = 10;
     protected static int currMana = 0;
@@ -25,7 +23,6 @@ public class MainActivity extends FragmentActivity {
     public static TextView scoreBox;
     public static Building neutral1, neutral2, neutral3, pathos1, pathos2, pathos3, deity;
     public static boolean pathosEnabled = false; //A flag for when the user has chosen an in-game path
-    public static PathosCoins coinCollection;
 
 
 
@@ -77,6 +74,11 @@ public class MainActivity extends FragmentActivity {
 
                     updatePassive();
 
+                    //TEST###################################
+                    primary_activity.clickTest.setText("Click value : " + currClickVal);
+                    primary_activity.passiveTest.setText("Passive value : " + currPassive);
+                    //TEST####################################
+
 
                 }
                 scoreHandler.postDelayed(this, SECOND);
@@ -95,9 +97,8 @@ public class MainActivity extends FragmentActivity {
     private void initializeBuildings(){
 
         neutral1 = new Building("Farm", 10, 1);
-        neutral2 = new Building("Inn", 30, 5);
-        neutral3 = new Building("Blacksmith", 50, 20);
-        coinCollection = new PathosCoins();
+        neutral2 = new Building("Blacksmith", 30, 5);
+        neutral3 = new Building("Barracks", 50, 20);
 
     }
     public static void updatePassive(){
@@ -180,14 +181,7 @@ public class MainActivity extends FragmentActivity {
     }
 
 
-    static void setBaseClickVal(int val)
-    {
-        currClickVal += val;
-    }
-    static void setBaseClickVal(double val)
-    {
-        currClickVal *= val;
-    }
+
 
 
 

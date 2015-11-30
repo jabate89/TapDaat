@@ -7,14 +7,18 @@ import android.support.v4.app.Fragment;
 import android.app.ExpandableListActivity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+//import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckedTextView;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ExpandableListAdapter;
 
+import java.util.List;
 import java.util.ArrayList;
 
 public class ExpandableListMainActivity extends Fragment
@@ -26,7 +30,7 @@ public class ExpandableListMainActivity extends Fragment
     private View view;
     ExpandableListView expandableList = new ExpandableListView(getContext());
     private static MyExpandableAdapter adapter;
-
+    ArrayList<String> child = new ArrayList<String>();
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -66,6 +70,7 @@ public class ExpandableListMainActivity extends Fragment
         expandableList.setDividerHeight(2);
         expandableList.setGroupIndicator(null);
         expandableList.setClickable(true);
+        mytrophies.add(0, new T_holder("upgrade: Blacksmith", 1, 5, R.drawable.inn1, "Build 5 Blacksmiths"));
         return view;
     }
 
@@ -83,7 +88,7 @@ public class ExpandableListMainActivity extends Fragment
     {
 
         // Add Child Items for Upgrades
-        ArrayList<String> child = new ArrayList<String>();
+
         child.add("Farms");
         child.add("Inns");
         child.add("Blacksmith");
@@ -122,21 +127,20 @@ public class ExpandableListMainActivity extends Fragment
 
 
 
-public static void nextTrophey(string name, int t) {
-    switch(name) {
+public static void nextTrophey(String name, int t) {
+    switch (name) {
         case "upgrades1":
-                switch (t) {
-                    case 0:
-                        primary_activity.testbox.setText("Add trophey case 0");
-                        mytrophies.add(0, new T_holder("upgrade: Farm", 1, 5, R.drawable.farm1, "Build 5 farms"));
-                        break;
-                    case 1:
-                        mytrophies.add(0, new T_holder("Upgrade Farm", 2, 25, R.drawable.farm2, "Build 25 farms"));
-                        break;
-                    case 2:
-                        mytrophies.add(0, new T_holder("Upgrade Farm", 3, 75, R.drawable.farm3, "Build 75 farms"));
-                        break;
-                }
+            switch (t) {
+                case 0:
+                    mytrophies.add(0, new T_holder("upgrade: Farm", 1, 5, R.drawable.house1, "Build 5 farms"));
+                    break;
+                case 1:
+                    mytrophies.add(0, new T_holder("Upgrade Farm", 2, 25, R.drawable.house2, "Build 25 farms"));
+                    break;
+                case 2:
+                    mytrophies.add(0, new T_holder("Upgrade Farm", 3, 75, R.drawable.house3, "Build 75 farms"));
+                    break;
+            }
             adapter.notifyDataSetChanged();
             break;
 
@@ -160,7 +164,7 @@ public static void nextTrophey(string name, int t) {
         case "upgrades3":
             switch (t) {
                 case 0:
-                    mytrophies.add(0, new T_holder("upgrade: Blacksmith", 1, 5, R.drawable.inn1, "Build 5 Blacksmiths"));
+
                     break;
                 case 1:
                     mytrophies.add(0, new T_holder("Upgrade Blacksmith", 2, 25, R.drawable.inn2, "Build 25 Blacksmiths"));
@@ -173,26 +177,25 @@ public static void nextTrophey(string name, int t) {
             break;
 
 
-
         case "Clicking Rewards":
             switch (t) {
                 case 0:
-                    mytrophies.add(0, new T_holder("Sturdy Treasure", 1, 100, R.drawable.click1, "100 total clicks"));
+                    mytrophies.add(0, new T_holder("Sturdy Treasure", 1, 100, R.drawable.inn3, "100 total clicks"));
                     break;
                 case 1:
-                    mytrophies.add(0, new T_holder("Durable Treasure", 2, 500, R.drawable.click2, "500 total clicks"));
+                    mytrophies.add(0, new T_holder("Durable Treasure", 2, 500, R.drawable.inn3, "500 total clicks"));
                     break;
                 case 2:
-                    mytrophies.add(0, new T_holder("Reinforced Treasure", 3, 2500, R.drawable.click3, "2500 total clicks"));
+                    mytrophies.add(0, new T_holder("Reinforced Treasure", 3, 2500, R.drawable.inn3, "2500 total clicks"));
                     break;
                 case 3:
-                    mytrophies.add(0, new T_holder("Resilient Treasure", 4, 10000, R.drawable.click4, "10000 total clicks"));
+                    mytrophies.add(0, new T_holder("Resilient Treasure", 4, 10000, R.drawable.inn3, "10000 total clicks"));
                     break;
                 case 4:
-                    mytrophies.add(0, new T_holder("Unbreakable Treasure", 5, 50000, R.drawable.click5, "50000 total clicks"));
+                    mytrophies.add(0, new T_holder("Unbreakable Treasure", 5, 50000, R.drawable.inn3, "50000 total clicks"));
                     break;
                 case 5:
-                    mytrophies.add(0, new T_holder("Eternal Treasure", 6, 100000, R.drawable.click6, "100000 total clicks"));
+                    mytrophies.add(0, new T_holder("Eternal Treasure", 6, 100000, R.drawable.inn3, "100000 total clicks"));
                     break;
 
             }
@@ -203,19 +206,19 @@ public static void nextTrophey(string name, int t) {
         case "Clicking Rewards2":
             switch (t) {
                 case 0:
-                    mytrophies.add(0, new T_holder("Filled Treasure", 1, 100, R.drawable.cclick1, "5000 coins by clicking"));
+                    mytrophies.add(0, new T_holder("Filled Treasure", 1, 100, R.drawable.inn3, "5000 coins by clicking"));
                     break;
                 case 1:
-                    mytrophies.add(0, new T_holder("Rich Treasure", 2, 500, R.drawable.cclick2, "5 million coins by clicking"));
+                    mytrophies.add(0, new T_holder("Rich Treasure", 2, 500, R.drawable.inn3, "5 million coins by clicking"));
                     break;
                 case 2:
-                    mytrophies.add(0, new T_holder("Wealthy Treasure", 3, 2500, R.drawable.cclick3, "5 billion coins by clicking"));
+                    mytrophies.add(0, new T_holder("Wealthy Treasure", 3, 2500, R.drawable.inn3, "5 billion coins by clicking"));
                     break;
                 case 3:
-                    mytrophies.add(0, new T_holder("Opulent Treasure", 4, 10000, R.drawable.cclick4, "5T coins by clicking"));
+                    mytrophies.add(0, new T_holder("Opulent Treasure", 4, 10000, R.drawable.inn3, "5T coins by clicking"));
                     break;
                 case 4:
-                    mytrophies.add(0, new T_holder("Overflowing Treasure", 5, 50000, R.drawable.cclick5, "5Qa coins by clicking"));
+                    mytrophies.add(0, new T_holder("Overflowing Treasure", 5, 50000, R.drawable.inn3, "5Qa coins by clicking"));
                     break;
 
             }
@@ -225,19 +228,19 @@ public static void nextTrophey(string name, int t) {
         case "Clicking Rewards3":
             switch (t) {
                 case 0:
-                    mytrophies.add(0, new T_holder("Precious Treasure", 1, 100000, R.drawable.pclick1, "100,000 Coins by passive"));
+                    mytrophies.add(0, new T_holder("Precious Treasure", 1, 100000, R.drawable.inn3, "100,000 Coins by passive"));
                     break;
                 case 1:
-                    mytrophies.add(0, new T_holder("Ornate Treasure", 2, 100000000, R.drawable.pclick2, "100M Coins by passive"));
+                    mytrophies.add(0, new T_holder("Ornate Treasure", 2, 100000000, R.drawable.inn3, "100M Coins by passive"));
                     break;
                 case 2:
-                    mytrophies.add(0, new T_holder("Adorned Treasure", 3, 100000000000, R.drawable.pclick3, "100B Coins by passive"));
+                    mytrophies.add(0, new T_holder("Adorned Treasure", 3, 100000, R.drawable.inn3, "100B Coins by passive"));
                     break;
                 case 3:
-                    mytrophies.add(0, new T_holder("embellished Treasure", 4, 100000000000000, R.drawable.pclick4, "100T Coins by passive"));
+                    mytrophies.add(0, new T_holder("embellished Treasure", 4, 1000000, R.drawable.inn3, "100T Coins by passive"));
                     break;
                 case 4:
-                    mytrophies.add(0, new T_holder("resplenent Treasure", 5, 100000000000000, R.drawable.pclick5, "100Qa (1E20) Coins by passive"));
+                    mytrophies.add(0, new T_holder("resplenent Treasure", 5, 1000000, R.drawable.inn3, "100Qa (1E20) Coins by passive"));
                     break;
 
             }
@@ -247,29 +250,29 @@ public static void nextTrophey(string name, int t) {
         case "Mana Rewards":
             switch (t) {
                 case 0:
-                    mytrophies.add(0, new T_holder("Mana Droplet", 1, 200, R.drawable.manar1, "200 mana produced"));
+                    mytrophies.add(0, new T_holder("Mana Droplet", 1, 200, R.drawable.inn3, "200 mana produced"));
                     break;
                 case 1:
-                    mytrophies.add(0, new T_holder("Mana Rain", 2, 2000, R.drawable.manar2, "2000 mana produced"));
+                    mytrophies.add(0, new T_holder("Mana Rain", 2, 2000, R.drawable.inn3, "2000 mana produced"));
                     break;
                 case 2:
-                    mytrophies.add(0, new T_holder("Mana Surge", 3, 5000, R.drawable.manar3, "5000 mana produced"));
+                    mytrophies.add(0, new T_holder("Mana Surge", 3, 5000, R.drawable.inn3, "5000 mana produced"));
                     break;
                 case 3:
-                    mytrophies.add(0, new T_holder("Mana Fountain", 4, 10000, R.drawable.manar4, "10,000 Mana Produced"));
+                    mytrophies.add(0, new T_holder("Mana Fountain", 4, 10000, R.drawable.inn3, "10,000 Mana Produced"));
                     break;
                 case 4:
-                    mytrophies.add(0, new T_holder("Mana Shower", 5, 20000, R.drawable.manar5, "20,000 Mana Produced"));
+                    mytrophies.add(0, new T_holder("Mana Shower", 5, 20000, R.drawable.inn3, "20,000 Mana Produced"));
                     break;
                 case 5:
-                    mytrophies.add(0, new T_holder("Mana Stream", 6, 100000, R.drawable.manar6, "100,000 Mana Produced"));
+                    mytrophies.add(0, new T_holder("Mana Stream", 6, 100000, R.drawable.inn3, "100,000 Mana Produced"));
                     break;
 
                 case 6:
-                    mytrophies.add(0, new T_holder("Mana Flood", 7, 200000, R.drawable.manar7, "200,000 Mana Produced"));
+                    mytrophies.add(0, new T_holder("Mana Flood", 7, 200000, R.drawable.inn3, "200,000 Mana Produced"));
                     break;
 
-                case 7:
+              /*  case 7:
                     mytrophies.add(0, new T_holder(" Automatic Casting", 8, 2000000, R.drawable.manar8, "20,000 mana autocasting"));
                     break;
 
@@ -282,22 +285,18 @@ public static void nextTrophey(string name, int t) {
                     break;
 
                 case 10:
-                    mytrophies.add(0, new T_holder(" Automatic Casting", 8, 20000000, R.drawable.manar8, "20M  mana autocasting"));
+                    mytrophies.add(0, new T_holder(" Automatic Casting", 11, 20000000, R.drawable.manar8, "20M  mana autocasting"));
                     break;
                 case 11:
-                    mytrophies.add(0, new T_holder(" Automatic Casting", 8, 30000000, R.drawable.manar8, "30M  mana autocasting"));
-                    break;
+                    mytrophies.add(0, new T_holder(" Automatic Casting", 12, 30000000, R.drawable.manar8, "30M  mana autocasting"));
+                    break;*/
             }
             adapter.notifyDataSetChanged();
             break;
 
 
-
-
-
-
     }
-
+}
 
 
 
@@ -312,7 +311,10 @@ public static void nextTrophey(string name, int t) {
     // constructor
     public MyExpandableAdapter(Context context)
     {
-        this.
+
+        super(context,R.layout.parent_view,mytrophies);
+
+
     }
 
     public void setInflater(LayoutInflater inflater, Activity activity)
@@ -323,11 +325,11 @@ public static void nextTrophey(string name, int t) {
 
     // method getChildView is called automatically for each child view.
     //  Implement this method as per your requirement
-    @Override
+   /* @Override
     public View getChildView(int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent)
     {
 
-        child = (ArrayList<String>) childtems.get(groupPosition);
+        child = (ArrayList<String>) childItems.get(groupPosition);
 
         TextView textView = null;
 
@@ -340,20 +342,20 @@ public static void nextTrophey(string name, int t) {
         textView.setText(child.get(childPosition));
 
         // set the ClickListener to handle the click event on child item
-        convertView.setOnClickListener(new OnClickListener() {
+        convertView.setOnClickListener(new View.OnClickListener() {
 
-            @Override
+     /*       @Override
             public void onClick(View view) {
                 Toast.makeText(activity, child.get(childPosition),
                         Toast.LENGTH_SHORT).show();
             }
         });
         return convertView;
-    }
+    }*/
 
     // method getGroupView is called automatically for each parent item
     // Implement this method as per your requirement
-    @Override
+   /* @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent)
     {
 
@@ -365,9 +367,9 @@ public static void nextTrophey(string name, int t) {
         ((CheckedTextView) convertView).setChecked(isExpanded);
 
         return convertView;
-    }
+    }*/
 
-    @Override
+  /*  @Override
     public Object getChild(int groupPosition, int childPosition)
     {
         return null;
@@ -382,7 +384,7 @@ public static void nextTrophey(string name, int t) {
     @Override
     public int getChildrenCount(int groupPosition)
     {
-        return ((ArrayList<String>) childtems.get(groupPosition)).size();
+        return ((ArrayList<String>) childItems.get(groupPosition)).size();
     }
 
     @Override
@@ -425,7 +427,7 @@ public static void nextTrophey(string name, int t) {
     public boolean isChildSelectable(int groupPosition, int childPosition)
     {
         return false;
-    }
+    }*/
 
 }
 

@@ -3,7 +3,7 @@ package com.yourdudeliness.threaddev;
 public class Up_Holder {
     private String name;
     private int tier;
-    private Integer cost;
+    private int cost;
     private int iconID;
     private String bonus;
 
@@ -21,7 +21,7 @@ public class Up_Holder {
 
     public int getTier() {return tier;}
 
-    public Integer getCost() {
+    public int getCost() {
         return cost;
     }
 

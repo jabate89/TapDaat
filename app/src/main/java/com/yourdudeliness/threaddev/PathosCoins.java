@@ -5,7 +5,7 @@ package com.yourdudeliness.threaddev;
  */
 public class PathosCoins {
 
-    public int [] coins;
+    public static int [] coins;
 
     public PathosCoins(){
 
@@ -29,12 +29,6 @@ public class PathosCoins {
                 coins[coin] += 1;
                 primary_activity.coins[coin].setText(coins[coin] + "");
                 break;
-        }
-    }
-
-    public void printCoin(){
-        for(int i = 0; i < 3; i ++){
-            primary_activity.coins[i].setText(coins[i] + "");
         }
     }
 }
