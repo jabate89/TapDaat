@@ -8,11 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Random;
 
 
@@ -23,19 +24,16 @@ import java.util.Random;
  */
 public class primary_activity extends Fragment implements OnClickListener {
 
-    protected static Button mainButton, n1, n2, n3, p1, p2, p3, deity, cp1, cp2, cp3;
+    protected static Button n1, n2, n3, p1, p2, p3, deity, cp1, cp2, cp3;
+    protected static ImageButton mainButton;
     public static ProgressBar manaBar;
     public static TextView scoreBox;
     public static TextView [] coins;
     public static Random coinGen;
-    public static int isCoin;
-    public static PathosCoins coinCollection;
-
-
-    //TEST#########################################
-    public static TextView clickTest, passiveTest;
-    //TEST########################################
-
+    public static int isCoin, coinChance = 2;
+    public static NumberFormat format;
+    public static TextView clickTest, passiveTest;//displays the current passive and active scoring values
+    private static int clickCoinsflag = 0;
 
 
 
@@ -54,12 +52,7 @@ public class primary_activity extends Fragment implements OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
-
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,7 +60,6 @@ public class primary_activity extends Fragment implements OnClickListener {
         // Inflate the layout for this fragment
         View thisView = inflater.inflate(R.layout.fragment_primary_activity, container, false);
         initializeButtons(thisView);
-
 
 
         return thisView;
@@ -80,33 +72,47 @@ public class primary_activity extends Fragment implements OnClickListener {
 
             case R.id.main_button:
                 incrementScore();
+                MainActivity.totalClicks++;
+                switch(MainActivity.totalClicks){
+                    case 10:
+                        UpgradesFragment.nextUpgrade("ClickingNumber",0);
+                        break;
+                    case 500:
+                        UpgradesFragment.nextUpgrade("ClickingNumber",1);
+                        break;
+                    case 2500:
+                        UpgradesFragment.nextUpgrade("ClickingNumber",2);
+                }
                 break;
             case R.id.neutral_1:
                 MainActivity.neutral1.build();
-                updateButton("n1");
+                updateButton("neutral1");
                 break;
             case R.id.neutral_2:
                 MainActivity.neutral2.build();
-                updateButton("n2");
+                updateButton("neutral2");
                 break;
             case R.id.neutral_3:
                 MainActivity.neutral3.build();
-                updateButton("n3");
+                updateButton("neutral3");
                 break;
             case R.id.pathos_1:
                 if(MainActivity.pathosEnabled){
-
+                    MainActivity.pathos1.build();
+                    updateButton("pathos1");
                 }
                 break;
             case R.id.pathos_2:
                 if(MainActivity.pathosEnabled){
-
+                    MainActivity.pathos2.build();
+                    updateButton("pathos2");
                 }
                 break;
 
             case R.id.pathos_3:
                 if(MainActivity.pathosEnabled){
-
+                    MainActivity.pathos3.build();
+                    updateButton("pathos3");
                 }
                 break;
             case R.id.power_1:
@@ -114,7 +120,10 @@ public class primary_activity extends Fragment implements OnClickListener {
                 //DELETE ############################
                 break;
         }
+
     }
+
+
 
 
     /*
@@ -123,12 +132,11 @@ public class primary_activity extends Fragment implements OnClickListener {
      */
     public void initializeButtons(View view){
 
-
-
+        format = new DecimalFormat("0.##E0");
         /*
         Assign all the XML buttons to java objects
          */
-        mainButton = (Button) view.findViewById(R.id.main_button);
+        mainButton = (ImageButton) view.findViewById(R.id.main_button);
         n1 = (Button) view.findViewById(R.id.neutral_1);
         n2 = (Button) view.findViewById(R.id.neutral_2);
         n3 = (Button) view.findViewById(R.id.neutral_3);
@@ -140,13 +148,13 @@ public class primary_activity extends Fragment implements OnClickListener {
 
 
         coins = new TextView[3];//the coins view is used as an array
-        coins[0] = (TextView) view.findViewById(R.id.coin_0);
-        coins[1] = (TextView)view.findViewById(R.id.coin_1);
-        coins[2] = (TextView) view.findViewById(R.id.coin_2);
+        coins[0] = (TextView) view.findViewById(R.id.elf);
+        coins[1] = (TextView)view.findViewById(R.id.human);
+        coins[2] = (TextView) view.findViewById(R.id.orc);
 
-        updateButton("n1");
-        updateButton("n2");
-        updateButton("n3");
+        updateButton("neutral1");
+        updateButton("neutral2");
+        updateButton("neutral3");
         updateButton("p1");
         updateButton("p2");
         updateButton("p3");
@@ -170,7 +178,6 @@ public class primary_activity extends Fragment implements OnClickListener {
 
 
         coinGen = new Random();
-        coinCollection = new PathosCoins();
 
         //DELETE   #########################   TESTING STUFF
         cp1 = (Button) view.findViewById(R.id.power_1);
@@ -178,6 +185,7 @@ public class primary_activity extends Fragment implements OnClickListener {
 
         clickTest = (TextView) view.findViewById(R.id.click_test);
         passiveTest = (TextView) view.findViewById(R.id.passive_test);
+        testbox = (TextView) view.findViewById(R.id.tester);
 
         //DELETE ###########################  TESTING STUFF
     }
@@ -190,18 +198,34 @@ public class primary_activity extends Fragment implements OnClickListener {
     public static void incrementScore(){
 
         MainActivity.currScore += MainActivity.currClickVal;
+        MainActivity.totalClickValue += MainActivity.currClickVal;
+        primary_activity.testbox.setText(Integer.toString(MainActivity.totalClickValue));
         printScore();
+        if(MainActivity.totalClickValue > 499 && MainActivity.totalClickValue < 5000000)
+            if(clickCoinsflag == 0) {
+                UpgradesFragment.nextUpgrade("ClickingCoins", 0);
+                clickCoinsflag++;
+            }
+        else if(MainActivity.totalClickValue == 5000000)
+                if(clickCoinsflag == 1) {
+                    UpgradesFragment.nextUpgrade("ClickingCoins", 1);
+                    clickCoinsflag++;
+                }
 
+        else if(MainActivity.totalClickValue == 1000000000)//"Integer numner too Large" When using 5Billion
+                if(clickCoinsflag == 2) {
+                    UpgradesFragment.nextUpgrade("ClickingCoins", 2);
+                    clickCoinsflag++;
+                }
 
         isCoin = coinGen.nextInt(100);//generate random number < 100
 
-        if(isCoin == 69 || isCoin == 41){
-            //generate a coin if 69 or 41 is generated
-            coinCollection.generateCoin(coinGen.nextInt(3));
+        if(isCoin < coinChance){
+            //generate a coin if rand is less than the percentage chance of receiving a coin
+            MainActivity.coinCollection.generateCoin(coinGen.nextInt(3));
         }
 
         MainActivity.checkFunds();
-
 
 
     }
@@ -214,13 +238,13 @@ public class primary_activity extends Fragment implements OnClickListener {
     public void initializePathos(String type){
 
         if(type == "good"){
-            MainActivity.pathos1 = new Building("Good 1", 100, 50);
-            MainActivity.pathos2 = new Building("Good 2", 300, 80);
-            MainActivity.pathos3 = new Building("Good 3", 1000, 200);
+            MainActivity.pathos1 = new Building("Bank", 55000, 200);
+            MainActivity.pathos2 = new Building("Good 2", 450000, 2000);
+            MainActivity.pathos3 = new Building("Good 3", 145000000, 100000);
         }else {
-            MainActivity.pathos1 = new Building("Evil 1", 100, 50);
-            MainActivity.pathos2 = new Building("Evil 2", 300, 80);
-            MainActivity.pathos3 = new Building("Evil 3", 1000, 200);
+            MainActivity.pathos1 = new Building("Prison", 5500, 200);
+            MainActivity.pathos2 = new Building("Evil 2", 450000, 2000);
+            MainActivity.pathos3 = new Building("Evil 3", 145000000, 100000);
         }
 
         p1.setVisibility(View.VISIBLE);
@@ -233,19 +257,25 @@ public class primary_activity extends Fragment implements OnClickListener {
 
     public static void printScore(){
 
-        scoreBox.setText((int)MainActivity.currScore + "");
+            scoreBox.setText("Bounty  " + (int)MainActivity.currScore);
+            MainActivity.coinCollection.printCoin();
+        primary_activity.clickTest.setText("Clk " + MainActivity.currClickVal);
+        primary_activity.passiveTest.setText("Sec " + MainActivity.currPassive);
+
+
     }
 
     public static void updateButton(String btn){
 
+
         switch(btn){
-            case "n1":
+            case "neutral1":
                 n1.setText(MainActivity.neutral1.printStats());
                 break;
-            case "n2":
+            case "neutral2":
                 n2.setText(MainActivity.neutral2.printStats());
                 break;
-            case "n3":
+            case "neutral3":
                 n3.setText(MainActivity.neutral3.printStats());
                 break;
             case "p1":

@@ -15,7 +15,9 @@ public class MainActivity extends FragmentActivity {
     public final Handler scoreHandler = new Handler();
     private final static int SECOND = 1000;
     protected static double currClickVal;
-    protected static double baseClickVal = 1;
+    protected static double baseClickVal = 200;
+    protected static int totalClicks;
+    protected static int totalClickValue;
     protected static double currScore = 0;
     protected static double currPassive = 10;
     protected static int currMana = 0;
@@ -23,6 +25,7 @@ public class MainActivity extends FragmentActivity {
     public static TextView scoreBox;
     public static Building neutral1, neutral2, neutral3, pathos1, pathos2, pathos3, deity;
     public static boolean pathosEnabled = false; //A flag for when the user has chosen an in-game path
+    public static PathosCoins coinCollection;
 
 
 
@@ -72,16 +75,14 @@ public class MainActivity extends FragmentActivity {
                     currMana += currPassiveMana;
                     primary_activity.manaBar.setProgress(currMana);
 
+                    updatePassive();
 
-                    //TEST###################################
-                    primary_activity.clickTest.setText("Click value : " + currClickVal);
-                    primary_activity.passiveTest.setText("Passive value : " + currPassive);
-                    //TEST####################################
 
                 }
                 scoreHandler.postDelayed(this, SECOND);
             }
         }, SECOND); // tells it to run itself again in 1 second
+
 
 
         currClickVal = baseClickVal;
@@ -90,12 +91,19 @@ public class MainActivity extends FragmentActivity {
 
 
 
+
     private void initializeBuildings(){
 
         neutral1 = new Building("Farm", 10, 1);
-        neutral2 = new Building("Blacksmith", 30, 5);
-        neutral3 = new Building("Barracks", 50, 20);
+        neutral2 = new Building("Inn", 30, 5);
+        neutral3 = new Building("Blacksmith", 50, 20);
+        coinCollection = new PathosCoins();
 
+    }
+    public static void updatePassive(){
+        currPassive = neutral1.getCumulativePassive()
+                + neutral2.getCumulativePassive()
+                + neutral3.getCumulativePassive();
     }
 
 
@@ -104,6 +112,23 @@ public class MainActivity extends FragmentActivity {
    buttons when funds are insufficient
     */
     public static void checkFunds(){
+
+
+        if(currMana < 750){
+            primary_activity.cp1.setEnabled(false);
+        } else {
+            primary_activity.cp1.setEnabled(true);
+        }
+        if(currMana < 800){
+            //primary_activity.cp2.setEnabled(false);
+        } else {
+            //primary_activity.cp2.setEnabled(true);
+        }
+        if(currMana < 900){
+           // primary_activity.cp3.setEnabled(false);
+        } else {
+            //primary_activity.cp3.setEnabled(true);
+        }
 
         if(currScore < neutral1.getCostOfNext()){
 
@@ -155,7 +180,14 @@ public class MainActivity extends FragmentActivity {
     }
 
 
-
+    static void setBaseClickVal(int val)
+    {
+        currClickVal += val;
+    }
+    static void setBaseClickVal(double val)
+    {
+        currClickVal *= val;
+    }
 
 
 
