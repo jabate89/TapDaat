@@ -64,31 +64,30 @@
             android:layout_height="wrap_content"
             android:text="Pathos 2"
             android:id="@+id/pathos_2"
-            android:layout_below="@+id/pathos_1"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            android:layout_below="@+id/main_button"
+            android:layout_alignLeft="@+id/pathos_1"
+            android:layout_alignStart="@+id/pathos_1" />
 
         <Button
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Pathos 3"
             android:id="@+id/pathos_3"
-            android:layout_below="@+id/pathos_2"
-            android:layout_alignRight="@+id/neutral_3"
-            android:layout_alignEnd="@+id/neutral_3"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            android:layout_above="@+id/deity"
+            android:layout_alignLeft="@+id/pathos_2"
+            android:layout_alignStart="@+id/pathos_2" />
 
         <Button
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Deity"
             android:id="@+id/deity"
-            android:layout_marginTop="28dp"
-            android:layout_below="@+id/pathos_3"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            android:layout_above="@+id/power_2"
+            android:layout_alignLeft="@+id/pathos_3"
+            android:layout_alignStart="@+id/pathos_3" />
 
         <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
@@ -151,7 +150,7 @@
             android:layout_alignLeft="@+id/score_box"
             android:layout_alignStart="@+id/score_box"
             android:layout_above="@+id/human"
-            android:background="@drawable/elf_gem"
+            android:background="@drawable/green_gem"
             android:gravity="center"/>
 
         <TextView
@@ -164,7 +163,7 @@
             android:layout_above="@+id/orc"
             android:layout_alignRight="@+id/elf"
             android:layout_alignEnd="@+id/elf"
-            android:background="@drawable/human_gem"
+            android:background="@drawable/blue_gem"
             android:gravity="center"/>
 
         <TextView
@@ -174,7 +173,7 @@
             android:id="@+id/orc"
             android:layout_alignLeft="@+id/elf"
             android:layout_alignStart="@+id/elf"
-            android:background="@drawable/orc_gem"
+            android:background="@drawable/red_gem"
             android:gravity="center"
             android:layout_above="@+id/main_button"
             android:layout_alignRight="@+id/human"

@@ -260,10 +260,10 @@ public class primary_activity extends Fragment implements OnClickListener {
 
     public static void printScore(){
 
-            scoreBox.setText("Bounty  " + (int)MainActivity.currScore);
+            scoreBox.setText("Bounty  " + Digits.format(MainActivity.currScore));
             MainActivity.coinCollection.printCoin();
-        primary_activity.clickTest.setText("Clk " + MainActivity.currClickVal);
-        primary_activity.passiveTest.setText("Sec " + MainActivity.currPassive);
+        primary_activity.clickTest.setText("Clk " + Digits.format(MainActivity.currClickVal));
+        primary_activity.passiveTest.setText("Sec " + Digits.format(MainActivity.currPassive));
 
 
     }
