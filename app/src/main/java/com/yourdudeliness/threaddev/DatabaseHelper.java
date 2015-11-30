@@ -72,5 +72,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return sInstance;
     }
-    public void addPost
+    public void addPost(){
+
+    }
 }

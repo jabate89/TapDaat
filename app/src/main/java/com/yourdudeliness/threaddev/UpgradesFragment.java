@@ -84,7 +84,7 @@ public class UpgradesFragment extends Fragment  {
             case "Farm":
                 switch (t){
                     case 0:
-                        primary_activity.testbox.setText("Add upgrade case 0");
+                        //primary_activity.testbox.setText("Add upgrade case 0");
                         myupgrades.add(0,new Up_Holder("Farm",1, 200, R.drawable.house1, "Increase base farm production 100%"));
                         break;
                     case 1:
