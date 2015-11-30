@@ -38,6 +38,9 @@ public class primary_activity extends Fragment implements OnClickListener {
 
 
 
+
+
+
     public static primary_activity newInstance() {
         primary_activity fragment = new primary_activity();
 
@@ -74,7 +77,7 @@ public class primary_activity extends Fragment implements OnClickListener {
                 incrementScore();
                 MainActivity.totalClicks++;
                 switch(MainActivity.totalClicks){
-                    case 10:
+                    case 100:
                         UpgradesFragment.nextUpgrade("ClickingNumber",0);
                         break;
                     case 500:
@@ -201,7 +204,7 @@ public class primary_activity extends Fragment implements OnClickListener {
         MainActivity.totalClickValue += MainActivity.currClickVal;
         //primary_activity.testbox.setText(Integer.toString(MainActivity.totalClickValue));
         printScore();
-        if(MainActivity.totalClickValue >= 499 && MainActivity.totalClickValue < 5000000)
+        if(MainActivity.totalClickValue > 500 && MainActivity.totalClickValue < 5000000)
             if(clickCoinsflag == 0) {
                 UpgradesFragment.nextUpgrade("ClickingCoins", 0);
                 clickCoinsflag++;
