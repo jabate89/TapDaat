@@ -201,12 +201,12 @@ public class primary_activity extends Fragment implements OnClickListener {
         MainActivity.totalClickValue += MainActivity.currClickVal;
         //primary_activity.testbox.setText(Integer.toString(MainActivity.totalClickValue));
         printScore();
-        if(MainActivity.totalClickValue > 499 && MainActivity.totalClickValue < 5000000)
+        if(MainActivity.totalClickValue >= 499 && MainActivity.totalClickValue < 5000000)
             if(clickCoinsflag == 0) {
                 UpgradesFragment.nextUpgrade("ClickingCoins", 0);
                 clickCoinsflag++;
             }
-        else if(MainActivity.totalClickValue == 5000000)
+        else if(MainActivity.totalClickValue >= 5000000 && MainActivity.totalClickValue < 1000000000)
                 if(clickCoinsflag == 1) {
                     UpgradesFragment.nextUpgrade("ClickingCoins", 1);
                     clickCoinsflag++;

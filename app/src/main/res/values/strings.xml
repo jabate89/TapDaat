@@ -11,4 +11,12 @@
     <string name="Farm_Passive">FarmPassive</string>
     <string name="Farm_Base">FarmBase</string>
     <string name="Bounty">Bounty</string>
+    <string name="Inn_total_buildings">InnBuildings</string>
+    <string name="Inn_cost">InnCost</string>
+    <string name="Inn_Passive">InnPassive</string>
+    <string name="Inn_Base">InnBase</string>
+    <string name="Blacksmith_total_buildings">BlacksmithBuildings</string>
+    <string name="Blacksmith_cost">BlacksmithCost</string>
+    <string name="Blacksmith_Passive">BlacksmithCost</string>
+    <string name="Blacksmith_Base">BlacksmithBase</string>
 </resources>

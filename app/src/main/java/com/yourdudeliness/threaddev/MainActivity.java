@@ -192,10 +192,21 @@ public class MainActivity extends FragmentActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putLong(getString(R.string.Bounty),(long)currScore);
         editor.putInt(getString(R.string.saved_totalClicks),totalClicks);
+
         editor.putInt(getString(R.string.Farm_total_buildings),neutral1.getTotalBuildings());
         editor.putInt(getString(R.string.Farm_cost), neutral1.getCostOfNext());
         editor.putLong(getString(R.string.Farm_Passive), (long) neutral1.getCumulativePassive());
-        editor.putLong(getString(R.string.Farm_Base),(long)neutral1.getBasePassive());
+        editor.putLong(getString(R.string.Farm_Base), (long) neutral1.getBasePassive());
+
+        editor.putInt(getString(R.string.Inn_total_buildings),neutral2.getTotalBuildings());
+        editor.putInt(getString(R.string.Inn_cost), neutral2.getCostOfNext());
+        editor.putLong(getString(R.string.Inn_Passive), (long) neutral2.getCumulativePassive());
+        editor.putLong(getString(R.string.Inn_Base),(long)neutral2.getBasePassive());
+
+        editor.putInt(getString(R.string.Blacksmith_total_buildings),neutral3.getTotalBuildings());
+        editor.putInt(getString(R.string.Blacksmith_cost), neutral3.getCostOfNext());
+        editor.putLong(getString(R.string.Blacksmith_Passive), (long) neutral3.getCumulativePassive());
+        editor.putLong(getString(R.string.Blacksmith_Base),(long)neutral3.getBasePassive());
 
         editor.apply();
 
@@ -206,15 +217,23 @@ public class MainActivity extends FragmentActivity {
         super.onResume();
         SharedPreferences sharedPreferences = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
         currScore = sharedPreferences.getLong(getString(R.string.Bounty),0);
+
         neutral1.setCostOfNext(sharedPreferences.getInt(getString(R.string.Farm_cost), 10));
         neutral1.setTotalBuildings(sharedPreferences.getInt(getString(R.string.Farm_total_buildings), 0));
         neutral1.setCumulativePassive((double) sharedPreferences.getLong(getString(R.string.Farm_Passive), 0));
         neutral1.setBasePassive(sharedPreferences.getLong(getString(R.string.Farm_Base), 1));
+
+        neutral2.setCostOfNext(sharedPreferences.getInt(getString(R.string.Inn_cost), 30));
+        neutral2.setTotalBuildings(sharedPreferences.getInt(getString(R.string.Inn_total_buildings), 0));
+        neutral2.setCumulativePassive((double) sharedPreferences.getLong(getString(R.string.Inn_Passive), 0));
+        neutral2.setBasePassive(sharedPreferences.getLong(getString(R.string.Inn_Base), 5));
+
+        neutral3.setCostOfNext(sharedPreferences.getInt(getString(R.string.Blacksmith_cost), 50));
+        neutral3.setTotalBuildings(sharedPreferences.getInt(getString(R.string.Blacksmith_total_buildings), 0));
+        neutral3.setCumulativePassive((double) sharedPreferences.getLong(getString(R.string.Blacksmith_Passive), 0));
+        neutral3.setBasePassive(sharedPreferences.getLong(getString(R.string.Blacksmith_Base), 20));
+
     }
-
-
-
-
 
 
 }
