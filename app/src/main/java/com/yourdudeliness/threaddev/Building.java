@@ -7,7 +7,7 @@ public class Building {
 
     private String buildingType;
     private int totalBuildings;
-    private int costOfNext;
+    private double costOfNext;
     private double BasePassive;
     private int passiveMultiplier;
     private double cumulativePassive;
@@ -77,13 +77,13 @@ public class Building {
             case "Blacksmith":
                 switch (totalBuildings) {
                     case 5:
-                        UpgradesFragment.nextUpgrade(buildingType, 0);
+                        UpgradesFragment.nextUpgrade("Blacksmith", 0);
                         break;
                     case 25:
-                        UpgradesFragment.nextUpgrade(buildingType, 1);
+                        UpgradesFragment.nextUpgrade("Blacksmith", 1);
                         break;
                     case 75:
-                        UpgradesFragment.nextUpgrade(buildingType, 2);
+                        UpgradesFragment.nextUpgrade("Blacksmith", 2);
                         break;
                 }
                 break;
@@ -91,7 +91,7 @@ public class Building {
 
     }
 
-    public int getCostOfNext(){
+    public double getCostOfNext(){
         return costOfNext;
     }
 
@@ -126,7 +126,7 @@ public class Building {
         return BasePassive;
     }
 
-    public void setCostOfNext(int costOfNext) {
+    public void setCostOfNext(double costOfNext) {
         this.costOfNext = costOfNext;
     }
 
