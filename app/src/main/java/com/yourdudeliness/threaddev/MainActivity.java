@@ -13,11 +13,11 @@ import android.widget.TextView;
 public class MainActivity extends FragmentActivity {
 
     public final Handler scoreHandler = new Handler();
-    private final static int SECOND = 1000;
+    private final static int SECOND = 800;
     protected static double currClickVal;
     protected static double baseClickVal = 200;
     protected static int totalClicks;
-    protected static int totalClickValue;
+    protected static double totalClickValue;
     protected static double currScore = 0;
     protected static double currPassive = 10;
     protected static int currMana = 0;
@@ -86,6 +86,8 @@ public class MainActivity extends FragmentActivity {
 
 
         currClickVal = baseClickVal;
+        totalClicks = 0;
+        totalClickValue = 0;
         initializeBuildings();
     }
 
@@ -114,22 +116,11 @@ public class MainActivity extends FragmentActivity {
     public static void checkFunds(){
 
 
-        if(currMana < 750){
+        if(currMana < 350){
             primary_activity.cp1.setEnabled(false);
         } else {
             primary_activity.cp1.setEnabled(true);
         }
-        if(currMana < 800){
-            //primary_activity.cp2.setEnabled(false);
-        } else {
-            //primary_activity.cp2.setEnabled(true);
-        }
-        if(currMana < 900){
-           // primary_activity.cp3.setEnabled(false);
-        } else {
-            //primary_activity.cp3.setEnabled(true);
-        }
-
         if(currScore < neutral1.getCostOfNext()){
 
             primary_activity.n1.setEnabled(false);
@@ -175,6 +166,21 @@ public class MainActivity extends FragmentActivity {
             } else {
                 primary_activity.p3.setEnabled(true);
             }
+            if(currScore < deity.getCostOfNext()){
+                primary_activity.deity.setEnabled(false);
+            } else {
+                primary_activity.deity.setEnabled(true);
+            }
+            if(currMana < 600){
+                primary_activity.cp2.setEnabled(false);
+            } else {
+                primary_activity.cp2.setEnabled(true);
+            }
+            if(currMana < 750){
+                primary_activity.cp3.setEnabled(false);
+            } else {
+                primary_activity.cp3.setEnabled(true);
+            }
         }
 
     }
@@ -182,7 +188,7 @@ public class MainActivity extends FragmentActivity {
 
     static void setBaseClickVal(double val)
     {
-        currClickVal += val;
+        baseClickVal *= val;
     }
 /*
     @Override

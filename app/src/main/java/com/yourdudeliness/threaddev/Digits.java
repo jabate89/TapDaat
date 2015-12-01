@@ -23,7 +23,7 @@ public class Digits {
             return limit.format(val / 1000) + " K";
         }
 
-        return val + "";
+        return (int)val + "";
     }
 
 
