@@ -95,7 +95,7 @@ public class Building {
         return costOfNext;
     }
 
-    public double getTnotalBuildigs(){
+    public double getBuildingTotal(){
         return totalBuildings;
     }
 
@@ -103,7 +103,10 @@ public class Building {
         return buildingType;
     }
 
-    public void setBasePassive(double multiplier){BasePassive = BasePassive * multiplier;}
+    public void setBasePassive(double multiplier){
+                            BasePassive *= multiplier;
+                            updateCumulativePassive();
+                                                    }
 
     public void updateCumulativePassive(){
         cumulativePassive = BasePassive * totalBuildings;
@@ -113,9 +116,9 @@ public class Building {
 
     public String printStats(){
         return   ( buildingType + "     "
-                + (int) totalBuildings
-                + "\n Cost " + (int) costOfNext
-                + "    Output " + cumulativePassive);
+                + totalBuildings
+                + "\n Cost " + Digits.format(costOfNext)
+                + "    Sec " + Digits.format(cumulativePassive));
     }
 
     public int getTotalBuildings() {

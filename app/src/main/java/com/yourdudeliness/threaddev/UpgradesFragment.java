@@ -94,7 +94,7 @@ public class UpgradesFragment extends Fragment  {
                         myupgrades.add(0,new Up_Holder("Farm",3, 10000000, R.drawable.farm3, "Increase base farm production 300%"));
                         break;
                 }
-                ExpandableListMainActivity.nextTrophy(name,t);
+                //ExpandableListMainActivity.nextTrophy(name,t);
                 adapter.notifyDataSetChanged();
                 break;
             case "Inn":
@@ -109,7 +109,7 @@ public class UpgradesFragment extends Fragment  {
                         myupgrades.add(0,new Up_Holder("Inn",3, 130000000, R.drawable.inn3, "Increase base Inn production 300%"));
                         break;
                 }
-                ExpandableListMainActivity.nextTrophy(name,t);
+                //ExpandableListMainActivity.nextTrophy(name,t);
                 adapter.notifyDataSetChanged();
                 break;
             case "Blacksmith":
@@ -124,7 +124,7 @@ public class UpgradesFragment extends Fragment  {
                         myupgrades.add(0,new Up_Holder("Blacksmith", 3, 650000000, R.drawable.money3, "Increase base blacksmith production 300%"));
                         break;
                 }
-                ExpandableListMainActivity.nextTrophy(name,t);
+                //ExpandableListMainActivity.nextTrophy(name,t);
                 adapter.notifyDataSetChanged();
                 break;
 
@@ -140,7 +140,7 @@ public class UpgradesFragment extends Fragment  {
                         myupgrades.add(0,new Up_Holder("Treasure", 3, 5000000, R.drawable.euro, "Increase base clicking reward by 4950"));
                         break;
                 }
-                ExpandableListMainActivity.nextTrophy(name,t);
+                //ExpandableListMainActivity.nextTrophy(name,t);
                 adapter.notifyDataSetChanged();
                 break;
             case "ClickingCoins":
@@ -155,9 +155,15 @@ public class UpgradesFragment extends Fragment  {
                         myupgrades.add(0,new Up_Holder("ClickBonus", 3, 1000000000, R.drawable.euro, "Increase clicking reward by 25% and the production of all buildings by 25%"));
                         break;
                 }
-                ExpandableListMainActivity.nextTrophy(name,t);
+                //ExpandableListMainActivity.nextTrophy(name,t);
                 adapter.notifyDataSetChanged();
                 break;
+            case "ChoosePath":
+                myupgrades.add(0, new Up_Holder("Good",0,0,R.drawable.yen,"Upgrades will be geared towards active scoring"));
+                myupgrades.add(0, new Up_Holder("Evil",0,0,R.drawable.yen,"Upgrades will be geared towards passive scoring"));
+                break;
+
+
             //case ""
         }
 
@@ -283,7 +289,20 @@ public class UpgradesFragment extends Fragment  {
                             //nextUpgrade(clicked.getName(), clicked.getTier());
                             adapter.notifyDataSetChanged();
                             break;
-
+                        case "Good":
+                            primary_activity.initializePathos(0);
+                            int temp = position;
+                            myupgrades.remove(temp);
+                            myupgrades.remove(temp-1);
+                            adapter.notifyDataSetChanged();
+                            break;
+                        case "Evil":
+                            primary_activity.initializePathos(1);
+                            int temp1 = position;
+                            myupgrades.remove(temp1 + 1);
+                            myupgrades.remove(temp1);
+                            adapter.notifyDataSetChanged();
+                            break;
                     }
                 }
 

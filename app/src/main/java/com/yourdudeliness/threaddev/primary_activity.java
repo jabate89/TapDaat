@@ -102,25 +102,40 @@ public class primary_activity extends Fragment implements OnClickListener {
             case R.id.pathos_1:
                 if(MainActivity.pathosEnabled){
                     MainActivity.pathos1.build();
-                    updateButton("pathos1");
+                    updateButton("p1");
                 }
                 break;
             case R.id.pathos_2:
                 if(MainActivity.pathosEnabled){
                     MainActivity.pathos2.build();
-                    updateButton("pathos2");
+                    updateButton("p2");
                 }
                 break;
 
             case R.id.pathos_3:
                 if(MainActivity.pathosEnabled){
                     MainActivity.pathos3.build();
-                    updateButton("pathos3");
+                    updateButton("p3");
+                }
+                break;
+            case R.id.deity:
+                if(MainActivity.pathosEnabled){
+                    MainActivity.deity.build();
+                    updateButton("deity");
                 }
                 break;
             case R.id.power_1:
-                SpellCast.testUpgradeBonus();//DELETE ###############
-                //DELETE ############################
+                SpellCast.power1();
+                break;
+            case R.id.power_2:
+                if(MainActivity.pathosEnabled){
+                    SpellCast.power2();
+                }
+                break;
+            case R.id.power_3:
+                if(MainActivity.pathosEnabled){
+                    SpellCast.power3();
+                }
                 break;
         }
 
@@ -135,7 +150,6 @@ public class primary_activity extends Fragment implements OnClickListener {
      */
     public void initializeButtons(View view){
 
-        format = new DecimalFormat("0.##E0");
         /*
         Assign all the XML buttons to java objects
          */
@@ -158,10 +172,6 @@ public class primary_activity extends Fragment implements OnClickListener {
         updateButton("neutral1");
         updateButton("neutral2");
         updateButton("neutral3");
-        updateButton("p1");
-        updateButton("p2");
-        updateButton("p3");
-        updateButton("deity");
 
 
         mainButton.setOnClickListener(this);
@@ -179,18 +189,19 @@ public class primary_activity extends Fragment implements OnClickListener {
 
         scoreBox = (TextView) view.findViewById(R.id.score_box);
 
-
+        //Generates a random number for PathosCoins class
         coinGen = new Random();
 
-        //DELETE   #########################   TESTING STUFF
         cp1 = (Button) view.findViewById(R.id.power_1);
         cp1.setOnClickListener(this);
+        cp2 = (Button) view.findViewById(R.id.power_2);
+        cp2.setOnClickListener(this);
+        cp3 = (Button) view.findViewById(R.id.power_3);
 
         clickTest = (TextView) view.findViewById(R.id.click_test);
         passiveTest = (TextView) view.findViewById(R.id.passive_test);
         //testbox = (TextView) view.findViewById(R.id.tester);
 
-        //DELETE ###########################  TESTING STUFF
     }
 
     /*
@@ -200,26 +211,12 @@ public class primary_activity extends Fragment implements OnClickListener {
      */
     public static void incrementScore(){
 
-        MainActivity.currScore += MainActivity.currClickVal;
-        MainActivity.totalClickValue += MainActivity.currClickVal;
+        MainActivity.currScore += MainActivity.baseClickVal;
+        MainActivity.totalClickValue += MainActivity.baseClickVal;
+        MainActivity.totalClicks += 1;
         //primary_activity.testbox.setText(Integer.toString(MainActivity.totalClickValue));
         printScore();
-        if(MainActivity.totalClickValue > 500 && MainActivity.totalClickValue < 5000000)
-            if(clickCoinsflag == 0) {
-                UpgradesFragment.nextUpgrade("ClickingCoins", 0);
-                clickCoinsflag++;
-            }
-        else if(MainActivity.totalClickValue >= 5000000 && MainActivity.totalClickValue < 1000000000)
-                if(clickCoinsflag == 1) {
-                    UpgradesFragment.nextUpgrade("ClickingCoins", 1);
-                    clickCoinsflag++;
-                }
-
-        else if(MainActivity.totalClickValue == 1000000000)//"Integer numner too Large" When using 5Billion
-                if(clickCoinsflag == 2) {
-                    UpgradesFragment.nextUpgrade("ClickingCoins", 2);
-                    clickCoinsflag++;
-                }
+        checkUpgrades();
 
         isCoin = coinGen.nextInt(100);//generate random number < 100
 
@@ -238,22 +235,40 @@ public class primary_activity extends Fragment implements OnClickListener {
     in-game choice. Initializes pathos buttons, sets their names,
     and makes them visible to user
      */
-    public void initializePathos(String type){
+    public static void initializePathos(int type){
 
-        if(type == "good"){
-            MainActivity.pathos1 = new Building("Bank", 55000, 200);
-            MainActivity.pathos2 = new Building("Good 2", 450000, 2000);
-            MainActivity.pathos3 = new Building("Good 3", 145000000, 100000);
-        }else {
-            MainActivity.pathos1 = new Building("Prison", 5500, 200);
-            MainActivity.pathos2 = new Building("Evil 2", 450000, 2000);
-            MainActivity.pathos3 = new Building("Evil 3", 145000000, 100000);
-        }
+            if (type == 0) {
+                MainActivity.pathos1 = new Building("Bank", 55000, 200);
+                MainActivity.pathos2 = new Building("Good 2", 450000, 2000);
+                MainActivity.pathos3 = new Building("Good 3", 145000000, 100000);
+            } else {
+                MainActivity.pathos1 = new Building("Prison", 5500, 200);
+                MainActivity.pathos2 = new Building("Evil 2", 450000, 2000);
+                MainActivity.pathos3 = new Building("Evil 3", 145000000, 100000);
+            }
 
-        p1.setVisibility(View.VISIBLE);
-        p2.setVisibility(View.VISIBLE);
-        p3.setVisibility(View.VISIBLE);//make the buttons visible
-        MainActivity.pathosEnabled = true;
+            MainActivity.deity = new Building("Mormon Temple",200000000,500000);
+
+            //Set the buttons to visible
+            p1.setVisibility(View.VISIBLE);
+            p2.setVisibility(View.VISIBLE);
+            p3.setVisibility(View.VISIBLE);
+            deity.setVisibility(View.VISIBLE);
+            cp2.setVisibility(View.VISIBLE);
+            cp3.setVisibility(View.VISIBLE);
+            p1.setEnabled(true);
+            p2.setEnabled(true);
+            p3.setEnabled(true);
+            deity.setEnabled(true);
+            cp2.setEnabled(true);
+            cp3.setEnabled(true);
+
+            MainActivity.pathosEnabled = true;
+            primary_activity.updateButton("p1");
+            primary_activity.updateButton("p2");
+            primary_activity.updateButton("p3");
+            primary_activity.updateButton("deity");
+
 
     }
 
@@ -262,7 +277,7 @@ public class primary_activity extends Fragment implements OnClickListener {
 
             scoreBox.setText("Bounty  " + Digits.format(MainActivity.currScore));
             MainActivity.coinCollection.printCoin();
-        primary_activity.clickTest.setText("Clk " + Digits.format(MainActivity.currClickVal));
+        primary_activity.clickTest.setText("Clk " + Digits.format(MainActivity.baseClickVal));
         primary_activity.passiveTest.setText("Sec " + Digits.format(MainActivity.currPassive));
 
 
@@ -309,7 +324,24 @@ public class primary_activity extends Fragment implements OnClickListener {
     }
 
 
+    private static void checkUpgrades(){
 
+        if(MainActivity.totalClickValue > 500 && MainActivity.totalClickValue < 5000000) {
+            if (clickCoinsflag == 0) {
+                UpgradesFragment.nextUpgrade("ClickingCoins", 0);
+                clickCoinsflag++;
+            } else if (MainActivity.totalClickValue >= 5000000 && MainActivity.totalClickValue < 1000000000)
+                if (clickCoinsflag == 1) {
+                    UpgradesFragment.nextUpgrade("ClickingCoins", 1);
+                    clickCoinsflag++;
+                } else if (MainActivity.totalClickValue == 1000000000)//"Integer number too Large" When using 5Billion
+                    if (clickCoinsflag == 2) {
+                        UpgradesFragment.nextUpgrade("ClickingCoins", 2);
+                        clickCoinsflag++;
+                    }
+        }
+
+    }
 
 
 }
