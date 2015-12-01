@@ -50,7 +50,7 @@
             android:layout_alignEnd="@+id/neutral_2" />
 
         <Button
-            android:layout_width="200dp"
+            android:layout_width="225dp"
             android:layout_height="wrap_content"
             android:text="Pathos 1"
             android:id="@+id/pathos_1"
@@ -60,7 +60,7 @@
             android:visibility="invisible"/>
 
         <Button
-            android:layout_width="200dp"
+            android:layout_width="225dp"
             android:layout_height="wrap_content"
             android:text="Pathos 2"
             android:id="@+id/pathos_2"
@@ -70,7 +70,7 @@
             android:layout_alignStart="@+id/pathos_1" />
 
         <Button
-            android:layout_width="200dp"
+            android:layout_width="225dp"
             android:layout_height="wrap_content"
             android:text="Pathos 3"
             android:id="@+id/pathos_3"
@@ -80,7 +80,7 @@
             android:layout_alignStart="@+id/pathos_2" />
 
         <Button
-            android:layout_width="200dp"
+            android:layout_width="225dp"
             android:layout_height="wrap_content"
             android:text="Deity"
             android:id="@+id/deity"
