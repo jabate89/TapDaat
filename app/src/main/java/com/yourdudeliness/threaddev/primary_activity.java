@@ -211,6 +211,7 @@ public class primary_activity extends Fragment implements OnClickListener {
      */
     public static void incrementScore(){
 
+
         MainActivity.currScore += MainActivity.baseClickVal;
         MainActivity.totalClickValue += MainActivity.baseClickVal;
         MainActivity.totalClicks += 1;
@@ -238,16 +239,16 @@ public class primary_activity extends Fragment implements OnClickListener {
     public static void initializePathos(int type){
 
             if (type == 0) {
-                MainActivity.pathos1 = new Building("Bank", 55000, 200);
-                MainActivity.pathos2 = new Building("Good 2", 450000, 2000);
-                MainActivity.pathos3 = new Building("Good 3", 145000000, 100000);
+                MainActivity.pathos1 = new Building("Bank", 1000, 200);
+                MainActivity.pathos2 = new Building("Good 2", 15000, 2000);
+                MainActivity.pathos3 = new Building("Good 3", 100000, 100000);
             } else {
-                MainActivity.pathos1 = new Building("Prison", 5500, 200);
-                MainActivity.pathos2 = new Building("Evil 2", 450000, 2000);
-                MainActivity.pathos3 = new Building("Evil 3", 145000000, 100000);
+                MainActivity.pathos1 = new Building("Prison", 1000, 200);
+                MainActivity.pathos2 = new Building("Evil 2", 15000, 2000);
+                MainActivity.pathos3 = new Building("Evil 3", 100000, 100000);
             }
 
-            MainActivity.deity = new Building("Mormon Temple",200000000,500000);
+            MainActivity.deity = new Building("Mormon Temple",10000000,500000);
 
             //Set the buttons to visible
             p1.setVisibility(View.VISIBLE);

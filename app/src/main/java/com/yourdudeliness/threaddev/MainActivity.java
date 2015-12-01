@@ -29,16 +29,6 @@ public class MainActivity extends FragmentActivity {
 
 
 
-    /*
-    TEST VARIABLES  DELETE THESE
-     */
-
-    public static int testBonus = 100;
-
-    /*
-    DELETE ABOVE DELETE ABOVE
-     */
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,8 +50,9 @@ public class MainActivity extends FragmentActivity {
 
 
         /*
-        Increments the player's score once every second, printing that score
-        to the screen.
+        Handles the passive functionality of the game. Increments the players score every second,
+        based on the amount of current passive scoring. Also increments Mana based on passive mana.
+        Afterwards, all values are reprinted to the screen to update user
          */
         scoreHandler.postDelayed(new Runnable() {
 
@@ -71,7 +62,7 @@ public class MainActivity extends FragmentActivity {
 
                     currScore += currPassive;
                     primary_activity.printScore();
-                    checkFunds();
+                    checkFunds();//enable or disable buttons based on mana and money available
                     currMana += currPassiveMana;
                     primary_activity.manaBar.setProgress(currMana);
 
@@ -89,6 +80,9 @@ public class MainActivity extends FragmentActivity {
         totalClicks = 0;
         totalClickValue = 0;
         initializeBuildings();
+
+
+
     }
 
 
@@ -186,11 +180,17 @@ public class MainActivity extends FragmentActivity {
     }
 
 
+
     static void setBaseClickVal(double val)
     {
         baseClickVal *= val;
     }
 /*
+
+#############################################
+Attempts to use noSQL database are incomplete. Currently the game state will not be saved
+iff the app is completely close or device is turned off.
+##############################################
     @Override
     protected void onPause() {
         super.onPause();
