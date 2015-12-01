@@ -113,7 +113,7 @@ public class ExpandableListMainActivity extends Fragment
         Inn = new ArrayList<>();
         Inn.add(0, new T_holder("upgrade: Inn", 1, 5, R.drawable.inn1, "Build 5 inns"));
         Blacksmith = new ArrayList<>();
-        Blacksmith.add(0, new T_holder("upgrade: Blacksmith", 1, 5, R.drawable.Blacksmith, "Build 5 Blacksmiths"));
+        Blacksmith.add(0, new T_holder("upgrade: Blacksmith", 1, 5, R.drawable.blacksmith, "Build 5 Blacksmiths"));
         Click_Amount = new ArrayList<>();
         Click_Amount.add(0, new T_holder("Sturdy Treasure", 1, 100, R.drawable.coin1, "100 total clicks"));
         Click_Coins = new ArrayList<>();
