@@ -108,9 +108,14 @@ public class ExpandableListMainActivity extends Fragment
     public static void setData()
     {
         Farm = new ArrayList<>();
+        Farm.add(0,new T_holder("upgrade: Farm", 1, 5, R.drawable.farm1, "Build 5 farms"));
+        Farm.add(1, new T_holder("Upgrade Farm", 2, 25, R.drawable.farm2, "Build 25 farms"));
         Inn = new ArrayList<>();
+        Inn.add(0, new T_holder("upgrade: Inn", 1, 5, R.drawable.inn1, "Build 5 inns"));
         Blacksmith = new ArrayList<>();
+        Blacksmith.add(0, new T_holder("upgrade: Blacksmith", 1, 5, R.drawable.Blacksmith, "Build 5 Blacksmiths"));
         Click_Amount = new ArrayList<>();
+        Click_Amount.add(0, new T_holder("Sturdy Treasure", 1, 100, R.drawable.coin1, "100 total clicks"));
         Click_Coins = new ArrayList<>();
         Mana = new ArrayList<>();
 
@@ -134,12 +139,12 @@ public static void nextTrophy(String name, int t) {
             switch (t) {
                 case 0:
                     //primary_activity.testbox.setText("Add trophey case 0");
-                    Farm.add(0,new T_holder("upgrade: Farm", 1, 5, R.drawable.farm1, "Build 5 farms"));
+
                     //Trophies.put("Farm",Farm);
                     Log.d(TAG, "adding to farm");
                     break;
                 case 1:
-                    Farm.add(1, new T_holder("Upgrade Farm", 2, 25, R.drawable.farm2, "Build 25 farms"));
+
                     break;
                 case 2:
                     Farm.add(2, new T_holder("Upgrade Farm", 3, 75, R.drawable.farm3, "Build 75 farms"));
@@ -152,7 +157,7 @@ public static void nextTrophy(String name, int t) {
         case "Inn":
             switch (t) {
                 case 0:
-                    Inn.add(0, new T_holder("upgrade: Inn", 1, 5, R.drawable.inn1, "Build 5 inns"));
+
                     break;
                 case 1:
                     Inn.add(1, new T_holder("Upgrade Inn", 2, 25, R.drawable.inn2, "Build 25 inns"));
@@ -168,7 +173,7 @@ public static void nextTrophy(String name, int t) {
         case "Blacksmith":
             switch (t) {
                 case 0:
-                    Blacksmith.add(0, new T_holder("upgrade: Blacksmith", 1, 5, R.drawable.inn1, "Build 5 Blacksmiths"));
+
                     break;
                 case 1:
                     Blacksmith.add(1, new T_holder("Upgrade Blacksmith", 2, 25, R.drawable.inn2, "Build 25 Blacksmiths"));
@@ -184,7 +189,7 @@ public static void nextTrophy(String name, int t) {
         case "ClickingNumber":
             switch (t) {
                 case 0:
-                    Click_Amount.add(0, new T_holder("Sturdy Treasure", 1, 100, R.drawable.inn3, "100 total clicks"));
+
                     break;
                 case 1:
                     Click_Amount.add(1, new T_holder("Durable Treasure", 2, 500, R.drawable.inn3, "500 total clicks"));
