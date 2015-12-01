@@ -10,10 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9137b1b1-d7a7-4d3c-b211-182a50f5b582" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_23_1_1.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_0_1.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/FragmentAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/FragmentAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/UpgradesFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/UpgradesFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_primary_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_primary_activity.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/primary_activity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/primary_activity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -58,9 +69,12 @@
       <file leaf-file-name="UpgradesFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/UpgradesFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="296" column="52" selection-start-line="296" selection-start-column="52" selection-end-line="296" selection-end-column="52" />
-              <folding />
+            <state vertical-scroll-proportion="-5.366667">
+              <caret line="298" column="59" selection-start-line="298" selection-start-column="59" selection-end-line="298" selection-end-column="59" />
+              <folding>
+                <element signature="e#1522#1523#0" expanded="true" />
+                <element signature="e#1568#1569#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,8 +82,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="84.76667">
-              <caret line="81" column="18" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="18" />
+            <state vertical-scroll-proportion="-11.0">
+              <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,14 +91,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="primary_activity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="primary_activity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/primary_activity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30828026">
-              <caret line="205" column="0" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
+            <state vertical-scroll-proportion="-71.13333">
+              <caret line="268" column="6" selection-start-line="268" selection-start-column="6" selection-end-line="268" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FragmentAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/FragmentAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_primary_activity.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_primary_activity.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.0">
+              <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -560,9 +597,9 @@
                 <option name="name" value="prepareComAndroidSupportAppcompatV72301Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:support-v4:23.0.1" />
+                <option name="description" value="Prepare com.android.support:support-v4:23.1.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComAndroidSupportSupportV42301Library" />
+                <option name="name" value="prepareComAndroidSupportSupportV42311Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -1080,9 +1117,9 @@
                 <option name="name" value="prepareComAndroidSupportAppcompatV72301Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:support-v4:23.0.1" />
+                <option name="description" value="Prepare com.android.support:support-v4:23.1.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComAndroidSupportSupportV42301Library" />
+                <option name="name" value="prepareComAndroidSupportSupportV42311Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
@@ -1219,6 +1256,11 @@
             </list>
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="modificationStamps">
+      <map>
+        <entry key="$PROJECT_DIR$" value="4346797637000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1397,8 +1439,8 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.jar" />
                             <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/23.0.1/appcompat-v7-23.0.1.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/23.0.1/support-v4-23.0.1.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar" />
+                            <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/23.1.1/support-v4-23.1.1.aar" />
+                            <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/app" />
@@ -1431,11 +1473,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/PathosCoins.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/Building.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/SpellCast.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/pager_background.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/FragmentAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/primary_activity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/UpgradesFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_primary_activity.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/primary_activity.java" />
       </list>
     </option>
   </component>
@@ -1480,9 +1523,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1564,10 +1604,17 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1575,6 +1622,8 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="FA43TSF03145" />
     <property name="FullScreen" value="false" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Custom_Emulator_API_23" />
+    <property name="android.project.structure.last.selected" value="app" />
+    <property name="android.project.structure.proportion" value="0.15" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1793,12 +1842,18 @@
       <option name="project" value="LOCAL" />
       <updated>1448947634403</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="UI Touch Ups&#10;&#10;Got rid of white border around the edges of the view&#10;&#10;Bolded the text to make it easier to read against background&#10;&#10;increased the size of the Pathos coin icons&#10;&#10;gave the ability to switch bg color based on pathos selection">
+      <created>1448948773602</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1448948773602</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1337" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1806,7 +1861,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286771" sideWeight="0.49671593" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286771" sideWeight="0.49671593" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32922825" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1815,7 +1870,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.49343187" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286771" sideWeight="0.49343187" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1836,11 +1891,11 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.49671593" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.50656813" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32911393" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24958949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1857,8 +1912,8 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.49343187" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -1886,6 +1941,37 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/UpgradesFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="296" column="52" selection-start-line="296" selection-start-column="52" selection-end-line="296" selection-end-column="52" />
+          <folding>
+            <element signature="e#1522#1523#0" expanded="true" />
+            <element signature="e#1568#1569#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="18" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/primary_activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/primary_activity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1921,7 +2007,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1522#1523#0" expanded="true" />
+            <element signature="e#1568#1569#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1947,7 +2036,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="257" column="73" selection-start-line="257" selection-start-column="73" selection-end-line="257" selection-end-column="73" />
-          <folding />
+          <folding>
+            <element signature="e#1522#1523#0" expanded="true" />
+            <element signature="e#1568#1569#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1980,7 +2072,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1522#1523#0" expanded="true" />
+            <element signature="e#1568#1569#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2013,7 +2108,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="86" column="26" selection-start-line="86" selection-start-column="26" selection-end-line="86" selection-end-column="26" />
-          <folding />
+          <folding>
+            <element signature="e#1522#1523#0" expanded="true" />
+            <element signature="e#1568#1569#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2046,7 +2144,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="86" column="26" selection-start-line="86" selection-start-column="26" selection-end-line="86" selection-end-column="26" />
-          <folding />
+          <folding>
+            <element signature="e#1522#1523#0" expanded="true" />
+            <element signature="e#1568#1569#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2079,7 +2180,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="86" column="26" selection-start-line="86" selection-start-column="26" selection-end-line="86" selection-end-column="26" />
-          <folding />
+          <folding>
+            <element signature="e#1522#1523#0" expanded="true" />
+            <element signature="e#1568#1569#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2146,14 +2250,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/FragmentAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/Digits.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7477707">
@@ -2182,7 +2278,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2229,42 +2324,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_primary_activity.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.0">
+          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
-      <provider editor-type-id="text-editor">
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/FragmentAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/UpgradesFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="296" column="52" selection-start-line="296" selection-start-column="52" selection-end-line="296" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="84.76667">
-          <caret line="81" column="18" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="18" />
+        <state vertical-scroll-proportion="-5.366667">
+          <caret line="298" column="59" selection-start-line="298" selection-start-column="59" selection-end-line="298" selection-end-column="59" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1522#1523#0" expanded="true" />
+            <element signature="e#1568#1569#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/yourdudeliness/threaddev/primary_activity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30828026">
-          <caret line="205" column="0" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
+        <state vertical-scroll-proportion="-71.13333">
+          <caret line="268" column="6" selection-start-line="268" selection-start-column="6" selection-end-line="268" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_primary_activity.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0">
+          <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>

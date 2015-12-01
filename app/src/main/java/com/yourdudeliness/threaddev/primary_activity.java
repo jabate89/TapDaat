@@ -2,6 +2,8 @@ package com.yourdudeliness.threaddev;
 
 
 import android.graphics.Color;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View.OnClickListener;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -36,6 +38,7 @@ public class primary_activity extends Fragment implements OnClickListener {
     private static int clickCoinsflag = 0;
     public static boolean good = false;
     public static boolean evil = false; //used to control view background once pathos is chosen
+    public static UpgradesFragment.myAdapter mainAdapter;
 
 
 
@@ -205,10 +208,15 @@ public class primary_activity extends Fragment implements OnClickListener {
         //testbox = (TextView) view.findViewById(R.id.tester);
 
         if(MainActivity.pathosEnabled){
+
             if(good){
-                view.setBackgroundColor(Color.BLUE);
+                View layout = view.findViewById(R.id.main_bg);
+                layout.setBackgroundColor(Color.BLUE);
+                newInstance();
             } else if(evil){
-                fragment.getView().setBackgroundColor(Color.RED);
+                View layout = view.findViewById(R.id.main_bg);
+                layout.setBackgroundColor(Color.RED);
+                newInstance();
             }
             p1.setVisibility(View.VISIBLE);
             p2.setVisibility(View.VISIBLE);

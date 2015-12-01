@@ -37,4 +37,16 @@ public class FragmentAdapter extends FragmentPagerAdapter {
 
         return 3;
     }
+
+    public static Fragment quickSwap(int position){
+        switch(position){
+
+            case 0:
+                return primary_activity.newInstance();
+            case 1:
+                return UpgradesFragment.newInstance();
+            default:
+                return ExpandableListMainActivity.newInstance();
+        }
+    }
 }

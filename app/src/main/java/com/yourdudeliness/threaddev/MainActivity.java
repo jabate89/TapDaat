@@ -27,6 +27,7 @@ public class MainActivity extends FragmentActivity {
     public static boolean pathosEnabled = false; //A flag for when the user has chosen an in-game path
     public static int pathosType;
     public static PathosCoins coinCollection;
+    public static ViewPager appViewPager;
 
 
 
@@ -34,7 +35,7 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pager_background);
-        ViewPager appViewPager = new ViewPager(this);
+        appViewPager = new ViewPager(this);
         appViewPager.setId(View.generateViewId());
 
         //creates an object to reference the <LinearLayout> xml in pager_background.xml

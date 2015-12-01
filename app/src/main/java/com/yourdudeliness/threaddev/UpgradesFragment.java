@@ -295,7 +295,7 @@ public class UpgradesFragment extends Fragment  {
                             primary_activity.initializePathos(0);
                             int temp = position;
                             myupgrades.remove(temp);
-                            myupgrades.remove(temp-1);
+                            myupgrades.remove(temp - 1);
                             adapter.notifyDataSetChanged();
                             break;
                         case "Evil":
