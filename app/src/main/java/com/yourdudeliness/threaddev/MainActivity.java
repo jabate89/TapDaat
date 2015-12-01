@@ -34,7 +34,6 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pager_background);
-
         ViewPager appViewPager = new ViewPager(this);
         appViewPager.setId(View.generateViewId());
 

@@ -34,6 +34,8 @@ public class primary_activity extends Fragment implements OnClickListener {
     public static NumberFormat format;
     public static TextView clickTest, passiveTest;//displays the current passive and active scoring values
     private static int clickCoinsflag = 0;
+    public static boolean good = false;
+    public static boolean evil = false; //used to control view background once pathos is chosen
 
 
 
@@ -62,6 +64,11 @@ public class primary_activity extends Fragment implements OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View thisView = inflater.inflate(R.layout.fragment_primary_activity, container, false);
+        if(good){
+
+        } else if(evil){
+
+        }
         initializeButtons(thisView);
 
 
@@ -261,7 +268,7 @@ public class primary_activity extends Fragment implements OnClickListener {
             if (type == 0) {
                 MainActivity.pathos1 = new Building("Speakeasy", 1000, 200);
                 MainActivity.pathos2 = new Building("SeaOrg", 15000, 2000);
-                MainActivity.pathos3 = new Building("", 100000, 100000);
+                MainActivity.pathos3 = new Building("Brothel", 100000, 100000);
             } else {
                 MainActivity.pathos1 = new Building("Conduction", 1000, 200);
                 MainActivity.pathos2 = new Building("Convection", 15000, 2000);
@@ -304,6 +311,10 @@ public class primary_activity extends Fragment implements OnClickListener {
 
     }
 
+    /*
+    IN future could add updateButtons plural function, to update all buttons after
+    an upgrade affects their total passive (if we add such an upgrade). Hooray for modularization
+     */
     public static void updateButton(String btn){
 
 

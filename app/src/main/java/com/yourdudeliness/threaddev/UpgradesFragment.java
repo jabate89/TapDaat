@@ -291,6 +291,7 @@ public class UpgradesFragment extends Fragment  {
                             break;
                         case "Good":
                             MainActivity.pathosType = 0;
+                            primary_activity.good = true;
                             primary_activity.initializePathos(0);
                             int temp = position;
                             myupgrades.remove(temp);
@@ -299,6 +300,7 @@ public class UpgradesFragment extends Fragment  {
                             break;
                         case "Evil":
                             MainActivity.pathosType = 1;
+                            primary_activity.evil = true;
                             primary_activity.initializePathos(1);
                             int temp1 = position;
                             myupgrades.remove(temp1 + 1);
