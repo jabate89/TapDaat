@@ -159,8 +159,8 @@ public class UpgradesFragment extends Fragment  {
                 adapter.notifyDataSetChanged();
                 break;
             case "ChoosePath":
-                myupgrades.add(0, new Up_Holder("Good",0,0,R.drawable.yen,"Upgrades will be geared towards active scoring"));
-                myupgrades.add(0, new Up_Holder("Evil",0,0,R.drawable.yen,"Upgrades will be geared towards passive scoring"));
+                myupgrades.add(0, new Up_Holder("Good",0,0,R.drawable.missile4,"Upgrades will be geared towards active scoring"));
+                myupgrades.add(0, new Up_Holder("Evil",0,0,R.drawable.weapon52,"Upgrades will be geared towards passive scoring"));
                 break;
 
 
@@ -290,6 +290,7 @@ public class UpgradesFragment extends Fragment  {
                             adapter.notifyDataSetChanged();
                             break;
                         case "Good":
+                            MainActivity.pathosType = 0;
                             primary_activity.initializePathos(0);
                             int temp = position;
                             myupgrades.remove(temp);
@@ -297,6 +298,7 @@ public class UpgradesFragment extends Fragment  {
                             adapter.notifyDataSetChanged();
                             break;
                         case "Evil":
+                            MainActivity.pathosType = 1;
                             primary_activity.initializePathos(1);
                             int temp1 = position;
                             myupgrades.remove(temp1 + 1);
