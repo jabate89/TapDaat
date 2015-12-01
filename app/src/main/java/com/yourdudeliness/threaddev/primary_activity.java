@@ -202,6 +202,26 @@ public class primary_activity extends Fragment implements OnClickListener {
         passiveTest = (TextView) view.findViewById(R.id.passive_test);
         //testbox = (TextView) view.findViewById(R.id.tester);
 
+        if(MainActivity.pathosEnabled){
+            p1.setVisibility(View.VISIBLE);
+            p2.setVisibility(View.VISIBLE);
+            p3.setVisibility(View.VISIBLE);
+            deity.setVisibility(View.VISIBLE);
+            cp2.setVisibility(View.VISIBLE);
+            cp3.setVisibility(View.VISIBLE);
+            p1.setEnabled(true);
+            p2.setEnabled(true);
+            p3.setEnabled(true);
+            deity.setEnabled(true);
+            cp2.setEnabled(true);
+            cp3.setEnabled(true);
+
+            primary_activity.updateButton("p1");
+            primary_activity.updateButton("p2");
+            primary_activity.updateButton("p3");
+            primary_activity.updateButton("deity");
+        }
+
     }
 
     /*
@@ -239,16 +259,16 @@ public class primary_activity extends Fragment implements OnClickListener {
     public static void initializePathos(int type){
 
             if (type == 0) {
-                MainActivity.pathos1 = new Building("Bank", 1000, 200);
-                MainActivity.pathos2 = new Building("Good 2", 15000, 2000);
-                MainActivity.pathos3 = new Building("Good 3", 100000, 100000);
+                MainActivity.pathos1 = new Building("Speakeasy", 1000, 200);
+                MainActivity.pathos2 = new Building("SeaOrg", 15000, 2000);
+                MainActivity.pathos3 = new Building("", 100000, 100000);
             } else {
-                MainActivity.pathos1 = new Building("Prison", 1000, 200);
-                MainActivity.pathos2 = new Building("Evil 2", 15000, 2000);
-                MainActivity.pathos3 = new Building("Evil 3", 100000, 100000);
+                MainActivity.pathos1 = new Building("Conduction", 1000, 200);
+                MainActivity.pathos2 = new Building("Convection", 15000, 2000);
+                MainActivity.pathos3 = new Building("Radiation", 100000, 100000);
             }
 
-            MainActivity.deity = new Building("Mormon Temple",10000000,500000);
+            MainActivity.deity = new Building("Mormon Temple",15000000,100000);
 
             //Set the buttons to visible
             p1.setVisibility(View.VISIBLE);

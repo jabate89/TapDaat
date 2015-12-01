@@ -25,6 +25,7 @@ public class MainActivity extends FragmentActivity {
     public static TextView scoreBox;
     public static Building neutral1, neutral2, neutral3, pathos1, pathos2, pathos3, deity;
     public static boolean pathosEnabled = false; //A flag for when the user has chosen an in-game path
+    public static int pathosType;
     public static PathosCoins coinCollection;
 
 
@@ -83,6 +84,7 @@ public class MainActivity extends FragmentActivity {
 
 
 
+
     }
 
 
@@ -97,9 +99,19 @@ public class MainActivity extends FragmentActivity {
 
     }
     public static void updatePassive(){
-        currPassive = neutral1.getCumulativePassive()
-                + neutral2.getCumulativePassive()
-                + neutral3.getCumulativePassive();
+        if(pathosEnabled){
+            currPassive = neutral1.getCumulativePassive()
+                    + neutral2.getCumulativePassive()
+                    + neutral3.getCumulativePassive()
+                    + pathos1.getCumulativePassive()
+                    + pathos2.getCumulativePassive()
+                    + pathos3.getCumulativePassive()
+                    + deity.getCumulativePassive();
+        } else {
+            currPassive = neutral1.getCumulativePassive()
+                    + neutral2.getCumulativePassive()
+                    + neutral3.getCumulativePassive();
+        }
     }
 
 

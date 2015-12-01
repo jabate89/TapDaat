@@ -36,12 +36,55 @@ public class Building {
             //MainActivity.currPassive += BasePassive * passiveMultiplier;//increments passive score in main
 
             costOfNext *= 1.15; //increments the cost of the next building by 7%
+            checkUpgrades();
+            updateCumulativePassive();
         }
-             /*
+
+
+
+
+
+
+    }
+
+    public double getCostOfNext(){
+        return costOfNext;
+    }
+
+    public double getBuildingTotal(){
+        return totalBuildings;
+    }
+
+    public String getName(){
+        return buildingType;
+    }
+
+    public void setBasePassive(double multiplier){
+                            BasePassive *= multiplier;
+                            updateCumulativePassive();
+                                                    }
+
+    public void updateCumulativePassive(){
+        cumulativePassive = BasePassive * totalBuildings;
+    }
+
+    public double getCumulativePassive() { return cumulativePassive; }
+
+
+    public String printStats(){
+        return   ( buildingType + "  "
+                + totalBuildings
+                + "\nCost " + Digits.format(costOfNext)
+                + "  Sec " + Digits.format(cumulativePassive));
+    }
+
+
+
+    private void checkUpgrades(){
+        /*
              Need to create a value to additional passive, figure out how much that should
              increase as we increase number of buildings
               */
-
         switch (buildingType) {
             case "Farm":
                 //primary_activity.testbox.setText("Add upgrade");
@@ -88,38 +131,10 @@ public class Building {
                 }
                 break;
         }
-
     }
 
-    public double getCostOfNext(){
-        return costOfNext;
-    }
 
-    public double getBuildingTotal(){
-        return totalBuildings;
-    }
 
-    public String getName(){
-        return buildingType;
-    }
-
-    public void setBasePassive(double multiplier){
-                            BasePassive *= multiplier;
-                            updateCumulativePassive();
-                                                    }
-
-    public void updateCumulativePassive(){
-        cumulativePassive = BasePassive * totalBuildings;
-    }
-
-    public double getCumulativePassive() { return cumulativePassive; }
-
-    public String printStats(){
-        return   ( buildingType + "     "
-                + totalBuildings
-                + "\n Cost " + Digits.format(costOfNext)
-                + "    Sec " + Digits.format(cumulativePassive));
-    }
 
     public int getTotalBuildings() {
         return totalBuildings;
