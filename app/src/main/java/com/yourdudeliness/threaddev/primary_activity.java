@@ -1,6 +1,7 @@
 package com.yourdudeliness.threaddev;
 
 
+import android.graphics.Color;
 import android.view.View.OnClickListener;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,7 +13,6 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Random;
 
@@ -64,11 +64,6 @@ public class primary_activity extends Fragment implements OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View thisView = inflater.inflate(R.layout.fragment_primary_activity, container, false);
-        if(good){
-
-        } else if(evil){
-
-        }
         initializeButtons(thisView);
 
 
@@ -210,6 +205,11 @@ public class primary_activity extends Fragment implements OnClickListener {
         //testbox = (TextView) view.findViewById(R.id.tester);
 
         if(MainActivity.pathosEnabled){
+            if(good){
+                view.setBackgroundColor(Color.BLUE);
+            } else if(evil){
+                fragment.getView().setBackgroundColor(Color.RED);
+            }
             p1.setVisibility(View.VISIBLE);
             p2.setVisibility(View.VISIBLE);
             p3.setVisibility(View.VISIBLE);
