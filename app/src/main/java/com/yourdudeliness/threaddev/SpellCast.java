@@ -5,6 +5,8 @@ import android.os.CountDownTimer;
 /**
  * Created by Awesomeness on 10/20/15.
  */
+
+
 public class SpellCast {
 
 

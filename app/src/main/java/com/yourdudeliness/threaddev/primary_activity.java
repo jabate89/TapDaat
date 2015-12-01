@@ -1,6 +1,9 @@
 package com.yourdudeliness.threaddev;
 
 
+import android.graphics.Color;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View.OnClickListener;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,7 +15,6 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Random;
 
@@ -34,6 +36,9 @@ public class primary_activity extends Fragment implements OnClickListener {
     public static NumberFormat format;
     public static TextView clickTest, passiveTest;//displays the current passive and active scoring values
     private static int clickCoinsflag = 0;
+    public static boolean good = false;
+    public static boolean evil = false; //used to control view background once pathos is chosen
+    public static UpgradesFragment.myAdapter mainAdapter;
 
 
 
@@ -203,6 +208,16 @@ public class primary_activity extends Fragment implements OnClickListener {
         //testbox = (TextView) view.findViewById(R.id.tester);
 
         if(MainActivity.pathosEnabled){
+
+            if(good){
+                View layout = view.findViewById(R.id.main_bg);
+                layout.setBackgroundColor(Color.BLUE);
+                newInstance();
+            } else if(evil){
+                View layout = view.findViewById(R.id.main_bg);
+                layout.setBackgroundColor(Color.RED);
+                newInstance();
+            }
             p1.setVisibility(View.VISIBLE);
             p2.setVisibility(View.VISIBLE);
             p3.setVisibility(View.VISIBLE);
@@ -261,7 +276,7 @@ public class primary_activity extends Fragment implements OnClickListener {
             if (type == 0) {
                 MainActivity.pathos1 = new Building("Speakeasy", 1000, 200);
                 MainActivity.pathos2 = new Building("SeaOrg", 15000, 2000);
-                MainActivity.pathos3 = new Building("", 100000, 100000);
+                MainActivity.pathos3 = new Building("Brothel", 100000, 100000);
             } else {
                 MainActivity.pathos1 = new Building("Conduction", 1000, 200);
                 MainActivity.pathos2 = new Building("Convection", 15000, 2000);
@@ -304,6 +319,10 @@ public class primary_activity extends Fragment implements OnClickListener {
 
     }
 
+    /*
+    IN future could add updateButtons plural function, to update all buttons after
+    an upgrade affects their total passive (if we add such an upgrade). Hooray for modularization
+     */
     public static void updateButton(String btn){
 
 
