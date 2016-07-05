@@ -1,23 +1,23 @@
 package com.yourdudeliness.threaddev;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.os.CountDownTimer;
 
 public class MainActivity extends FragmentActivity {
 
     public final Handler scoreHandler = new Handler();
-    private final static int SECOND = 1000;
+    private final static int SECOND = 800;
     protected static double currClickVal;
     protected static double baseClickVal = 200;
     protected static int totalClicks;
-    protected static int totalClickValue;
+    protected static double totalClickValue;
     protected static double currScore = 0;
     protected static double currPassive = 10;
     protected static int currMana = 0;
@@ -25,26 +25,17 @@ public class MainActivity extends FragmentActivity {
     public static TextView scoreBox;
     public static Building neutral1, neutral2, neutral3, pathos1, pathos2, pathos3, deity;
     public static boolean pathosEnabled = false; //A flag for when the user has chosen an in-game path
+    public static int pathosType;
     public static PathosCoins coinCollection;
+    public static ViewPager appViewPager;
 
 
-
-    /*
-    TEST VARIABLES  DELETE THESE
-     */
-
-    public static int testBonus = 100;
-
-    /*
-    DELETE ABOVE DELETE ABOVE
-     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pager_background);
-
-        ViewPager appViewPager = new ViewPager(this);
+        appViewPager = new ViewPager(this);
         appViewPager.setId(View.generateViewId());
 
         //creates an object to reference the <LinearLayout> xml in pager_background.xml
@@ -60,8 +51,9 @@ public class MainActivity extends FragmentActivity {
 
 
         /*
-        Increments the player's score once every second, printing that score
-        to the screen.
+        Handles the passive functionality of the game. Increments the players score every second,
+        based on the amount of current passive scoring. Also increments Mana based on passive mana.
+        Afterwards, all values are reprinted to the screen to update user
          */
         scoreHandler.postDelayed(new Runnable() {
 
@@ -71,7 +63,7 @@ public class MainActivity extends FragmentActivity {
 
                     currScore += currPassive;
                     primary_activity.printScore();
-                    checkFunds();
+                    checkFunds();//enable or disable buttons based on mana and money available
                     currMana += currPassiveMana;
                     primary_activity.manaBar.setProgress(currMana);
 
@@ -86,7 +78,13 @@ public class MainActivity extends FragmentActivity {
 
 
         currClickVal = baseClickVal;
+        totalClicks = 0;
+        totalClickValue = 0;
         initializeBuildings();
+
+
+
+
     }
 
 
@@ -101,9 +99,19 @@ public class MainActivity extends FragmentActivity {
 
     }
     public static void updatePassive(){
-        currPassive = neutral1.getCumulativePassive()
-                + neutral2.getCumulativePassive()
-                + neutral3.getCumulativePassive();
+        if(pathosEnabled){
+            currPassive = neutral1.getCumulativePassive()
+                    + neutral2.getCumulativePassive()
+                    + neutral3.getCumulativePassive()
+                    + pathos1.getCumulativePassive()
+                    + pathos2.getCumulativePassive()
+                    + pathos3.getCumulativePassive()
+                    + deity.getCumulativePassive();
+        } else {
+            currPassive = neutral1.getCumulativePassive()
+                    + neutral2.getCumulativePassive()
+                    + neutral3.getCumulativePassive();
+        }
     }
 
 
@@ -114,22 +122,11 @@ public class MainActivity extends FragmentActivity {
     public static void checkFunds(){
 
 
-        if(currMana < 750){
+        if(currMana < 350){
             primary_activity.cp1.setEnabled(false);
         } else {
             primary_activity.cp1.setEnabled(true);
         }
-        if(currMana < 800){
-            //primary_activity.cp2.setEnabled(false);
-        } else {
-            //primary_activity.cp2.setEnabled(true);
-        }
-        if(currMana < 900){
-           // primary_activity.cp3.setEnabled(false);
-        } else {
-            //primary_activity.cp3.setEnabled(true);
-        }
-
         if(currScore < neutral1.getCostOfNext()){
 
             primary_activity.n1.setEnabled(false);
@@ -175,23 +172,86 @@ public class MainActivity extends FragmentActivity {
             } else {
                 primary_activity.p3.setEnabled(true);
             }
+            if(currScore < deity.getCostOfNext()){
+                primary_activity.deity.setEnabled(false);
+            } else {
+                primary_activity.deity.setEnabled(true);
+            }
+            if(currMana < 600){
+                primary_activity.cp2.setEnabled(false);
+            } else {
+                primary_activity.cp2.setEnabled(true);
+            }
+            if(currMana < 750){
+                primary_activity.cp3.setEnabled(false);
+            } else {
+                primary_activity.cp3.setEnabled(true);
+            }
         }
 
     }
 
 
-    static void setBaseClickVal(int val)
-    {
-        currClickVal += val;
-    }
+
     static void setBaseClickVal(double val)
     {
-        currClickVal *= val;
+        baseClickVal *= val;
+    }
+/*
+
+#############################################
+Attempts to use noSQL database are incomplete. Currently the game state will not be saved
+iff the app is completely close or device is turned off.
+##############################################
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences sharedPreferences = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putLong(getString(R.string.Bounty),(long)currScore);
+        editor.putInt(getString(R.string.saved_totalClicks),totalClicks);
+
+        editor.putInt(getString(R.string.Farm_total_buildings),neutral1.getTotalBuildings());
+        editor.putLong(getString(R.string.Farm_cost), (long) neutral1.getCostOfNext());
+        editor.putLong(getString(R.string.Farm_Passive), (long) neutral1.getCumulativePassive());
+        editor.putLong(getString(R.string.Farm_Base), (long) neutral1.getBasePassive());
+
+        editor.putInt(getString(R.string.Inn_total_buildings),neutral2.getTotalBuildings());
+        editor.putLong(getString(R.string.Inn_cost), (long) neutral2.getCostOfNext());
+        editor.putLong(getString(R.string.Inn_Passive), (long) neutral2.getCumulativePassive());
+        editor.putLong(getString(R.string.Inn_Base),(long)neutral2.getBasePassive());
+
+        editor.putInt(getString(R.string.Blacksmith_total_buildings),neutral3.getTotalBuildings());
+        editor.putLong(getString(R.string.Blacksmith_cost), (long) neutral3.getCostOfNext());
+        editor.putLong(getString(R.string.Blacksmith_Passive), (long) neutral3.getCumulativePassive());
+        editor.putLong(getString(R.string.Blacksmith_Base),(long)neutral3.getBasePassive());
+
+        editor.apply();
+
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences sharedPreferences = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
+        currScore = sharedPreferences.getLong(getString(R.string.Bounty),0);
 
+        neutral1.setCostOfNext((double)sharedPreferences.getLong(getString(R.string.Farm_cost), 10));
+        neutral1.setTotalBuildings(sharedPreferences.getInt(getString(R.string.Farm_total_buildings), 0));
+        neutral1.setCumulativePassive((double) sharedPreferences.getLong(getString(R.string.Farm_Passive), 0));
+        neutral1.setBasePassive(sharedPreferences.getLong(getString(R.string.Farm_Base), 1));
 
+        neutral2.setCostOfNext((double)sharedPreferences.getLong(getString(R.string.Inn_cost), 30));
+        neutral2.setTotalBuildings(sharedPreferences.getInt(getString(R.string.Inn_total_buildings), 0));
+        neutral2.setCumulativePassive((double) sharedPreferences.getLong(getString(R.string.Inn_Passive), 0));
+        neutral2.setBasePassive(sharedPreferences.getLong(getString(R.string.Inn_Base), 5));
 
+        neutral3.setCostOfNext((double)sharedPreferences.getLong(getString(R.string.Blacksmith_cost), 50));
+        neutral3.setTotalBuildings(sharedPreferences.getInt(getString(R.string.Blacksmith_total_buildings), 0));
+        neutral3.setCumulativePassive((double) sharedPreferences.getLong(getString(R.string.Blacksmith_Passive), 0));
+        neutral3.setBasePassive(sharedPreferences.getLong(getString(R.string.Blacksmith_Base), 20));
 
+    }
 
+*/
 }

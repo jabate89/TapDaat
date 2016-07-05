@@ -7,7 +7,7 @@ public class Building {
 
     private String buildingType;
     private int totalBuildings;
-    private int costOfNext;
+    private double costOfNext;
     private double BasePassive;
     private int passiveMultiplier;
     private double cumulativePassive;
@@ -36,12 +36,55 @@ public class Building {
             //MainActivity.currPassive += BasePassive * passiveMultiplier;//increments passive score in main
 
             costOfNext *= 1.15; //increments the cost of the next building by 7%
+            checkUpgrades();
+            updateCumulativePassive();
         }
-             /*
+
+
+
+
+
+
+    }
+
+    public double getCostOfNext(){
+        return costOfNext;
+    }
+
+    public double getBuildingTotal(){
+        return totalBuildings;
+    }
+
+    public String getName(){
+        return buildingType;
+    }
+
+    public void setBasePassive(double multiplier){
+                            BasePassive *= multiplier;
+                            updateCumulativePassive();
+                                                    }
+
+    public void updateCumulativePassive(){
+        cumulativePassive = BasePassive * totalBuildings;
+    }
+
+    public double getCumulativePassive() { return cumulativePassive; }
+
+
+    public String printStats(){
+        return   ( buildingType + "  "
+                + totalBuildings
+                + "\nCost " + Digits.format(costOfNext)
+                + "  Sec " + Digits.format(cumulativePassive));
+    }
+
+
+
+    private void checkUpgrades(){
+        /*
              Need to create a value to additional passive, figure out how much that should
              increase as we increase number of buildings
               */
-
         switch (buildingType) {
             case "Farm":
                 //primary_activity.testbox.setText("Add upgrade");
@@ -77,44 +120,39 @@ public class Building {
             case "Blacksmith":
                 switch (totalBuildings) {
                     case 5:
-                        UpgradesFragment.nextUpgrade(buildingType, 0);
+                        UpgradesFragment.nextUpgrade("Blacksmith", 0);
                         break;
                     case 25:
-                        UpgradesFragment.nextUpgrade(buildingType, 1);
+                        UpgradesFragment.nextUpgrade("Blacksmith", 1);
                         break;
                     case 75:
-                        UpgradesFragment.nextUpgrade(buildingType, 2);
+                        UpgradesFragment.nextUpgrade("Blacksmith", 2);
                         break;
                 }
                 break;
         }
-
     }
 
-    public double getCostOfNext(){
-        return costOfNext;
-    }
 
-    public double getTnotalBuildigs(){
+
+
+    public int getTotalBuildings() {
         return totalBuildings;
     }
 
-    public String getName(){
-        return buildingType;
+    public double getBasePassive() {
+        return BasePassive;
     }
 
-    public void setBasePassive(double multiplier){BasePassive = BasePassive * multiplier;}
-
-    public void updateCumulativePassive(){
-        cumulativePassive = BasePassive * totalBuildings;
+    public void setCostOfNext(double costOfNext) {
+        this.costOfNext = costOfNext;
     }
 
-    public double getCumulativePassive() { return cumulativePassive; }
+    public void setTotalBuildings(int totalBuildings) {
+        this.totalBuildings = totalBuildings;
+    }
 
-    public String printStats(){
-        return   ( buildingType + "     "
-                + (int) totalBuildings
-                + "\n Cost " + (int) costOfNext
-                + "    Output " + cumulativePassive);
+    public void setCumulativePassive(double cumulativePassive) {
+        this.cumulativePassive = cumulativePassive;
     }
 }

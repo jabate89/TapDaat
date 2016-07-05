@@ -5,7 +5,8 @@ package com.yourdudeliness.threaddev;
  */
 public class PathosCoins {
 
-    public int [] coins;
+    public static int [] coins;
+    public static boolean FirstCoin = false;
 
     public PathosCoins(){
 
@@ -15,6 +16,11 @@ public class PathosCoins {
 
 
     public void generateCoin(int coin){
+
+        if(!FirstCoin){
+            UpgradesFragment.nextUpgrade("ChoosePath", 0);
+            FirstCoin = true;
+        }
 
         switch(coin){
             case 0:
