@@ -22,7 +22,9 @@
             android:id="@+id/main_button"
             android:background="@drawable/coin"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:cropToPadding="false"
+            android:visibility="visible" />
 
         <Button
             android:layout_width="200dp"

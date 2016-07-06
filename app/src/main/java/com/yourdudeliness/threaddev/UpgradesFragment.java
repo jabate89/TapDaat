@@ -1,6 +1,7 @@
 package com.yourdudeliness.threaddev;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -78,20 +79,45 @@ public class UpgradesFragment extends Fragment  {
 
         return view;
     }
+    private class NextUpgradeTask extends AsyncTask<Void,Void,Void>{
+
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            return null;
+        }
+    }
+    private static class NextUpgrade extends AsyncTask <Up_Holder,Void,Void>{
+
+        @Override
+        protected Void doInBackground(Up_Holder... params) {
+            myupgrades.add(0,params[0]);
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            adapter.notifyDataSetChanged();
+        }
+    }
 
     public static void nextUpgrade(String name,int t){
+        NextUpgrade next = new NextUpgrade();
         switch (name) {
             case "Farm":
                 switch (t){
                     case 0:
                         //primary_activity.testbox.setText("Add upgrade case 0");
-                        myupgrades.add(0, new Up_Holder("Farm", 1, 200, R.drawable.farm1, "Increase base farm production 100%"));
+                        //myupgrades.add(0, new Up_Holder("Farm", 1, 200, R.drawable.farm1, "Increase base farm production 100%"));
+                        next.execute(new Up_Holder("Farm", 1, 200, R.drawable.farm1, "Increase base farm production 100%"));
                         break;
                     case 1:
-                        myupgrades.add(0,new Up_Holder("Farm",2, 7000, R.drawable.farm2, "Increase base farm production 200%"));
+                        next.execute(new Up_Holder("Farm",2, 7000, R.drawable.farm2, "Increase base farm production 200%"));
                         break;
                     case 2:
-                        myupgrades.add(0,new Up_Holder("Farm",3, 10000000, R.drawable.farm3, "Increase base farm production 300%"));
+                        next.execute(new Up_Holder("Farm",3, 10000000, R.drawable.farm3, "Increase base farm production 300%"));
                         break;
                 }
                 //ExpandableListMainActivity.nextTrophy(name,t);
@@ -100,13 +126,13 @@ public class UpgradesFragment extends Fragment  {
             case "Inn":
                 switch (t){
                     case 0:
-                        myupgrades.add(0,new Up_Holder("Inn",1, 2500, R.drawable.inn1, "Increase base Inn production 100%"));
+                        next.execute(new Up_Holder("Inn",1, 2500, R.drawable.inn1, "Increase base Inn production 100%"));
                         break;
                     case 1:
-                        myupgrades.add(0,new Up_Holder("Inn",2, 850000, R.drawable.inn2, "Increase base Inn production 200%"));
+                        next.execute(new Up_Holder("Inn",2, 850000, R.drawable.inn2, "Increase base Inn production 200%"));
                         break;
                     case 2:
-                        myupgrades.add(0,new Up_Holder("Inn",3, 130000000, R.drawable.inn3, "Increase base Inn production 300%"));
+                        next.execute(new Up_Holder("Inn",3, 130000000, R.drawable.inn3, "Increase base Inn production 300%"));
                         break;
                 }
                 //ExpandableListMainActivity.nextTrophy(name,t);
@@ -115,13 +141,13 @@ public class UpgradesFragment extends Fragment  {
             case "Blacksmith":
                 switch (t){
                     case 0:
-                        myupgrades.add(0,new Up_Holder("Blacksmith",1,12000,R.drawable.money1,"Increase base blacksmith production 100%"));
+                        next.execute(new Up_Holder("Blacksmith",1,12000,R.drawable.money1,"Increase base blacksmith production 100%"));
                         break;
                     case 1:
-                        myupgrades.add(0,new Up_Holder("Blacksmith",2,400000,R.drawable.money2,"Increase base blacksmith production 200%"));
+                        next.execute(new Up_Holder("Blacksmith",2,400000,R.drawable.money2,"Increase base blacksmith production 200%"));
                         break;
                     case 2:
-                        myupgrades.add(0,new Up_Holder("Blacksmith", 3, 650000000, R.drawable.money3, "Increase base blacksmith production 300%"));
+                        next.execute(new Up_Holder("Blacksmith", 3, 650000000, R.drawable.money3, "Increase base blacksmith production 300%"));
                         break;
                 }
                 //ExpandableListMainActivity.nextTrophy(name,t);
@@ -131,13 +157,13 @@ public class UpgradesFragment extends Fragment  {
             case "ClickingNumber":
                 switch (t){
                     case 0:
-                        myupgrades.add(0,new Up_Holder("Treasure",1,500,R.drawable.yen,"Increase base clicking reward by 4"));
+                        next.execute(new Up_Holder("Treasure",1,500,R.drawable.yen,"Increase base clicking reward by 4"));
                         break;
                     case 1:
-                        myupgrades.add(0,new Up_Holder("Treasure",2,5000,R.drawable.dollar,"Increase base clicking reward by 45"));
+                        next.execute(new Up_Holder("Treasure",2,5000,R.drawable.dollar,"Increase base clicking reward by 45"));
                         break;
                     case 2:
-                        myupgrades.add(0,new Up_Holder("Treasure", 3, 5000000, R.drawable.euro, "Increase base clicking reward by 4950"));
+                        next.execute(new Up_Holder("Treasure", 3, 5000000, R.drawable.euro, "Increase base clicking reward by 4950"));
                         break;
                 }
                 //ExpandableListMainActivity.nextTrophy(name,t);
@@ -146,13 +172,13 @@ public class UpgradesFragment extends Fragment  {
             case "ClickingCoins":
                 switch (t){
                     case 0:
-                        myupgrades.add(0,new Up_Holder("ClickBonus",1,10000,R.drawable.yen,"Increase clicking reward by 25% and the production of all buildings by 25%"));
+                        next.execute(new Up_Holder("ClickBonus",1,10000,R.drawable.yen,"Increase clicking reward by 25% and the production of all buildings by 25%"));
                         break;
                     case 1:
-                        myupgrades.add(0,new Up_Holder("ClickBonus",2,50000000,R.drawable.dollar,"Increase clicking reward by 25% and the production of all buildings by 25%"));
+                        next.execute(new Up_Holder("ClickBonus",2,50000000,R.drawable.dollar,"Increase clicking reward by 25% and the production of all buildings by 25%"));
                         break;
                     case 2:
-                        myupgrades.add(0,new Up_Holder("ClickBonus", 3, 1000000000, R.drawable.euro, "Increase clicking reward by 25% and the production of all buildings by 25%"));
+                        next.execute(new Up_Holder("ClickBonus", 3, 1000000000, R.drawable.euro, "Increase clicking reward by 25% and the production of all buildings by 25%"));
                         break;
                 }
                 //ExpandableListMainActivity.nextTrophy(name,t);
@@ -164,7 +190,7 @@ public class UpgradesFragment extends Fragment  {
                 break;
 
 
-            //case ""
+            //\case ""
         }
 
     }
